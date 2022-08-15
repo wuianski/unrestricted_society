@@ -11,6 +11,20 @@
   justify-content: center;
   align-items: center;
 }
+/* .bgBlock{
+  position: fixed;
+  top: 0;
+  z-index: 0;
+}
+.wiget{
+  position: relative;
+  z-index: 1;
+  width: 200px;
+  height: 200px;
+  background-color: yellow;
+  color: #111;
+  margin-top: 200px;
+} */
 
 .footer {
   display: flex;
