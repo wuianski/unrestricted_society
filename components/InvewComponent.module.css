@@ -107,4 +107,60 @@
   /* margin: 30vh auto; */
 }
 
+.container {
+  overflow: hidden;
+}
+
+.enText {
+  font-family: "GenWanMin", sans-serif;
+  font-size: 3rem;
+  color: #FFF;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  z-index: -1;
+}
+
+.textBG {
+  position: absolute;
+  background-color: #FF3600;
+  width: 150px;
+  height: calc(3rem - 6px );
+  z-index: -1;
+  
+}
+
+.zhText {
+  font-family: "GenWanMin", sans-serif;
+  font-size: 3rem;
+  color:#FF3600;
+  /* position: absolute; */
+  transform: translateY(60px);
+  z-index: 1;
+  opacity: 0;
+}
+
+.btnWrap {
+  position: relative;
+  width: 280px;
+  height: 280px;
+}
+
+.btnText {
+  font-family: "GenWanMin", sans-serif;
+  fill: #FF3600;
+  font-size: 1.6rem;
+}
+
+.btnCircle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  font-family: "GenWanMin", sans-serif;
+
+
+  background-color: red; /* for the 1px in the center */
+  border-radius: 80%;
+  box-shadow: 0 0 90px 70px red;
+}
 

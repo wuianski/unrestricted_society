@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from "react";
-import { motion, useInView, useAnimationControls } from "framer-motion";
+import { motion, useInView, useAnimationControls, useTime, useTransform } from "framer-motion";
 import styles from "./InvewComponent.module.css";
 
 import Image from "next/image";
@@ -110,31 +110,103 @@ export default function App() {
     }
   }, [isInView1, isInView2, isInView3]);
 
+  /**
+   * Btn rotation effect
+   */
+  const textSvRef = useRef(null)
+  const [isBtnHovered, setBtnHovered] = useState(false)
+
+  const time = useTime()
+  
+  const rotate = useTransform(time, [0, 40000], [0, 360], { clamp: true });
+  const pause = useTransform(time, [0, 40000], [0, 0], { clamp: true });
+
+  const btnBgVariants = {
+    rest: {
+      backgroundColor: "red",
+      borderRadius: "80%",
+      boxShadow: "0 0 90px 70px red",
+      transition: {
+        duration: .2,
+        type: "tween",
+        ease: "easeIn"
+      }
+    },
+    hover: {
+      borderRadius: "50%",
+      boxShadow: "0 0 20px 20px red",
+      transition: {
+        duration: .2,
+        type: "tween",
+        ease: "easeOut"
+      }
+    }
+  };
+  
+/**
+ * Menu hover effect
+ */
+  const BGVariant = {
+    expanded: {
+      width: "350px",
+      backgroundColor: "#fff"
+    },
+    collapsed:{
+      width: "10px",
+      transition: { delay: .2,  duration: 1}
+    }
+   };
+  const ZhTextVariant = {
+    expanded: () => ({
+      opacity: 1,
+      y: "3rem",
+      transition: { delay:.1 }
+    }),
+    collapsed: () => ({
+      opacity: 0,
+      y: "200px",
+      ease: "easeOut", duration: 0.2, type: "tween"
+    })
+   };
+  const EnTextVariant = {
+    expanded: () => ({
+      opacity: 0,
+      y: "6rem",
+      transition: { delay: 0 }
+    }),
+    collapsed: () => ({
+      opacity: 1,
+      y: 0,
+      ease: "easeOut", duration: 0, type: "tween"
+    })
+   };
+
   return (
     <>
       <div className={styles.menu}>
         <ul>
           <div className={styles.menuBtn}>
-            <div>
-              <a href="#11111">
-                <Image
-                  src="/imgs/Exhibition.png"
-                  layout="intrinsic"
-                  width={313}
-                  height={53}
-                />
-              </a>
-            </div>
+            <motion.a href="#11111" >
+              <motion.div className={styles.container} initial="collapsed" whileHover="expanded" animation="expanded"> 
+                <motion.div className={styles.zhText} variants={ZhTextVariant} > 
+                  展覽資訊 
+                </motion.div>
+                <motion.div className={styles.textBG} variants={BGVariant} /> 
+              <motion.div className={styles.enText} variants={EnTextVariant} > Exhibition </motion.div>
+              </motion.div>
+            </motion.a>
           </div>
+
           <div className={styles.menuBtn}>
             <div>
               <a href="#33333">
-                <Image
-                  src="/imgs/essay.png"
-                  layout="intrinsic"
-                  width={164}
-                  height={64}
-                />
+              <motion.div className={styles.container} initial="collapsed" whileHover="expanded" animation="expanded"> 
+                <motion.div className={styles.zhText} variants={ZhTextVariant} > 
+                  刊稿 
+                </motion.div>
+                <motion.div className={styles.textBG} variants={BGVariant} /> 
+              <motion.div className={styles.enText} variants={EnTextVariant} > Essay </motion.div>
+              </motion.div>
               </a>
             </div>
           </div>
@@ -142,12 +214,13 @@ export default function App() {
           <div className={styles.menuBtn}>
             <div>
               <a href="#55555">
-                <Image
-                  src="/imgs/artist.png"
-                  layout="intrinsic"
-                  width={168}
-                  height={51}
-                />
+                <motion.div className={styles.container} initial="collapsed" whileHover="expanded" animation="expanded"> 
+                  <motion.div className={styles.zhText} variants={ZhTextVariant} > 
+                    參展藝術家
+                  </motion.div>
+                  <motion.div className={styles.textBG} variants={BGVariant} /> 
+                <motion.div className={styles.enText} variants={EnTextVariant} > Artists </motion.div>
+                </motion.div>
               </a>
             </div>
           </div>
@@ -155,12 +228,38 @@ export default function App() {
       </div>
 
       <div className={styles.menuBtn_clab}>
-        <Image
-          src="/imgs/Clab_btn.png"
-          layout="intrinsic"
-          width={260}
-          height={260}
-        />
+        <motion.div 
+          className={styles.btnWrap} 
+          initial="rest" whileHover="hover" animate="rest"
+        >
+          <motion.svg viewBox="0 0 280 280" 
+            className={styles.btnSvg}
+            width="280px"  height="280px" 
+            ref={textSvRef}
+            style={ isBtnHovered ? {pause} : {rotate} }
+            whileHover={() => setBtnHovered(true)}
+            onMouseLeave={() => setBtnHovered(false)}
+            >  
+            <path id="curve"  fill="transparent" 
+                d=" M 20, 140 a 120,120 0 1,1 240,0 a 120,120 0 1,1 -240,0 "   />
+            <text width="500" >
+              <textPath 
+                className={styles.btnText} 
+                xlinkHref="#curve" 
+                alignmentBaseline="top" 
+                spacing="auto"
+                >
+                超限社會 THE UNRESTRICTED SOCIETY 2022/09/25 - 11/27
+              </textPath>
+            </text>
+          </motion.svg>
+          <motion.div 
+            className={styles.btnCircle}
+            variants={btnBgVariants}
+          >
+          more info  
+          </motion.div>
+        </motion.div>
       </div>
 
       <div className={styles.bgBlock}>
