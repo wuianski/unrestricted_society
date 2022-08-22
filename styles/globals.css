@@ -1,3 +1,22 @@
+@font-face {
+  font-family: 'Sanchez';
+  src: url('/fonts/sanchez/Sanchezregular.otf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GenWanMin TW';
+  src: url('/fonts/GenWanMin/GenWanMin-EL.ttc');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'GenWanMin TW';
+  src: url('/fonts/GenWanMin/GenWanMin-R.ttc');
+  font-weight: bold;
+}
+
 html,
 body {
   padding: 0;
@@ -38,8 +57,9 @@ body {
   --red: #fe0222;
   --orange: #fd7702;
   --yellow: #ffbb00;
+  --us: #FF0000;
 
-  --background: var(--blue);
+  --background: var(--us);
   --accent: var(--white);
 
   margin: 0;

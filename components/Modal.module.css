@@ -1,0 +1,121 @@
+.Modal_title{
+  font-size: 50px;
+  font-family: 'GenWanMin TW EL';
+  letter-spacing: -0.1em;
+}
+.Modal_title_en{
+  font-size: 50px;
+  font-family: 'Sanchez';
+  letter-spacing: -0.01em;
+  text-align: end;
+}
+.Modal_name{
+  font-family: 'GenWanMin TW EL';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 100%;
+  letter-spacing: -0.14em;
+  border: 1px solid #000000;
+}
+.Modal_name_en{
+  font-family: 'GenWanMin TW EL';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 100%;
+  letter-spacing: -0.025em;
+  border: 1px solid #000000;
+}
+.Modal_content{
+  font-family: 'GenWanMin TW EL';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 135%;
+  /* border: 1px solid #000000; */
+  text-align: justify;
+  padding-bottom: 10px;
+}
+.profileContainer{
+  position: relative;
+  width: 20vw;
+  height: auto;
+}
+.Modal_nameInGroup{
+  font-family: 'GenWanMin TW EL';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 135%;
+  letter-spacing: -0.1em;
+}
+.Modal_nameInGroup_en{
+  font-family: 'Sanchez';
+  font-style: normal;  
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 135%;
+  letter-spacing: -0.025em;
+  margin-bottom: 15px;
+}
+@media screen and (max-width: 1280px) {
+  .Modal_title{
+    font-size: 44px;
+  }
+  .Modal_title_en{
+    font-size: 44px;
+  }
+  .Modal_name{
+    font-size: 24px;
+  }
+  .Modal_name_en{
+    font-size: 24px;
+  }
+  .Modal_content{
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .Modal_title{
+    font-size: 41px;
+  }
+  .Modal_title_en{
+    font-size: 41px;
+  }
+  .Modal_name{
+    font-size: 21px;
+  }
+  .Modal_name_en{
+    font-size: 21px;
+  }
+  .Modal_content{
+    font-size: 12px;
+  }
+  
+}
+
+@media screen and (max-width: 680px) {
+  .Modal_title{
+    font-size: 26px;
+  }
+  .Modal_title_en{
+    text-align: start;
+    font-size: 26px;
+  }
+  .Modal_name{
+    font-size: 21px;
+  }
+  .Modal_name_en{
+    font-size: 21px;
+  }
+  .Modal_content{
+    font-size: 12px;
+  }
+  .profileContainer{
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+}

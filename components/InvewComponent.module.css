@@ -1,5 +1,3 @@
-
-
 .section {
   box-sizing: border-box;
   width: 100vw;
@@ -34,6 +32,7 @@
   display: block;
   transform: translateX(0px);
   opacity: 1;
+  width: 100vw;
 }
 .bgBlock{
   position: fixed;
@@ -45,18 +44,50 @@
   /* background-color: #007700; */
 }
 
-/******/
+/*** menu ***/
+.siteTitle{
+  position: fixed;
+  top: -9px;
+  left: 10px;
+  z-index: 3;
+  padding-bottom: 90px;
+}
+@media screen and (max-width: 1280px) {
+  .siteTitle{
+    top: -8px;
+    padding-bottom: 70px;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .siteTitle{
+    padding-bottom: 60px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .siteTitle{
+    top: -5px;
+    padding-bottom: 22px;
+  }
+}
 .menu{
   position: fixed;
-  top: 10px;
-  left: 0;
+  top: 80px;
+  left: -30px;
   z-index: 3;
-  color: blue;
 }
 .menuBtn{
   /* background-color: yellow; */
   margin: 5px 0px;
-  /* font-size: 63px; */
+  color:#fff;
+  font-family: 'Sanchez';
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 100%;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  width: fit-content;
 }
 .menuBtn_clab{
   position: fixed;
@@ -64,47 +95,603 @@
   right: 10px;
   z-index: 3;
 }
-/******/
-
-.testblk{
-  width: 200px;
-  height: 200px;
-  background-color: white;
-  color:red;
+@media screen and (max-width: 1280px) {
+  .menu{
+    top: 60px;
+  }
+  .menuBtn{
+    font-size: 44px;
+  }
 }
 
-.contentInner{
-  /* position: relative; */
-  /* z-index: 99; */
-  /* border: 1px red solid; */
-  position: relative;
-  top: 18vh;
-  left: 36vw;
+@media screen and (max-width: 810px) {
+  .menu{
+    top: 60px;
+  }
+  .menuBtn{
+    font-size: 41px;
+  }
 }
-.contentInner2{
-  /* position: relative; */
-  /* z-index: 99; */
-  /* border: 1px red solid; */
-  position: relative;
-  top: 0vh;
-  left: 12vw;
+
+@media screen and (max-width: 680px) {
+  .menu{
+    top: 60px;
+  }
+  .menuBtn{
+    font-size: 26px;
+    line-height: 86%;
+  }
 }
-.contentBlk{
+/*** /menu ***/
+
+/*** section ***/
+.secBlk{
   display: block;
   z-index: 99;
   /* background-color: red; */
-  height: 90vh;
-  
+  /* height: 90vh; */
+  margin: auto;
+  padding-left: 20vw;
+  padding-top: 16.5vh;
+}
+@media screen and (max-width: 1280px) {
+  .secBlk{
+    padding-left: 20vw;
+    padding-top: 16.5vh;
+  }
 }
 
+@media screen and (max-width: 810px) {
+  .secBlk{
+    padding-left: 0;
+    padding-top: 38vh;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .secBlk{
+    padding-left: 0;
+    padding-top: 26vh;
+  }
+}
+/*** /section ***/
+
+/*** section home ***/
 .vid{
   border: 1px #FF3600 solid;
+  width: 64vw;
+  height: 36vw;
+}
+/*** /section home ***/
+
+/*** section exhibition ***/
+.contentInner_ex{
+  background-color: #000;
+  border: #fff 1px solid;
+  width: 60vw;
+  max-width: 512px;
+  padding: 30px 18px 18px 18px;
+  cursor: pointer;
 }
 
-.essay{
+.exTitle{
+  font-family: 'GenWanMin TW R';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50px;
+  line-height: 100%;
+  letter-spacing: -0.14em;
+  color: #FFFFFF;
+  padding-bottom: 20px;
+}
+.exCurator{
+  font-family: 'GenWanMin TW EL';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 100%;
+  letter-spacing: -0.14em;
+  border: 1px solid #000000;
+}
+.exCurator_en{
+  font-family: 'GenWanMin TW EL';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 100%;
+  letter-spacing: -0.025em;
+  border: 1px solid #000000;
+  padding-bottom: 20px;
+}
+.exContent{
+  font-family: 'GenWanMin TW EL';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 135%;
+  text-align: justify;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.exMore{
+  font-family: 'GenWanMin TW EL';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 33px;
+  letter-spacing: -0.025em;
+  border: 1px solid #000000;
+  padding-top: 20px;
+}
+
+@media screen and (max-width: 1280px) {
+  .contentInner_ex{
+    padding: 26px 14px 14px 14px;
+  }
+  .exTitle{
+    font-size: 44px;
+  }
+  .exCurator{
+    font-size: 24px;
+  }
+  .exCurator_en{
+    font-size: 24px;
+  }
+  .exContent{
+    font-size: 13px;
+  }
+  .exMore{
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .contentInner_ex{
+    padding: 22px 10px 10px 10px;
+  }
+  .exTitle{
+    font-size: 41px;
+  }
+  .exCurator{
+    font-size: 21px;
+  }
+  .exCurator_en{
+    font-size: 21px;
+  }
+  .exContent{
+    font-size: 12px;
+  }
+  .exMore{
+    font-size: 21px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .contentInner_ex{
+    width: 90vw;
+    padding: 20px 8px 8px 8px;
+  }
+  .exTitle{
+    font-size: 41px;
+  }
+  .exCurator{
+    font-size: 21px;
+  }
+  .exCurator_en{
+    font-size: 21px;
+  }
+  .exContent{
+    font-size: 12px;
+  }
+  .exMore{
+    font-size: 21px;
+  }
+
+}
+/*** /section exhibition ***/
+
+/*** section artist ***/
+.artistWapper{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 18px;
+}
+.artistLineWapper{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 18px;
+}
+.artistBlkLong{
+  background-color: #000;
+  border: #fff 1px solid;
+  padding: 6px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 6px 6px 0px 6px;
+  gap: 18px;
+  cursor: pointer;
+}
+.artistBlk{
+  background-color: #000;
+  border: #fff 1px solid;
+  padding: 6px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 6px 6px 0px 6px;
+  gap: 18px;
+  cursor: pointer;
+  /* height: 61px; */
+}
+.artistName{
+  font-family: 'GenWanMin TW EL';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 135%;
+  letter-spacing: -0.1em;
+}
+
+.artistName_en{
+  font-family: 'Sanchez';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 155%; /*135%*/
+}
+
+@media screen and (max-width: 1280px) {
+  .artistWapper{
+    gap: 13px;
+  }
+  .artistLineWapper{
+    gap: 13px;
+  }
+  .artistName{
+    font-size: 20px;
+  }
+  .artistName_en{
+    font-size: 20px;
+  }
+  .artistBlkLong{
+    padding: 6px 6px 0px 6px;
+    gap: 20px;
+  }
+  .artistBlk{
+    padding: 6px 6px 0px 6px;
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .artistWapper{
+    gap: 12px;
+  }
+  .artistLineWapper{
+    gap: 12px;
+  }
+  .artistName{
+    font-size: 18px;
+  }
+  .artistName_en{
+    font-size: 18px;
+  }
+  .artistBlkLong{
+    padding: 4px 4px 0px 4px;
+    gap: 18px;
+  }
+  .artistBlk{
+    padding: 4px 4px 0px 4px;
+    gap: 18px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .artistWapper{
+    width: 90vw;
+    gap: 8px;
+  }
+  .artistLineWapper{
+    flex-direction: column;
+    gap: 8px;
+  }
+  .artistBlkLong{
+    flex-direction: column;
+    padding: 4px 4px 0px 4px;
+    gap:4px
+  }
+  .artistBlk{
+    padding: 4px 4px 0px 4px;
+  }
+  .artistName{
+    font-size: 16px;
+  }
+  .artistName_en{
+    font-size: 16px; 
+  }
+}
+/*** /section artist ***/
+
+/*** section talk ***/
+.talkWapper{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 31px;
+  width: 60vw;
+}
+.talkLineWapper{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 34px;
+}
+.talkBlk{
+  background-color: #000;
+  border: #fff 1px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 18px;
+  gap: 18px;
+  /* height: 61px; */
+}
+.talkTitle{
+  font-family: 'Sanchez';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 135%;
+  text-transform: uppercase;
+}
+.talkDate{
+  font-family: 'Sanchez';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 26px
+}
+.talkContent{
+  font-family: 'GenWanMin TW EL', 'Sanchez';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 135%;
+  padding-top: 8px;
+}
+
+@media screen and (max-width: 1280px) {
+  .talkWapper{
+    gap:  27px;
+  }
+  .talkLineWapper{
+    gap: 30px;
+  }
+  .talkBlk{
+    padding: 14px;
+    gap: 14px;
+  }
+  .talkTitle{
+    font-size: 22px;
+  }
+  .talkDate{
+    font-size: 18px;
+  }
+  .talkContent{
+    font-size: 13px;
+    padding-top: 8px;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .talkWapper{
+    width: 80vw;
+    gap:  27px;
+  }
+  .talkLineWapper{
+    gap:  30px
+  }
+  .talkBlk{
+    padding: 12px;
+    gap: 12px;
+  }
+  .talkTitle{
+    font-size: 20px;
+  }
+  .talkDate{
+    font-size: 16px;
+  }
+  .talkContent{
+    font-size: 13px;
+    padding-top: 8px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .talkWapper{
+    flex-direction: column;
+    padding: 0px;
+    gap: 8px;
+    width: 90vw;
+  }
+  .talkLineWapper{
+    padding: 0px;
+    gap: 8px;
+  }
+  .talkBlk{
+    padding: 6px;
+    gap: 2px;
+  }
+  .talkTitle{
+    font-size: 13px;
+    display: inline;
+  }
+  .talkDate{
+    font-size: 12px;
+  }
+  .talkContent{
+    font-size: 11px;
+    padding-top: 2px;
+  }
+}
+/*** /section talk ***/
+
+/*** section tour ***/
+.tourWapper{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 31px;
+  width: 26vw;
+}
+.tourLineWapper{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 34px;
+}
+.tourBlk{
+  background-color: #000;
+  border: #fff 1px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 18px;
+  gap: 18px;
+  /* height: 61px; */
+}
+.tourTitle{
+  font-family: 'Sanchez';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 135%;
+  text-transform: uppercase;
+}
+.tourDate{
+  font-family: 'Sanchez';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 26px
+}
+.tourContent{
+  font-family: 'GenWanMin TW EL', 'Sanchez';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 135%;
+  padding-top: 8px;
+}
+
+@media screen and (max-width: 1280px) {
+  .tourWapper{
+    gap:  27px;
+  }
+  .tourLineWapper{
+    gap: 30px;
+  }
+  .tourBlk{
+    padding: 14px;
+    gap: 14px;
+  }
+  .tourTitle{
+    font-size: 22px;
+  }
+  .tourDate{
+    font-size: 18px;
+  }
+  .tourContent{
+    font-size: 13px;
+    padding-top: 8px;
+  }
+}
+
+@media screen and (max-width: 810px) {
+  .tourWapper{
+    width: 40vw;
+    gap:  27px;
+  }
+  .tourLineWapper{
+    gap:  30px
+  }
+  .tourBlk{
+    padding: 12px;
+    gap: 12px;
+  }
+  .tourTitle{
+    font-size: 20px;
+  }
+  .tourDate{
+    font-size: 16px;
+  }
+  .tourContent{
+    font-size: 13px;
+    padding-top: 8px;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .tourWapper{
+    flex-direction: column;
+    padding: 0px;
+    gap: 8px;
+    width: 60vw;
+  }
+  .tourLineWapper{
+    padding: 0px;
+    gap: 8px;
+  }
+  .tourBlk{
+    padding: 6px;
+    gap: 2px;
+  }
+  .tourTitle{
+    font-size: 14px;
+  }
+  .tourDate{
+    font-size: 12px;
+  }
+  .tourContent{
+    font-size: 11px;
+    padding-top: 2px;
+  }
+}
+/*** /section tour ***/
+
+/*** modal ***/
+.closeModal{
+  position: absolute;
+  right: 0px;
+  cursor: pointer;
+}
+.exModal{
+  background-color: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  border: #fff 1px solid;
+  overflow: scroll;
+}
+/*** /modal ***/
+
+.bannerImage{
   position: relative;
-  z-index: 99;
-  /* margin: 30vh auto; */
 }
-
-
