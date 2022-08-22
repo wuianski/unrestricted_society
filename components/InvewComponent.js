@@ -1,5 +1,11 @@
 import { useRef, useEffect, useState } from "react";
-import { motion, useInView, useAnimationControls } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useAnimationControls,
+  useTime,
+  useTransform,
+} from "framer-motion";
 import Zoom from "@mui/material/Zoom";
 import Grow from "@mui/material/Grow";
 import Fade from "@mui/material/Fade";
@@ -27,6 +33,9 @@ import FamemeModal from "./FamemeModal";
 import SlitscopeModal from "./SlitscopeModal";
 import HbFpModal from "./HbFpModal";
 import HerLabSpaceModal from "./HerLabSpaceModal";
+import InfoModal from "./InfoModal";
+
+import Drawer from "@mui/material/Drawer";
 
 function Section({ children }) {
   const ref = useRef(null);
@@ -136,7 +145,7 @@ export default function App() {
       });
     } else if (isInView3 == true) {
       controls_viewbox.start({
-        viewBox: `${screenSize.dynamicWidth * 1.6} ${
+        viewBox: `${screenSize.dynamicWidth * 1.4} ${
           screenSize.dynamicHeight * 2.6
         } ${screenSize.dynamicWidth * 1.2} ${screenSize.dynamicHeight * 1.2}`,
         transition: { type: "spring", duration: 2 },
@@ -156,7 +165,7 @@ export default function App() {
     } else if (isInView4 == true) {
       controls_viewbox.start({
         viewBox: `${screenSize.dynamicWidth * 1} ${
-          screenSize.dynamicHeight * 4.4
+          screenSize.dynamicHeight * 4.2
         } ${screenSize.dynamicWidth * 1.2} ${screenSize.dynamicHeight * 1.2}`,
         transition: { type: "spring", duration: 2 },
       });
@@ -259,12 +268,86 @@ export default function App() {
   const handleOpenHLS = () => setOpenHLS(true);
   const handleCloseHLS = () => setOpenHLS(false);
 
-  /*** modal aimation setting ***/
-  const modalVariants = {
-    open: { opacity: 1 },
-    closed: { opacity: 0 },
-    transition: { type: "spring", duration: 4 },
+  /*** Btn rotation effect ***/
+  const textSvRef = useRef(null);
+  const [isBtnHovered, setBtnHovered] = useState(false);
+
+  const time = useTime();
+
+  const rotate = useTransform(time, [0, 40000], [0, 360], { clamp: false });
+  const pause = useTransform(time, [0, 40000], [0, 0], { clamp: true });
+
+  const btnBgVariants = {
+    rest: {
+      backgroundColor: "rgba(255, 0,0, 0.9)",
+      borderRadius: "0%",
+      boxShadow: "0 0 90px 70px #ff0000",
+      border: "none",
+      // opacity: 0.8,
+
+      transition: {
+        duration: 0.2,
+        type: "tween",
+        ease: "easeIn",
+      },
+    },
+    hover: {
+      backgroundColor: "rgba(255, 0,0, 0.85)",
+      borderRadius: "0%",
+      boxShadow: "0 0 90px 20px #ff0000",
+      border: "none",
+      transition: {
+        duration: 0.2,
+        type: "tween",
+        ease: "easeOut",
+      },
+    },
   };
+
+  /*** Menu hover effect ***/
+  const BGVariant = {
+    expanded: {
+      width: "350px",
+      // backgroundColor: "#fff",
+    },
+    collapsed: {
+      width: "10px",
+      transition: { delay: 0.2, duration: 1 },
+    },
+  };
+  const ZhTextVariant = {
+    expanded: () => ({
+      opacity: 1,
+      y: "3rem",
+      transition: { delay: 0.1 },
+    }),
+    collapsed: () => ({
+      opacity: 0,
+      y: "200px",
+      ease: "easeOut",
+      duration: 0.2,
+      type: "tween",
+    }),
+  };
+  const EnTextVariant = {
+    expanded: () => ({
+      opacity: 0,
+      y: "6rem",
+      transition: { delay: 0 },
+    }),
+    collapsed: () => ({
+      opacity: 1,
+      y: 0,
+      ease: "easeOut",
+      duration: 0,
+      type: "tween",
+    }),
+  };
+
+  /*** ***/
+  const [openDrawer, setOpenDrawer] = useState(false);
+  const handleOpenDrawer = () => setOpenDrawer(true);
+  const handleCloseDrawer = () => setOpenDrawer(false);
 
   return (
     <>
@@ -278,49 +361,177 @@ export default function App() {
       </div>
       <div className={styles.menu}>
         <ul>
-          <div className={styles.menuBtn}>
-            <div>
+          <div>
+            {/* <div>
               <a href="#exhibition">
                 <div className={styles.menuBtn}>EXHIBITION</div>
-                {/* <UserWindow /> */}
+                
               </a>
-            </div>
+            </div> */}
+            <motion.a href="#exhibition">
+              <motion.div
+                className={styles.container}
+                initial="collapsed"
+                whileHover="expanded"
+                animation="expanded"
+              >
+                <motion.div className={styles.zhText} variants={ZhTextVariant}>
+                  展覽資訊
+                </motion.div>
+
+                <motion.div className={styles.textBG} variants={BGVariant} />
+                <motion.div className={styles.enText} variants={EnTextVariant}>
+                  {" "}
+                  Exhibition{" "}
+                </motion.div>
+              </motion.div>
+            </motion.a>
           </div>
 
-          <div className={styles.menuBtn}>
-            <div>
+          <div>
+            {/* <div>
               <a href="#artist">
                 <div className={styles.menuBtn}>ARTIST</div>
               </a>
-            </div>
+            </div> */}
+            <motion.a href="#artist">
+              <motion.div
+                className={styles.container}
+                initial="collapsed"
+                whileHover="expanded"
+                animation="expanded"
+              >
+                <motion.div className={styles.zhText} variants={ZhTextVariant}>
+                  藝術家
+                </motion.div>
+
+                <motion.div className={styles.textBG} variants={BGVariant} />
+                <motion.div className={styles.enText} variants={EnTextVariant}>
+                  {" "}
+                  artist{" "}
+                </motion.div>
+              </motion.div>
+            </motion.a>
           </div>
 
           <div className={styles.menuBtn}>
-            <div>
+            {/* <div>
               <a href="#talk">
                 <div className={styles.menuBtn}>TALK</div>
               </a>
-            </div>
+            </div> */}
+            <motion.a href="#talk">
+              <motion.div
+                className={styles.container}
+                initial="collapsed"
+                whileHover="expanded"
+                animation="expanded"
+              >
+                <motion.div className={styles.zhText} variants={ZhTextVariant}>
+                  講座
+                </motion.div>
+
+                <motion.div className={styles.textBG} variants={BGVariant} />
+                <motion.div className={styles.enText} variants={EnTextVariant}>
+                  {" "}
+                  Talk{" "}
+                </motion.div>
+              </motion.div>
+            </motion.a>
           </div>
 
           <div className={styles.menuBtn}>
-            <div>
+            {/* <div>
               <a href="#tour">
                 <div className={styles.menuBtn}>GUIDED TOUR</div>
               </a>
-            </div>
+            </div> */}
+            <motion.a href="#tour">
+              <motion.div
+                className={styles.container}
+                initial="collapsed"
+                whileHover="expanded"
+                animation="expanded"
+              >
+                <motion.div className={styles.zhText} variants={ZhTextVariant}>
+                  導覽
+                </motion.div>
+
+                <motion.div className={styles.textBG} variants={BGVariant} />
+                <motion.div className={styles.enText} variants={EnTextVariant}>
+                  {" "}
+                  Guided Tour{" "}
+                </motion.div>
+              </motion.div>
+            </motion.a>
           </div>
         </ul>
       </div>
 
-      {/* <div className={styles.menuBtn_clab}>
-        <Image
-          src="/imgs/Clab_btn.png"
-          layout="intrinsic"
-          width={260}
-          height={260}
-        />
-      </div> */}
+      <div className={styles.menuBtn_clab} onClick={handleOpenDrawer}>
+        <motion.div
+          className={styles.btnWrap}
+          initial="rest"
+          whileHover="hover"
+          animate="rest"
+        >
+          <motion.svg
+            viewBox="0 0 280 280"
+            className={styles.btnSvg}
+            width="280px"
+            height="280px"
+            ref={textSvRef}
+            style={isBtnHovered ? { pause } : { rotate }}
+            whileHover={() => setBtnHovered(true)}
+            // onMouseLeave={() => setBtnHovered(false)}
+            onHoverStart={(e) => {
+              setBtnHovered(true);
+            }}
+            onHoverEnd={(e) => {
+              setBtnHovered(false);
+            }}
+          >
+            <path
+              id="curve"
+              fill="transparent"
+              d=" M 20, 140 a 120,120 0 1,1 240,0 a 120,120 0 1,1 -240,0 "
+            />
+            <text>
+              <textPath
+                className={styles.btnText}
+                xlinkHref="#curve"
+                alignmentBaseline="top"
+                spacing="auto"
+              >
+                超限社會 THE UNRESTRICTED SOCIETY 2022/09/25 - 11/27
+              </textPath>
+            </text>
+          </motion.svg>
+          <motion.div className={styles.btnCircle} variants={btnBgVariants}>
+            more info
+          </motion.div>
+        </motion.div>
+      </div>
+      <Modal open={openDrawer} onClose={handleCloseDrawer}>
+        <div className={styles.myDrawer}>
+          <Fade in={openDrawer} timeout={1000}>
+            <div>
+              <div className={styles.closeModal} onClick={handleCloseDrawer}>
+                <Image
+                  src={closeIcon}
+                  alt="Icon of close modal"
+                  width={73}
+                  height={73}
+                />
+              </div>
+
+              <div>
+                <InfoModal />
+              </div>
+            </div>
+          </Fade>
+        </div>
+      </Modal>
 
       {/*** svg background ***/}
       <div className={styles.bgBlock}>
