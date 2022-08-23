@@ -126,7 +126,7 @@ export default function App() {
       });
     } else if (isInView2 == true) {
       controls_viewbox.start({
-        viewBox: `${screenSize.dynamicWidth * 1.4} 0 ${
+        viewBox: `${screenSize.dynamicWidth * 1.3} 0 ${
           screenSize.dynamicWidth * 1.2
         } ${screenSize.dynamicHeight * 1.2}`,
         transition: { type: "spring", duration: 2 },
@@ -145,7 +145,7 @@ export default function App() {
       });
     } else if (isInView3 == true) {
       controls_viewbox.start({
-        viewBox: `${screenSize.dynamicWidth * 1.4} ${
+        viewBox: `${screenSize.dynamicWidth * 1.3} ${
           screenSize.dynamicHeight * 2.6
         } ${screenSize.dynamicWidth * 1.2} ${screenSize.dynamicHeight * 1.2}`,
         transition: { type: "spring", duration: 2 },
@@ -562,7 +562,7 @@ export default function App() {
             <ReactPlayer
               width="100%"
               height="100%"
-              url="https://www.youtube.com/watch?v=o_th8s3MHs4"
+              url="https://www.youtube.com/watch?v=P_MbBWp79Ns"
               className={styles.react_player}
               //light="/imgs/pattern.png"
               //controls={true}
