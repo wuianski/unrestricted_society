@@ -542,6 +542,7 @@ export default function App() {
           // viewBox={`0 0 3840 4990`}
           animate={controls_viewbox}
         >
+          {/* <image xlinkHref="/imgs/bg3.png" /> */}
           <image xlinkHref="/imgs/bg3.png" />
           {/* <image xlinkHref="/imgs/pattern_s.png" /> */}
           <motion.image
