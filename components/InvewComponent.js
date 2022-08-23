@@ -101,8 +101,8 @@ export default function App() {
 
     if (isInView1 == true) {
       controls_viewbox.start({
-        viewBox: `0 0 ${screenSize.dynamicWidth * 1.2} ${
-          screenSize.dynamicHeight * 1.2
+        viewBox: `0 0 ${screenSize.dynamicWidth * 1} ${
+          screenSize.dynamicHeight * 1
         }`,
         transition: { type: "spring", duration: 2 },
       });
@@ -126,7 +126,7 @@ export default function App() {
       });
     } else if (isInView2 == true) {
       controls_viewbox.start({
-        viewBox: `${screenSize.dynamicWidth * 1.3} 0 ${
+        viewBox: `${screenSize.dynamicWidth * 1} 0 ${
           screenSize.dynamicWidth * 1.2
         } ${screenSize.dynamicHeight * 1.2}`,
         transition: { type: "spring", duration: 2 },
@@ -145,8 +145,8 @@ export default function App() {
       });
     } else if (isInView3 == true) {
       controls_viewbox.start({
-        viewBox: `${screenSize.dynamicWidth * 1.3} ${
-          screenSize.dynamicHeight * 2.6
+        viewBox: `${screenSize.dynamicWidth * 1} ${
+          screenSize.dynamicHeight * 2
         } ${screenSize.dynamicWidth * 1.2} ${screenSize.dynamicHeight * 1.2}`,
         transition: { type: "spring", duration: 2 },
       });
@@ -165,8 +165,8 @@ export default function App() {
     } else if (isInView4 == true) {
       controls_viewbox.start({
         viewBox: `${screenSize.dynamicWidth * 1} ${
-          screenSize.dynamicHeight * 4.2
-        } ${screenSize.dynamicWidth * 1.2} ${screenSize.dynamicHeight * 1.2}`,
+          screenSize.dynamicHeight * 3.2
+        } ${screenSize.dynamicWidth * 1} ${screenSize.dynamicHeight * 1}`,
         transition: { type: "spring", duration: 2 },
       });
       controls_pattern.start({
@@ -539,18 +539,20 @@ export default function App() {
           // width="100%"
           // height="100%"
           viewBox={`0 0 ${screenSize.dynamicWidth} ${screenSize.dynamicHeight}`}
+          // viewBox={`0 0 3840 4990`}
           animate={controls_viewbox}
         >
-          <image xlinkHref="/imgs/bg_s.png" />
+          <image xlinkHref="/imgs/bg3.png" />
           {/* <image xlinkHref="/imgs/pattern_s.png" /> */}
           <motion.image
-            xlinkHref="/imgs/pattern_s.png"
+            xlinkHref="/imgs/pattern3.png"
             animate={controls_pattern}
-            //width="200%"
+            // width="100%"
             // height="100%"
-            //width={`${screenSize.dynamicWidth * 1}`}
+            width={`${screenSize.dynamicWidth * 2}`}
             // height="auto"
             //height={`${screenSize.dynamicHeight * 1}`}
+            // width="3840px"
           />
         </motion.svg>
       </div>
