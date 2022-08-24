@@ -20,13 +20,17 @@
 .info_textBlk{
   margin-bottom: 30px;
 }
+.info_textBlk_sp{
+  margin-bottom: 30px;
+  margin-top: -80px;
+}
 
 .info_text_small{
   font-family: 'Sanchez';
   font-style: normal;  
   font-weight: normal;
   font-size: 15px;
-  line-height: 100%;
+  line-height: 135%;
   letter-spacing: -0.025em;
   margin-bottom: 15px;
 }
@@ -49,6 +53,11 @@
   line-height: 135%;
   letter-spacing: -0.025em;
   margin-bottom: 15px;
+}
+.mapBlk{
+  width: 90vw;
+  margin: 80px auto;
+  mix-blend-mode: darken;
 }
 
 @media screen and (max-width: 1280px) {

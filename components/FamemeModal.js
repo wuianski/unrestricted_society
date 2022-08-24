@@ -52,7 +52,7 @@ export default function FamemeModal() {
           <div className={styles.Modal_content}>
             亞洲榴槤大亨「法咪咪」，以幽默詼諧的方式宣傳這外殼有刺、散發極濃氣味的水果之王。2019年至今開設包含：紐約「榴槤美術館」、首爾「榴槤健身房」、臺北「榴槤製藥廠」概念店，2021年攜手春豔發行單曲〈Charlie的叭叭洗澎澎〉，2022年再創臺北快閃店「Durian
             Duty to Be
-            Free」。法咪咪媒體化的身份遊走在名人、商人、設計師及歌手間，以跨界形式向資本社會宣告他的時代已來臨。
+            Free」。法咪咪媒體化的身分遊走在名人、商人、設計師及歌手間，以跨界形式向資本社會宣告他的時代已來臨。
           </div>
 
           <div className={styles.Modal_content}>

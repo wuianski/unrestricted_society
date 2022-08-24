@@ -57,14 +57,14 @@ export default function PcModal() {
           <div className={styles.Modal_content}>
             CIRIO’s work embodies the contradictions, ethics, limits, and
             potentials inherent to the social complexity of information society
-            through a provocative, critical, and proactive approach. He’s
+            through a provocative, critical, and proactive approach. His
             artworks engage power structures, global mass media, and the general
             public in Internet art that examine contemporary social, political,
             and economic processes. As a result of his performances, CIRIO has
             often been subject to investigations and personal threats by
             governmental and military authorities, as well as online crowds of
             ordinary people. He has won a number of awards, including Golden
-            Nica first prize at Ars Electronica in Linz, 2014; Transmediale
+            Nica first prize at Ars Electronica in Linz, 2014 and Transmediale
             second prize in Berlin, 2006; among others awards.
           </div>
         </Item>

@@ -60,12 +60,12 @@ export default function CyModal() {
             data, environment, politics, economy, and society through the
             observation and comparison of tangible substance and virtual
             consciousness. Graduating from Taipei National University of Arts,
-            he was the top-prize recipient at the “2006 Taipei Arts Award” and
+            he was the top-prize recipient at the 2006 Taipei Art Awards and
             later co-founded the artist collective LuxuryLogico in 2010, with
             works shown at Asia Triennial Manchester 2014, Thailand Biennale
-            2018, Echigo Tsumari Art Triennale 2022. In 2019, LuxuryLogico
-            received Presidential Culture Award, Youth Creative Award, Taiwan.
-            etc.
+            2018, Echigo Tsumari Art Triennale 2022.  In 2019, LuxuryLogico
+            received Presidential Culture Award, Youth Creative Award of
+            Presidential Culture Award, Taiwan. etc.
           </div>
         </Item>
       </Stack>

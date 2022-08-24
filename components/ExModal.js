@@ -25,10 +25,10 @@ export default function ExModal() {
         ml={2}
       >
         <Item sx={{ width: { xs: "80vw", sm: "35vw", md: "35vw" } }}>
-          <div className={styles.Modal_title}>超限社會策展論述</div>
+          <div className={styles.Modal_title}>展覽簡介</div>
         </Item>
         <Item sx={{ width: "65vw", paddingRight: "10vw" }}>
-          <div>??</div>
+          <div className={styles.Modal_title_en}>Introduction</div>
         </Item>
       </Stack>
 
@@ -38,8 +38,19 @@ export default function ExModal() {
         ml={2}
       >
         <Item sx={{ width: { xs: "80vw", sm: "35vw", md: "35vw" } }}>
-          <div className={styles.Modal_name}>策展人/莊偉慈</div>
-          <div className={styles.Modal_name_en}>Curator/Chuang Wei Tzu</div>
+          <div>
+            <span className={styles.Modal_name}>策展人</span>
+            <Box
+              className={styles.Modal_name}
+              sx={{ display: "inline" }}
+              ml={1}
+              mr={1}
+            >
+              /
+            </Box>
+            <span className={styles.Modal_name}>莊偉慈</span>
+          </div>
+          <div className={styles.Modal_name_en}>Curator / Chuang Wei Tzu</div>
         </Item>
         <Item
           sx={{

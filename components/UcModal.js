@@ -63,7 +63,7 @@ export default function UcModal() {
             understanding of ourselves and the world surrounding us through
             insights gained from exploring the unknown possibilities, and
             ultimately seeks the next direction for humanity. His works were
-            selected for Ars Electronica, SIGGRAPH Asia Art Gallery and Jeju
+            selected for Ars Electronica, SIGGRAPH Asia Art Gallery, and Jeju
             Museum of Contemporary Art Collection.
           </div>
         </Item>

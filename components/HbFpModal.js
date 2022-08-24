@@ -100,9 +100,9 @@ export default function HbFpModal() {
             maker, journalist, and curator. She uses emerging technologies to
             innovate new forms of storytelling that have social impact. She is
             currently curator of Sheffield DocFest’s Alternate Realities
-            programme. She worked as a Creative Director at MIT, and the
-            Executive Editor at Guardian for new forms of storytelling including
-            virtual reality.
+            programme. She worked as a Creative Director at MIT, and executive
+            editor at Guardian for new forms of storytelling including virtual
+            reality.
           </div>
         </Item>
       </Stack>

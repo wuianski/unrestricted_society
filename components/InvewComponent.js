@@ -6,8 +6,7 @@ import {
   useTime,
   useTransform,
 } from "framer-motion";
-import Zoom from "@mui/material/Zoom";
-import Grow from "@mui/material/Grow";
+
 import Fade from "@mui/material/Fade";
 import styles from "./InvewComponent.module.css";
 import React from "react";
@@ -35,28 +34,28 @@ import HbFpModal from "./HbFpModal";
 import HerLabSpaceModal from "./HerLabSpaceModal";
 import InfoModal from "./InfoModal";
 
-import Drawer from "@mui/material/Drawer";
+import Box from "@mui/material/Box";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 function Section({ children }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
-
   // useEffect(() => {
   //   console.log("Element is in view: ", isInView);
   // }, [isInView]);
 
   return (
     <section className={styles.section} ref={ref}>
-      {/* <span
+      <span
         className={styles.span}
         style={{
-          transform: isInView ? "translateX(5vw)" : "translateX(0px)",
+          transform: isInView ? "translateX(3vw)" : "translateX(0px)",
           opacity: isInView ? 1 : 0,
           transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
         }}
-      > */}
-      {children}
-      {/* </span> */}
+      >
+        {children}
+      </span>
     </section>
   );
 }
@@ -91,6 +90,9 @@ export default function App() {
     });
   };
 
+  /*** media query ***/
+  const matches = useMediaQuery("(max-width:810px)");
+
   useEffect(() => {
     window.addEventListener("resize", setDimension);
     // return () => {
@@ -98,110 +100,156 @@ export default function App() {
     // };
     // console.log("screenSize: ", screenSize.dynamicWidth);
     // console.log("Element is in view 2: ", isInView2);
-
-    if (isInView1 == true) {
-      controls_viewbox.start({
-        viewBox: `0 0 ${screenSize.dynamicWidth * 1} ${
-          screenSize.dynamicHeight * 1
-        }`,
-        transition: { type: "spring", duration: 2 },
-      });
-      controls_pattern.start({
-        // x: -100,
-        // y: -100,
-        rotate: [0, 5],
-        transition: { type: "spring", duration: 2 },
-      });
-      controls_title.start({
-        width: "150%",
-        x: 0,
-        y: 120,
-        transition: { type: "tween", duration: "1" },
-      });
-      controls_content.start({
-        rotate: [40, -5],
-        scale: [0, 1],
-        opacity: [0, 1],
-        transition: { type: "spring", duration: 1.8 },
-      });
-    } else if (isInView2 == true) {
-      controls_viewbox.start({
-        viewBox: `${screenSize.dynamicWidth * 1} 0 ${
-          screenSize.dynamicWidth * 1.2
-        } ${screenSize.dynamicHeight * 1.2}`,
-        transition: { type: "spring", duration: 2 },
-      });
-      controls_pattern.start({
-        // x: 100,
-        // y: -100,
-        rotate: [5, 0],
-        transition: { type: "spring", duration: 2 },
-      });
-      controls_content.start({
-        rotate: [40, 0],
-        scale: [0, 1],
-        opacity: [0, 1],
-        transition: { type: "spring", duration: 1.8 },
-      });
-    } else if (isInView3 == true) {
-      controls_viewbox.start({
-        viewBox: `${screenSize.dynamicWidth * 1} ${
-          screenSize.dynamicHeight * 2
-        } ${screenSize.dynamicWidth * 1.2} ${screenSize.dynamicHeight * 1.2}`,
-        transition: { type: "spring", duration: 2 },
-      });
-      controls_pattern.start({
-        // x: 100,
-        // y: -180,
-        rotate: [0, 5],
-        transition: { type: "spring", duration: 2 },
-      });
-      controls_content.start({
-        rotate: [40, 0],
-        scale: [0, 1],
-        opacity: [0, 1],
-        transition: { type: "spring", duration: 1.8 },
-      });
-    } else if (isInView4 == true) {
-      controls_viewbox.start({
-        viewBox: `${screenSize.dynamicWidth * 1} ${
-          screenSize.dynamicHeight * 3.2
-        } ${screenSize.dynamicWidth * 1} ${screenSize.dynamicHeight * 1}`,
-        transition: { type: "spring", duration: 2 },
-      });
-      controls_pattern.start({
-        // x: 100,
-        // y: -180,
-        rotate: [0, 5],
-        transition: { type: "spring", duration: 2 },
-      });
-      controls_content.start({
-        rotate: [40, 0],
-        scale: [0, 1],
-        opacity: [0, 1],
-        transition: { type: "spring", duration: 1.8 },
-      });
-    } else if (isInView5 == true) {
-      controls_viewbox.start({
-        viewBox: `0 ${screenSize.dynamicHeight * 3.4} ${
-          screenSize.dynamicWidth * 1.2
-        } ${screenSize.dynamicHeight * 1.2}`,
-        transition: { type: "spring", duration: 2 },
-      });
-      controls_pattern.start({
-        // x: 100,
-        // y: -180,
-        rotate: [5, 0],
-        transition: { type: "spring", duration: 2 },
-      });
-      controls_content.start({
-        rotate: [40, 0],
-        scale: [0, 1],
-        opacity: [0, 1],
-        transition: { type: "spring", duration: 1.8 },
-      });
+    if (matches == false) {
+      if (isInView1 == true && isInView2 == false) {
+        controls_viewbox.start({
+          viewBox: `0 0 ${screenSize.dynamicWidth} ${screenSize.dynamicHeight}`,
+          transition: { type: "spring", duration: 2 },
+        });
+        controls_pattern.start({
+          rotate: [0, 5],
+          transition: { type: "spring", duration: 2 },
+        });
+        // controls_content.start({
+        //   rotate: [40, -5],
+        //   scale: [0, 1],
+        //   opacity: [0, 1],
+        //   transition: { type: "spring", duration: 1.8 },
+        // });
+      } else if (
+        isInView2 == true &&
+        isInView1 == false &&
+        isInView3 == false
+      ) {
+        controls_viewbox.start({
+          viewBox: `${screenSize.dynamicWidth * 1} 0 ${
+            screenSize.dynamicWidth * 1
+          } ${screenSize.dynamicHeight * 1}`,
+          transition: { type: "spring", duration: 2 },
+        });
+        controls_pattern.start({
+          rotate: [5, 0],
+          transition: { type: "spring", duration: 2 },
+        });
+      } else if (
+        isInView3 == true &&
+        isInView2 == false &&
+        isInView4 == false
+      ) {
+        controls_viewbox.start({
+          viewBox: `${screenSize.dynamicWidth * 1} ${
+            screenSize.dynamicHeight * 2
+          } ${screenSize.dynamicWidth * 1} ${screenSize.dynamicHeight * 1}`,
+          transition: { type: "spring", duration: 2 },
+        });
+        controls_pattern.start({
+          rotate: [0, 5],
+          transition: { type: "spring", duration: 2 },
+        });
+      } else if (
+        isInView4 == true &&
+        isInView3 == false &&
+        isInView5 == false
+      ) {
+        controls_viewbox.start({
+          viewBox: `${screenSize.dynamicWidth * 0.6} ${
+            screenSize.dynamicHeight * 3
+          } ${screenSize.dynamicWidth * 1} ${screenSize.dynamicHeight * 1}`,
+          transition: { type: "spring", duration: 2 },
+        });
+        controls_pattern.start({
+          rotate: [0, 5],
+          transition: { type: "spring", duration: 2 },
+        });
+      } else if (isInView5 == true && isInView4 == false) {
+        controls_viewbox.start({
+          viewBox: `0 ${screenSize.dynamicHeight * 2.4} ${
+            screenSize.dynamicWidth * 1
+          } ${screenSize.dynamicHeight * 1}`,
+          transition: { type: "spring", duration: 2 },
+        });
+        controls_pattern.start({
+          rotate: [5, 0],
+          transition: { type: "spring", duration: 2 },
+        });
+      }
+    } else if (matches == true) {
+      if (isInView1 == true && isInView2 == false) {
+        controls_viewbox.start({
+          viewBox: `0 0 ${screenSize.dynamicWidth} ${screenSize.dynamicHeight}`,
+          transition: { type: "spring", duration: 2 },
+        });
+        controls_pattern.start({
+          rotate: [0, 5],
+          transition: { type: "spring", duration: 2 },
+        });
+      } else if (
+        isInView2 == true &&
+        isInView1 == false &&
+        isInView3 == false
+      ) {
+        controls_viewbox.start({
+          viewBox: `0 ${screenSize.dynamicHeight * 0.2} ${
+            screenSize.dynamicWidth
+          } ${screenSize.dynamicHeight}`,
+          transition: { type: "spring", duration: 2 },
+        });
+        controls_pattern.start({
+          rotate: [5, 0],
+          transition: { type: "spring", duration: 2 },
+        });
+      } else if (
+        isInView3 == true &&
+        isInView2 == false &&
+        isInView4 == false
+      ) {
+        controls_viewbox.start({
+          viewBox: `0 ${screenSize.dynamicHeight * 0.4} ${
+            screenSize.dynamicWidth
+          } ${screenSize.dynamicHeight}`,
+          transition: { type: "spring", duration: 2 },
+        });
+        controls_pattern.start({
+          rotate: [0, 5],
+          transition: { type: "spring", duration: 2 },
+        });
+      } else if (
+        isInView4 == true &&
+        isInView3 == false &&
+        isInView5 == false
+      ) {
+        controls_viewbox.start({
+          viewBox: `0 ${screenSize.dynamicHeight * 0.6} ${
+            screenSize.dynamicWidth
+          } ${screenSize.dynamicHeight}`,
+          transition: { type: "spring", duration: 2 },
+        });
+        controls_pattern.start({
+          rotate: [0, 5],
+          transition: { type: "spring", duration: 2 },
+        });
+      } else if (isInView5 == true && isInView4 == false) {
+        controls_viewbox.start({
+          viewBox: `0 ${screenSize.dynamicHeight * 0.8} ${
+            screenSize.dynamicWidth
+          } ${screenSize.dynamicHeight}`,
+          transition: { type: "spring", duration: 2 },
+        });
+        controls_pattern.start({
+          rotate: [5, 0],
+          transition: { type: "spring", duration: 2 },
+        });
+      }
     }
-  }, [isInView1, isInView2, isInView3, isInView4, isInView5, screenSize]);
+  }, [
+    isInView1,
+    isInView2,
+    isInView3,
+    isInView4,
+    isInView5,
+    screenSize,
+    matches,
+  ]);
 
   /*** modal exhibition ***/
   const [openEx, setOpenEx] = useState(false);
@@ -283,8 +331,6 @@ export default function App() {
       borderRadius: "0%",
       boxShadow: "0 0 90px 70px #ff0000",
       border: "none",
-      // opacity: 0.8,
-
       transition: {
         duration: 0.2,
         type: "tween",
@@ -308,7 +354,6 @@ export default function App() {
   const BGVariant = {
     expanded: {
       width: "350px",
-      // backgroundColor: "#fff",
     },
     collapsed: {
       width: "10px",
@@ -353,21 +398,26 @@ export default function App() {
     <>
       {/*** menu ***/}
       <div className={styles.siteTitle}>
-        <div>
-          <a href="#home">
-            <div className={styles.menuBtn}>The Unrestricted Society</div>
-          </a>
-        </div>
+        <motion.a href="#home">
+          <motion.div
+            className={styles.container}
+            initial="collapsed"
+            whileHover="expanded"
+            animation="expanded"
+          >
+            <motion.div className={styles.zhText} variants={ZhTextVariant}>
+              超限社會
+            </motion.div>
+            <motion.div className={styles.textBG} variants={BGVariant} />
+            <motion.div className={styles.enText} variants={EnTextVariant}>
+              The Unrestricted Society
+            </motion.div>
+          </motion.div>
+        </motion.a>
       </div>
       <div className={styles.menu}>
         <ul>
           <div>
-            {/* <div>
-              <a href="#exhibition">
-                <div className={styles.menuBtn}>EXHIBITION</div>
-                
-              </a>
-            </div> */}
             <motion.a href="#exhibition">
               <motion.div
                 className={styles.container}
@@ -378,22 +428,15 @@ export default function App() {
                 <motion.div className={styles.zhText} variants={ZhTextVariant}>
                   展覽資訊
                 </motion.div>
-
                 <motion.div className={styles.textBG} variants={BGVariant} />
                 <motion.div className={styles.enText} variants={EnTextVariant}>
-                  {" "}
-                  Exhibition{" "}
+                  Exhibition
                 </motion.div>
               </motion.div>
             </motion.a>
           </div>
 
           <div>
-            {/* <div>
-              <a href="#artist">
-                <div className={styles.menuBtn}>ARTIST</div>
-              </a>
-            </div> */}
             <motion.a href="#artist">
               <motion.div
                 className={styles.container}
@@ -404,22 +447,15 @@ export default function App() {
                 <motion.div className={styles.zhText} variants={ZhTextVariant}>
                   藝術家
                 </motion.div>
-
                 <motion.div className={styles.textBG} variants={BGVariant} />
                 <motion.div className={styles.enText} variants={EnTextVariant}>
-                  {" "}
-                  artist{" "}
+                  artist
                 </motion.div>
               </motion.div>
             </motion.a>
           </div>
 
           <div className={styles.menuBtn}>
-            {/* <div>
-              <a href="#talk">
-                <div className={styles.menuBtn}>TALK</div>
-              </a>
-            </div> */}
             <motion.a href="#talk">
               <motion.div
                 className={styles.container}
@@ -430,22 +466,15 @@ export default function App() {
                 <motion.div className={styles.zhText} variants={ZhTextVariant}>
                   講座
                 </motion.div>
-
                 <motion.div className={styles.textBG} variants={BGVariant} />
                 <motion.div className={styles.enText} variants={EnTextVariant}>
-                  {" "}
-                  Talk{" "}
+                  Talk
                 </motion.div>
               </motion.div>
             </motion.a>
           </div>
 
           <div className={styles.menuBtn}>
-            {/* <div>
-              <a href="#tour">
-                <div className={styles.menuBtn}>GUIDED TOUR</div>
-              </a>
-            </div> */}
             <motion.a href="#tour">
               <motion.div
                 className={styles.container}
@@ -459,8 +488,7 @@ export default function App() {
 
                 <motion.div className={styles.textBG} variants={BGVariant} />
                 <motion.div className={styles.enText} variants={EnTextVariant}>
-                  {" "}
-                  Guided Tour{" "}
+                  Guided Tour
                 </motion.div>
               </motion.div>
             </motion.a>
@@ -468,6 +496,7 @@ export default function App() {
         </ul>
       </div>
 
+      {/*** info ***/}
       <div className={styles.menuBtn_clab} onClick={handleOpenDrawer}>
         <motion.div
           className={styles.btnWrap}
@@ -503,7 +532,7 @@ export default function App() {
                 alignmentBaseline="top"
                 spacing="auto"
               >
-                超限社會 THE UNRESTRICTED SOCIETY 2022/09/25 - 11/27
+                超限社會 THE UNRESTRICTED SOCIETY 2022/09/24 - 11/27
               </textPath>
             </text>
           </motion.svg>
@@ -534,29 +563,43 @@ export default function App() {
       </Modal>
 
       {/*** svg background ***/}
-      <div className={styles.bgBlock}>
-        <motion.svg
-          // width="100%"
-          // height="100%"
-          viewBox={`0 0 ${screenSize.dynamicWidth} ${screenSize.dynamicHeight}`}
-          // viewBox={`0 0 3840 4990`}
-          animate={controls_viewbox}
-        >
-          {/* <image xlinkHref="/imgs/bg3.png" /> */}
-          <image xlinkHref="/imgs/bg3.png" />
-          {/* <image xlinkHref="/imgs/pattern_s.png" /> */}
-          <motion.image
-            xlinkHref="/imgs/pattern3.png"
-            animate={controls_pattern}
-            // width="100%"
-            // height="100%"
-            width={`${screenSize.dynamicWidth * 2}`}
-            // height="auto"
-            //height={`${screenSize.dynamicHeight * 1}`}
-            // width="3840px"
-          />
-        </motion.svg>
-      </div>
+      {matches == false && (
+        <div className={styles.bgBlock}>
+          <motion.svg
+            viewBox={`0 0 ${screenSize.dynamicWidth} ${screenSize.dynamicHeight}`}
+            animate={controls_viewbox}
+          >
+            <image
+              xlinkHref="/imgs/bg_4.png"
+              width={`${screenSize.dynamicWidth * 2}`}
+            />
+            <motion.image
+              xlinkHref="/imgs/pattern_4.png"
+              animate={controls_pattern}
+              width={`${screenSize.dynamicWidth * 2}`}
+            />
+          </motion.svg>
+        </div>
+      )}
+
+      {matches == true && (
+        <div className={styles.bgBlock}>
+          <motion.svg
+            viewBox={`0 0 ${screenSize.dynamicWidth} ${screenSize.dynamicHeight}`}
+            animate={controls_viewbox}
+          >
+            <image
+              xlinkHref="/imgs/bg_4.png"
+              height={`${screenSize.dynamicHeight * 2}`}
+            />
+            <motion.image
+              xlinkHref="/imgs/pattern_4.png"
+              animate={controls_pattern}
+              height={`${screenSize.dynamicHeight * 2}`}
+            />
+          </motion.svg>
+        </div>
+      )}
 
       {/*** section home ***/}
       <Section>
@@ -578,6 +621,8 @@ export default function App() {
                     controls: 1,
                     autohide: 1,
                     autoplay: 1,
+                    loop: 1,
+                    modestbranding: 1,
                   },
                 },
               }}
@@ -598,12 +643,28 @@ export default function App() {
             onClick={handleOpenEx}
             animate={controls_content}
           >
-            <div className={styles.exTitle}>超限社會策展論述</div>
-            <div className={styles.exCurator}>策展人/莊偉慈</div>
-            <div className={styles.exCurator_en}>Curator/Chuang Wei Tzu</div>
+            <div className={styles.exTitle}>展覽簡介</div>
+            <div>
+              <span className={styles.exCurator}>策展人</span>
+              <Box
+                className={styles.exCurator}
+                sx={{ display: "inline" }}
+                ml={1}
+                mr={1}
+              >
+                /
+              </Box>
+              <span className={styles.exCurator}>莊偉慈</span>
+            </div>
+
+            <div className={styles.exCurator_en}>Curator / Chuang Wei Tzu</div>
             <div className={styles.exContent}>
               「超限社會」一展中，藝術家從不同角度探討科技發展所產生的問題與困境：比如「我們即數據」意義下該如何看待數位隱私權；思索數位監控、臉部辨識以及深偽技術可能帶來的問題；或運用細胞複製技術思考糧食危機的可能選項等。除此之外，站在技術具有中介角色的特質上，展覽中的作品也可看到藝術家嘗試跨領域協作，運用新技術探索藝術觀念能如何轉化抽象的資料或內容，進而創造出新的感官體驗。
+            </div>
+            <div className={styles.exContent}>
               一直以來，技術總被視為是人類擺脫桎梏的工具，然而透過它所創造的自由是否為真，還是那樣的自由其實是幻象？在「超限社會」展覽中，將提供觀眾另一種理解技術的方式。
+            </div>
+            <div className={styles.exContent}>
               In the exhibition The Unrestricted Society, the artists probe into
               the issues and dilemmas surrounding technological development from
               different perspectives, such as the way we view digital privacy in
@@ -615,13 +676,15 @@ export default function App() {
               transdisciplinary collaboration. They employ new technologies to
               explore how artistic concepts can transmute abstract data or
               contents, insofar as to create unprecedented sensory experiences.
+            </div>
+            <div className={styles.exContent}>
               Technology has always been deemed a tool to liberate the human
               race. However, we may wonder whether the liberation it created is
               genuine freedom or all an illusion. The exhibition The
               Unrestricted Society will provide the visitors with an alternative
               way of understanding technology.
             </div>
-            <div className={styles.exMore}>more</div>
+            {/* <div className={styles.exMore}>more</div> */}
           </motion.div>
           <Modal
             open={openEx}
@@ -725,7 +788,7 @@ export default function App() {
             <div className={styles.artistLineWapper}>
               <div className={styles.artistBlk} onClick={handleOpenHsienYu}>
                 <span className={styles.artistName}>鄭先喻</span>
-                <span className={styles.artistName_en}>Hsien-Yu CHENG</span>
+                <span className={styles.artistName_en}>CHENG Hsien-Yu</span>
               </div>
               <Modal
                 open={openHsienYu}
@@ -788,10 +851,10 @@ export default function App() {
                 onClick={handleOpenSLITSCOPE}
               >
                 <span className={styles.artistName}>
-                  雙縫鏡（金制民&金根瑩）
+                  雙縫鏡（金制民、金根瑩）
                 </span>
                 <span className={styles.artistName_en}>
-                  SLITSCOPE (KIM Jae-min &KIM KeunHyoung)
+                  SLITSCOPE (KIM Jae-min, KIM Keun-Hyoung)
                 </span>
               </div>
               <Modal
@@ -854,10 +917,10 @@ export default function App() {
             <div className={styles.artistLineWapper}>
               <div className={styles.artistBlkLong} onClick={handleOpenHBFP}>
                 <span className={styles.artistName}>
-                  哈爾西．布根地 & 法蘭西絲卡．帕內塔
+                  哈爾西．布根地、法蘭西絲卡．帕內塔
                 </span>
                 <span className={styles.artistName_en}>
-                  Halsey BURGUND & Francesca PANETTA
+                  Halsey BURGUND, Francesca PANETTA
                 </span>
               </div>
               <Modal
@@ -1012,7 +1075,7 @@ export default function App() {
                   她的實驗室空間集（區秀詒、陳侑汝）
                 </span>
                 <span className={styles.artistName_en}>
-                  Her Lab Space (AU Sow Yee, CHEN Yow Ruu)
+                  Her Lab Space (AU Sow-Yee, CHEN Yow-Ruu)
                 </span>
               </div>
               <Modal
@@ -1066,10 +1129,18 @@ export default function App() {
                     Circuit×吳達坤WU Dar-Kuen（主持Moderator）
                   </div>
                   <div className={styles.talkContent}>
-                    @ 動畫創作者基地一樓多功能廳 R116 Multi-function Space of
+                    @ 動畫創作者基地1樓多功能廳 R116 Multi-function Space of
                     Creative Base for Animators
                   </div>
                 </div>
+                <a
+                  href="https://clab.org.tw/project/the-unrestricted-society-events/"
+                  target="blank"
+                >
+                  <div>
+                    <div className={styles.tourLink}>報名 sign up</div>
+                  </div>
+                </a>
               </div>
               <div className={styles.talkBlk}>
                 <div>
@@ -1080,13 +1151,21 @@ export default function App() {
                 <div>
                   <div className={styles.talkContent}>
                     法咪咪FAMEME×張永達CHANG Yung-Ta×陳乂CHEN Yi×鄭先喻CHENG
-                    Hsien-Yu×莊偉慈CHUANG Wei-Tzu（Moderator）
+                    Hsien-Yu×莊偉慈CHUANG Wei-Tzu（主持Moderator）
                   </div>
                   <div className={styles.talkContent}>
-                    @ 動畫創作者基地一樓多功能廳 R116 Multi-function Space of
+                    @ 動畫創作者基地1樓多功能廳 R116 Multi-function Space of
                     Creative Base for Animators
                   </div>
                 </div>
+                <a
+                  href="https://clab.org.tw/project/the-unrestricted-society-events/"
+                  target="blank"
+                >
+                  <div>
+                    <div className={styles.tourLink}>報名 sign up</div>
+                  </div>
+                </a>
               </div>
             </div>
             <div className={styles.talkLineWapper}>
@@ -1105,6 +1184,14 @@ export default function App() {
                     @ 西服務中心2樓 West i-CENTER, 2F
                   </div>
                 </div>
+                <a
+                  href="https://clab.org.tw/project/the-unrestricted-society-events/"
+                  target="blank"
+                >
+                  <div>
+                    <div className={styles.tourLink}>報名 sign up</div>
+                  </div>
+                </a>
               </div>
               <div className={styles.talkBlk}>
                 <div>
@@ -1124,6 +1211,130 @@ export default function App() {
                     @ CREATORS空間102 共享吧 CREATORS’Space R102 Coworking Space
                   </div>
                 </div>
+                <a
+                  href="https://clab.org.tw/project/the-unrestricted-society-events/"
+                  target="blank"
+                >
+                  <div>
+                    <div className={styles.tourLink}>報名 sign up</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div className={styles.talkLineWapper}>
+              <div className={styles.talkBlk}>
+                <div>
+                  <div className={styles.talkTitle}>
+                    假新聞，在過去，也在未來
+                  </div>
+                  <div className={styles.talkTitle}>
+                    Fake News, Not Only in the Past but Also in the Future
+                  </div>
+                </div>
+                <div className={styles.talkDate}>11／05 (SAT) 14:00-15:30 </div>
+                <div>
+                  <div className={styles.talkContent}>
+                    管中祥 KUANG Chung-Shiang
+                  </div>
+                  <div className={styles.talkContent}>
+                    @ 西服務中心2樓 West i-CENTER, 2F
+                  </div>
+                </div>
+                <a
+                  href="https://clab.org.tw/project/the-unrestricted-society-events/"
+                  target="blank"
+                >
+                  <div>
+                    <div className={styles.tourLink}>報名 sign up</div>
+                  </div>
+                </a>
+              </div>
+              <div className={styles.talkBlk}>
+                <div>
+                  <div className={styles.talkTitle}>
+                    人工智慧偏見與演算法透明義務
+                  </div>
+                  <div className={styles.talkTitle}>
+                    AI Bias and Algorithmic Transparency Obligations
+                  </div>
+                </div>
+                <div className={styles.talkDate}>11／12 (SAT) 14:00-15:30 </div>
+                <div>
+                  <div className={styles.talkContent}>
+                    宋皇志 SUNG Huang-Chih
+                  </div>
+                  <div className={styles.talkContent}>
+                    @ 動畫創作者基地1樓多功能廳 R116 Multi-function Space of
+                    Creative Base for Animators
+                  </div>
+                </div>
+                <a
+                  href="https://clab.org.tw/project/the-unrestricted-society-events/"
+                  target="blank"
+                >
+                  <div>
+                    <div className={styles.tourLink}>報名 sign up</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div className={styles.talkLineWapper}>
+              <div className={styles.talkBlk}>
+                <div>
+                  <div className={styles.talkTitle}>（吃）誰的肉？</div>
+                  <div className={styles.talkTitle}>
+                    談人造肉、科學、倫理與當代藝術的交會
+                  </div>
+                  <div className={styles.talkTitle}>(Eat) Whose Meat?</div>
+                  <div className={styles.talkTitle}>
+                    On the Encounter among Cultured Meat, Science, Ethics, and
+                    Contemporary Art
+                  </div>
+                </div>
+                <div className={styles.talkDate}>11／19 (SAT) 14:00-16:00 </div>
+                <div>
+                  <div className={styles.talkContent}>
+                    黃宗潔 HUANG Tsung-Chieh
+                  </div>
+                  <div className={styles.talkContent}>
+                    @ 動畫創作者基地1樓多功能廳 R116 Multi-function Space of
+                    Creative Base for Animators
+                  </div>
+                </div>
+                <a
+                  href="https://clab.org.tw/project/the-unrestricted-society-events/"
+                  target="blank"
+                >
+                  <div>
+                    <div className={styles.tourLink}>報名 sign up</div>
+                  </div>
+                </a>
+              </div>
+              <div className={styles.talkBlk}>
+                <div>
+                  <div className={styles.talkTitle}>藝術家座談</div>
+                  <div className={styles.talkTitle}>Artist Talk</div>
+                </div>
+                <div className={styles.talkDate}>11/27 (SUN) 18:30-19:30</div>
+                <div>
+                  <div className={styles.talkContent}>
+                    她的實驗室空間集（區秀詒、陳侑汝） Her Lab Space (AU
+                    Sow-Yee, CHEN Yow-Ruu)、莊偉慈CHUANG
+                    Wei-Tzu（主持Moderator）
+                  </div>
+                  <div className={styles.talkContent}>
+                    @ CREATORS空間102 共享吧 CREATORS’ Space R102 Coworking
+                    Space
+                  </div>
+                </div>
+                <a
+                  href="https://clab.org.tw/project/the-unrestricted-society-events/"
+                  target="blank"
+                >
+                  <div>
+                    <div className={styles.tourLink}>報名 sign up</div>
+                  </div>
+                </a>
               </div>
             </div>
           </motion.div>
@@ -1150,9 +1361,16 @@ export default function App() {
                     專家導覽 Expert Guided Tour｜邱誌勇 Chih-Yung Aaron CHIU
                   </div>
                   <div className={styles.tourContent}>
-                    @西服務中心集合 Meeting Point: West i-CENTER, 1F
+                    @西服務中心1樓集合 Meeting Point: West i-CENTER, 1F
                   </div>
                 </div>
+                <a href="https://forms.gle/cS2UZ8gcfXmPVCJY9" target="blank">
+                  <div>
+                    <div className={styles.tourLink}>
+                      團體導覽預約 Group Guided Tour reservation
+                    </div>
+                  </div>
+                </a>
               </div>
               <div className={styles.tourBlk}>
                 <div>
@@ -1165,9 +1383,16 @@ export default function App() {
                     策展人導覽 Curator’s Tour｜莊偉慈 CHUANG Wei-Tzu
                   </div>
                   <div className={styles.tourContent}>
-                    @西服務中心集合 Meeting Point: West i-CENTER, 1F
+                    @西服務中心1樓集合 Meeting Point: West i-CENTER, 1F
                   </div>
                 </div>
+                <a href="https://forms.gle/cS2UZ8gcfXmPVCJY9" target="blank">
+                  <div>
+                    <div className={styles.tourLink}>
+                      團體導覽預約 Group Guided Tour reservation
+                    </div>
+                  </div>
+                </a>
               </div>
             </div>
           </motion.div>

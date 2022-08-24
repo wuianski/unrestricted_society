@@ -17,12 +17,17 @@
   font-weight: bold;
 }
 
+@font-face {
+  font-family: 'NotoSansTC-Regular';
+  src: url('/fonts/Noto_Sans_TC/NotoSansTC-Regular.otf');
+  font-weight: regular;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Sanchez', 'GenWanMin TW', sans-serif;
 }
 
 a {
@@ -67,6 +72,7 @@ body {
   background-color: var(--background);
   color: var(--accent);
   /* padding-bottom: 100px; */
+  /* overflow: hidden; */
 }
 
 #root {
@@ -80,7 +86,7 @@ body {
 }
 
 * {
-  font-family: sofia-pro, sans-serif;
+  font-family: 'Sanchez', 'GenWanMin TW';
   font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;

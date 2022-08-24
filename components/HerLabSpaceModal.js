@@ -64,12 +64,11 @@ export default function HerLabSpaceModal() {
             conceptual art, and installation, while she creates artworks that
             explore and extend from images and the production of images, as well
             as the connections between history, politics, and power. She
-            received the Honorable Mention Award at the 2021 Taipei Art Awards,
-            and her works have been shown in the 2022 Busan Biennale—We, on the
-            Rising Wave, the 2018 Taipei Biennial: Post-Nature—A Museum as an
-            Ecosystem, etc. She is also a guest writer for online magazine No
-            Man’s Land and co-founder of Kuala Lumpur’s Rumah Attap Library and
-            Collective.
+            received the Honorable Mention Award at 2021 Taipei Art Awards, and
+            her works have been shown in Busan Biennale 2022—We, on the Rising
+            Wave, Taipei Biennial 2018: Post-Nature—A Museum as an Ecosystem,
+            etc. She is also a guest writer for online magazine No Man’s Land
+            and co-founder of Kuala Lumpur’s Rumah Attap Library and Collective.
           </div>
         </Item>
       </Stack>
@@ -103,11 +102,11 @@ export default function HerLabSpaceModal() {
             often integrate the local environment by using sound, video,
             installation, and live performances as creative tactics. Her theatre
             works as director include Hypnocity: An Immersive Musical Theatre
-            (2022), Glory Hole (the 2022 Taipei Arts Festival), Night Monster
-            (the 2022 The Taipei Childrens Arts Festival), etc. She also
-            participated in the group exhibition Letter．Callus．Post-War in
-            2019 and was selected as the sponsored artist-in-residence at
-            Akiyoshidai International Art Village in Japan in the same year.
+            (2022), Glory Hole (2022 Taipei Arts Festival), Night Monster (2022
+            Taipei Children’s Arts Festival), etc. She also participated in the
+            group exhibition Letter．Callus．Post-War in 2019 and was selected
+            as the sponsored artist-in-residence at Akiyoshidai International
+            Art Village in Japan in the same year. 
           </div>
         </Item>
       </Stack>

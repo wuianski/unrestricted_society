@@ -54,11 +54,11 @@ export default function SlitscopeModal() {
           }}
         >
           <div className={styles.Modal_content}>
-            新媒體藝術雙人組，由金制民和金根瑩組成。兩位藝術家分別活躍於藝術和科學領域，2018年因《我提問》而開啟合作機會。「雙縫鏡」取自量子力學的雙縫實驗，此實驗研究人們沒有意識到的二重性存在之間的差距。作品包含：擅聊天，和觀眾討論藝術的人工智慧《我提問》；人工智慧舞者《MADI》、人工智慧空間打造《遊戲烏托邦》和人工智慧詩人《SIA》
+            新媒體藝術雙人組，由金制民和金根瑩組成。兩位藝術家分別活躍於藝術和科學領域，2018年因《我提問》而開始合作並發展此系列作品。「雙縫鏡」取自量子力學的雙縫實驗，此實驗研究人們沒有意識到的二重性存在之間的差距。作品包含：擅聊天，和觀眾討論藝術的人工智慧《我提問》；人工智慧舞者《MADI》、人工智慧空間打造《遊戲烏托邦》和人工智慧詩人《SIA》。
           </div>
 
           <div className={styles.Modal_content}>
-            SLITSCOPE is a new media art team which consists of KIM Jae-min and
+            SLITSCOPE is a new media art team which consists of KIM Jae-Min and
             KIM Keun-Hyoung. The two artists have been active in their own
             fields, art and science respectively, and had the opportunity to
             collaborate on I Question in 2018. SLITSCOPE got its name from the

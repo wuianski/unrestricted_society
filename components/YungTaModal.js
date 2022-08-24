@@ -50,11 +50,24 @@ export default function YungTaModal() {
           }}
         >
           <div className={styles.Modal_content}>
-            1981年生於臺灣，現居於臺北。創作關注於生活中細微、易於忽略的物理現象和聲響，透過對於聲音、材質、科學、資料數據之間的實驗和研究，思考人與科技、環境之間的關係。作品形式包含聲音－影像（audio-visual）、實驗聲響、聲音裝置和現場演出。作品曾展出於：龐畢度中心梅茲分館（2021）、2020台北雙年展、ARTEFACT:
+            1981年生於臺灣，現居於臺北。創作關注於生活中細微、易於忽略的物理現象和聲響，透過對於聲音、材質、科學、資料數據之間的實驗和研究，思考人與科技、環境之間的關係。作品形式包含聲音－影像、實驗聲響、聲音裝置和現場演出。作品曾展出於：龐畢度中心梅茲分館（2021）、2020台北雙年展、ARTEFACT:
             Chernobyl 33（2019）等。
           </div>
 
-          <div className={styles.Modal_content}></div>
+          <div className={styles.Modal_content}>
+            Born in Taiwan in 1981, CHANG Yung-Ta currently lives in Taipei.
+            Drawing on the rigorous experiments and studies on sound, materials,
+            science, and data, his artistic practice explores the subtle,
+            negligible physical phenomena and aural experiences in our quotidian
+            existence to discusses the relations among humankind,
+            technologytechnology, and environment. Chang’s CHANG’s works
+            encompass multiple forms that range from audio-visual and
+            experimental sound to sound installation and live performance, as
+            presented in numerous solo exhibitions, joint exhibitions, and art
+            festivals, including You And I Do not Live on the Same Planet, the
+            adapted version of 2020 Taipei Biennial at Centre Pompidou-Metz
+            (2021), Taipei Biennial (2020), ARTEFACT: Chernobyl 33 (2019), etc.
+          </div>
         </Item>
       </Stack>
     </>
