@@ -537,7 +537,7 @@
   }
   .talkTitle{
     font-size: 20px;
-    display: inline;
+    /* display: inline; */
   }
   .talkDate{
     font-size: 16px;
@@ -552,15 +552,15 @@
 /*** section tour ***/
 .tourWapper{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
   padding: 0px;
   gap: 31px;
-  width: 26vw;
+  width: 60vw;
 }
 .tourLineWapper{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
   padding: 0px;
   gap: 34px;
@@ -574,6 +574,7 @@
   padding: 18px;
   gap: 18px;
   /* height: 61px; */
+  width: 60%;
 }
 .tourTitle{
   font-family: 'Sanchez';
@@ -632,7 +633,7 @@
 
 @media screen and (max-width: 810px) {
   .tourWapper{
-    width: 40vw;
+    width: 80vw;
     gap:  27px;
   }
   .tourLineWapper{
@@ -662,15 +663,16 @@
     flex-direction: column;
     padding: 0px;
     gap: 8px;
-    width: 60vw;
   }
   .tourLineWapper{
+    flex-direction: column;
     padding: 0px;
     gap: 30px;
   }
   .tourBlk{
     padding: 12px;
     gap: 12px;
+    width: 90vw;
   }
   .tourTitle{
     font-size: 20px;
@@ -813,9 +815,9 @@
 }
 
 .btnText {
-  font-family: 'GenWanMin TW R', 'Sanchez';
+  font-family: 'GenWanMin TW R';
   fill: #FF3600;
-  font-size: 1.6rem;
+  font-size: 25px;
 }
 
 .btnCircle {
@@ -823,7 +825,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%,-50%);
-  font-family: 'GenWanMin TW R', 'Sanchez';
+  font-family: 'GenWanMin TW R';
   color: #000;
   /* background-color: #ff0000;
   border-radius:0%;

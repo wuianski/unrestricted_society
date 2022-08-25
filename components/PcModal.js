@@ -65,7 +65,7 @@ export default function PcModal() {
             governmental and military authorities, as well as online crowds of
             ordinary people. He has won a number of awards, including Golden
             Nica first prize at Ars Electronica in Linz, 2014 and Transmediale
-            second prize in Berlin, 2006; among others awards.
+            second prize in Berlin, 2006 among others awards.
           </div>
         </Item>
       </Stack>

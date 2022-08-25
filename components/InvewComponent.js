@@ -623,6 +623,7 @@ export default function App() {
                     autoplay: 1,
                     loop: 1,
                     modestbranding: 1,
+                    playsinline: 1,
                   },
                 },
               }}
@@ -657,7 +658,7 @@ export default function App() {
               <span className={styles.exCurator}>莊偉慈</span>
             </div>
 
-            <div className={styles.exCurator_en}>Curator / Chuang Wei Tzu</div>
+            <div className={styles.exCurator_en}>Curator / CHUANG Wei Tzu</div>
             <div className={styles.exContent}>
               「超限社會」一展中，藝術家從不同角度探討科技發展所產生的問題與困境：比如「我們即數據」意義下該如何看待數位隱私權；思索數位監控、臉部辨識以及深偽技術可能帶來的問題；或運用細胞複製技術思考糧食危機的可能選項等。除此之外，站在技術具有中介角色的特質上，展覽中的作品也可看到藝術家嘗試跨領域協作，運用新技術探索藝術觀念能如何轉化抽象的資料或內容，進而創造出新的感官體驗。
             </div>
@@ -854,7 +855,7 @@ export default function App() {
                   雙縫鏡（金制民、金根瑩）
                 </span>
                 <span className={styles.artistName_en}>
-                  SLITSCOPE (KIM Jae-min, KIM Keun-Hyoung)
+                  SLITSCOPE (KIM Jae-Min, KIM Keun-Hyoung)
                 </span>
               </div>
               <Modal
@@ -1361,14 +1362,22 @@ export default function App() {
                     專家導覽 Expert Guided Tour｜邱誌勇 Chih-Yung Aaron CHIU
                   </div>
                   <div className={styles.tourContent}>
-                    @西服務中心1樓集合 Meeting Point: West i-CENTER, 1F
+                    @ 西服務中心1樓集合 Meeting Point: West i-CENTER, 1F
                   </div>
                 </div>
-                <a href="https://forms.gle/cS2UZ8gcfXmPVCJY9" target="blank">
+                {/* <a href="https://forms.gle/cS2UZ8gcfXmPVCJY9" target="blank">
                   <div>
                     <div className={styles.tourLink}>
                       團體導覽預約 Group Guided Tour reservation
                     </div>
+                  </div>
+                </a> */}
+                <a
+                  href="https://clab.org.tw/project/the-unrestricted-society-events/"
+                  target="blank"
+                >
+                  <div>
+                    <div className={styles.tourLink}>報名 sign up</div>
                   </div>
                 </a>
               </div>
@@ -1383,13 +1392,33 @@ export default function App() {
                     策展人導覽 Curator’s Tour｜莊偉慈 CHUANG Wei-Tzu
                   </div>
                   <div className={styles.tourContent}>
-                    @西服務中心1樓集合 Meeting Point: West i-CENTER, 1F
+                    @ 西服務中心1樓集合 Meeting Point: West i-CENTER, 1F
                   </div>
+                </div>
+                <a
+                  href="https://clab.org.tw/project/the-unrestricted-society-events/"
+                  target="blank"
+                >
+                  <div>
+                    <div className={styles.tourLink}>報名 sign up</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div className={styles.tourLineWapper}>
+              <div className={styles.tourBlk}>
+                <div>
+                  <div className={styles.tourTitle}>團體預約導覽</div>
+                  <div className={styles.tourTitle}>Group Guided Tours</div>
                 </div>
                 <a href="https://forms.gle/cS2UZ8gcfXmPVCJY9" target="blank">
                   <div>
                     <div className={styles.tourLink}>
-                      團體導覽預約 Group Guided Tour reservation
+                      團體預約導覽請按此填寫報名表單
+                    </div>
+                    <div className={styles.tourLink}>
+                      Group guided tours are available by reservation. Make a
+                      reservation online.
                     </div>
                   </div>
                 </a>
