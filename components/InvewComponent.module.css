@@ -146,17 +146,20 @@
   border: 1px #FF3600 solid;
   width: 64vw;
   height: 36vw;
-  scale: 0.9;
+  scale: 0.88;
 }
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 810px) {
   .vid{
     scale: 1;
   }
 }
 @media screen and (max-width: 680px) {
   .vid{
-    scale: 1.3;
-    margin-left: 5vw;
+    /* scale: 1.3; */
+    scale: 1;
+    /* margin-left: 5vw; */
+    width: 90vw;
+    height: 50.625vw;
   }
 }
 /*** /section home ***/
@@ -168,7 +171,7 @@
   width: 60vw;
   max-width: 800px;
   padding: 30px 18px 18px 18px;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .exTitle{

@@ -59,14 +59,12 @@ export default function YungTaModal() {
             Drawing on the rigorous experiments and studies on sound, materials,
             science, and data, his artistic practice explores the subtle,
             negligible physical phenomena and aural experiences in our quotidian
-            existence to discusses the relations among humankind,
-            technologytechnology, and environment. Chang’s CHANG’s works
-            encompass multiple forms that range from audio-visual and
-            experimental sound to sound installation and live performance, as
-            presented in numerous solo exhibitions, joint exhibitions, and art
-            festivals, including You And I Do not Live on the Same Planet, the
-            adapted version of 2020 Taipei Biennial at Centre Pompidou-Metz
-            (2021), Taipei Biennial (2020), ARTEFACT: Chernobyl 33 (2019), etc.
+            existence to discusses the relations among humankind, technology,
+            and environment. CHANG’s works encompass multiple forms that range
+            from audio-visual and experimental sound to sound installation and
+            live performance, as presented in numerous solo exhibitions, joint
+            exhibitions, and art festivals, including Centre Pompidou-Metz
+            (2021), Taipei Biennial (2020), ARTEFACT: Chernobyl 33 (2019), etc
           </div>
         </Item>
       </Stack>

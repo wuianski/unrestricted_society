@@ -108,7 +108,7 @@ export default function App() {
         });
         controls_pattern.start({
           rotate: [0, 5],
-          transition: { type: "spring", duration: 2 },
+          transition: { type: "spring", duration: 2.2 },
         });
         // controls_content.start({
         //   rotate: [40, -5],
@@ -611,22 +611,23 @@ export default function App() {
               url="https://www.youtube.com/watch?v=P_MbBWp79Ns"
               className={styles.react_player}
               //light="/imgs/pattern.png"
-              //controls={true}
-              config={{
-                youtube: {
-                  playerVars: {
-                    mute: 1,
-                    showinfo: 0,
-                    modestbranding: 0,
-                    controls: 1,
-                    autohide: 1,
-                    autoplay: 1,
-                    loop: 1,
-                    modestbranding: 1,
-                    playsinline: 1,
-                  },
-                },
-              }}
+              controls={true}
+              // config={{
+              //   youtube: {
+              //     playerVars: {
+              //       enablejsapi: 1,
+              //       mute: 1,
+              //       showinfo: 0,
+              //       modestbranding: 0,
+              //       controls: 1,
+              //       autohide: 1,
+              //       autoplay: 1,
+              //       loop: 1,
+              //       modestbranding: 1,
+              //       playsinline: 1,
+              //     },
+              //   },
+              // }}
             />
           </motion.div>
         </div>
@@ -658,7 +659,7 @@ export default function App() {
               <span className={styles.exCurator}>莊偉慈</span>
             </div>
 
-            <div className={styles.exCurator_en}>Curator / CHUANG Wei Tzu</div>
+            <div className={styles.exCurator_en}>Curator / CHUANG Wei-Tzu</div>
             <div className={styles.exContent}>
               「超限社會」一展中，藝術家從不同角度探討科技發展所產生的問題與困境：比如「我們即數據」意義下該如何看待數位隱私權；思索數位監控、臉部辨識以及深偽技術可能帶來的問題；或運用細胞複製技術思考糧食危機的可能選項等。除此之外，站在技術具有中介角色的特質上，展覽中的作品也可看到藝術家嘗試跨領域協作，運用新技術探索藝術觀念能如何轉化抽象的資料或內容，進而創造出新的感官體驗。
             </div>
@@ -687,7 +688,7 @@ export default function App() {
             </div>
             {/* <div className={styles.exMore}>more</div> */}
           </motion.div>
-          <Modal
+          {/* <Modal
             open={openEx}
             onClose={handleCloseEx}
             aria-labelledby="modal-modal-title"
@@ -711,7 +712,7 @@ export default function App() {
                 </div>
               </Fade>
             </div>
-          </Modal>
+          </Modal> */}
         </div>
       </Section>
 
