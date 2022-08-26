@@ -7,7 +7,7 @@ import { styled } from "@mui/material/styles";
 
 import styles from "./InfoModal.module.css";
 import map from "../public/imgs/map.png";
-import sponser from "../public/imgs/sponser.png";
+import sponser from "../public/imgs/sponsor.png";
 
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: 0,
