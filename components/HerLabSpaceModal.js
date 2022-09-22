@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
@@ -9,6 +9,13 @@ import styles from "./Modal.module.css";
 import sowYee from "../public/imgs/artist_profile/sowYee.jpg";
 import yowRuu from "../public/imgs/artist_profile/yowRuu.jpg";
 
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
+import work1 from "../public/imgs/artworks/herlabspace/herlabspace1.jpeg";
+import work2 from "../public/imgs/artworks/herlabspace/herlabspace2.jpeg";
+import work3 from "../public/imgs/artworks/herlabspace/herlabspace3.jpeg";
+import work4 from "../public/imgs/artworks/herlabspace/herlabspace5.jpeg";
+
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: 0,
   backgroundColor: "#000",
@@ -18,12 +25,24 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function HerLabSpaceModal() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [loaded, setLoaded] = useState(false);
+  const [sliderRef, instanceRef] = useKeenSlider({
+    initial: 0,
+    slideChanged(slider) {
+      setCurrentSlide(slider.track.details.rel);
+    },
+    created() {
+      setLoaded(true);
+    },
+  });
   return (
     <>
+      {/*** artist name ***/}
       <Stack
         direction={{ xs: "column", sm: "row" }}
         spacing={{ xs: 0, sm: 2, md: 4 }}
-        mb={5}
+        mb={{ xs: 0, sm: -1, md: -2 }}
         ml={2}
       >
         <Item sx={{ width: { xs: "80vw", sm: "35vw", md: "35vw" } }}>
@@ -34,6 +53,194 @@ export default function HerLabSpaceModal() {
         </Item>
       </Stack>
 
+      {/*** artwork title ***/}
+      <Stack
+        direction={{ xs: "column", sm: "row" }}
+        spacing={{ xs: 0, sm: 2, md: 4 }}
+        mb={5}
+        ml={2}
+      >
+        <Item sx={{ width: { xs: "80vw", sm: "35vw", md: "35vw" } }}>
+          <div className={styles.Modal_work}>
+            如果，家族旅行：一個世界（2022）
+          </div>
+        </Item>
+        <Item sx={{ width: "65vw", paddingRight: "10vw" }}>
+          <div className={styles.Modal_work_en_nc}>
+            A World: If, a Family Trip (2022)
+          </div>
+        </Item>
+      </Stack>
+
+      {/*** artwork slider stack ***/}
+      <Stack
+        direction={{ xs: "column" }}
+        spacing={{ xs: 0, sm: 2, md: 4 }}
+        mb={6}
+        ml={{ xs: 0, sm: 2, md: 2 }}
+      >
+        <Item
+          sx={{
+            width: { xs: "100%", sm: "100%", md: "100%" },
+            paddingRight: { xs: "0vw", sm: "10vw", md: "10vw" },
+            paddingLeft: { xs: 0, sm: 1, md: 1 },
+          }}
+        >
+          {/*** artwork sider image ***/}
+          <Box>
+            <div className="navigation-wrapper">
+              <div ref={sliderRef} className="keen-slider">
+                <div className="keen-slider__slide">
+                  <Image src={work1} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work2} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work3} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work4} alt="artworks" placeholder="blur" />
+                </div>
+              </div>
+            </div>
+            {loaded && instanceRef.current && (
+              <div className="dots">
+                {[
+                  ...Array(
+                    instanceRef.current.track.details.slides.length
+                  ).keys(),
+                ].map((idx) => {
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => {
+                        instanceRef.current?.moveToIdx(idx);
+                      }}
+                      className={
+                        "dot" + (currentSlide === idx ? " active" : "")
+                      }
+                    ></button>
+                  );
+                })}
+              </div>
+            )}
+          </Box>
+
+          {/*** artwork sider text ***/}
+          <Box pt={1} ml={2} mr={2}>
+            <Box className={styles.Modal_content} sx={{ textAlign: "center" }}>
+              《如果，家族旅行：一個世界》（2021）演出一景，李欣哲攝影
+            </Box>
+            <Box className={styles.Modal_content} sx={{ textAlign: "center" }}>
+              <Box component="span" className={styles.Modal_content} ml={1}>
+                Performance view for
+              </Box>
+              <Box
+                component="span"
+                sx={{ fontStyle: "italic" }}
+                className={styles.Modal_content}
+              >
+                If, A Family Trip: A World (2021).
+              </Box>
+              <Box component="span" className={styles.Modal_content} ml={1}>
+                Photo credit: LEE Hsin-Che
+              </Box>
+            </Box>
+          </Box>
+        </Item>
+      </Stack>
+
+      {/*** artwork text ***/}
+      <Stack
+        direction={{ xs: "column", sm: "row" }}
+        spacing={{ xs: 4, sm: 2, md: 4 }}
+        mb={5}
+        ml={2}
+      >
+        <Item sx={{ width: { xs: "80vw", sm: "35vw", md: "35vw" } }}>
+          <div className={styles.Modal_content}>2021／2022</div>
+          <div className={styles.Modal_content_nj}>
+            影像、聲音、燈光裝置，尺寸依場地而定
+          </div>
+          <div className={styles.Modal_content_nj}>
+            Video, sound, and lighting installation, dimensions variable
+          </div>
+          <Box className={styles.Modal_content_nj} pt={3}>
+            ✷本作品演出時間為 11/26（六）—11/27（日）11:00
+            -18:00，須事先報名，其餘時間未開放參觀。每趟旅程約 15 分鐘，一場限
+            10 名參與者。
+          </Box>
+          <Box component="span" className={styles.Modal_content_nj}>
+            11/15（二）
+          </Box>
+          <a href="https://www.accupass.com/go/aworld2022" target="blank">
+            <Box
+              className={styles.Modal_content_nj}
+              sx={{ borderBottom: "1px solid #fff", width: "fit-content" }}
+              component="span"
+              ml={1}
+            >
+              開放報名
+            </Box>
+          </a>
+          <Box className={styles.Modal_content_nj} pt={4}>
+            ✷The performance will only take place at 11:00-18:00 on 11/26 (SAT)
+            -11/27 (SUN). Prior registration is required. The 15-minute “trip”
+            will start with 10 passengers only.
+          </Box>
+          <Box component="span" className={styles.Modal_content_nj}>
+            11/15
+          </Box>
+          <a href="https://www.accupass.com/go/aworld2022" target="blank">
+            <Box
+              className={styles.Modal_content_nj}
+              sx={{ borderBottom: "1px solid #fff", width: "fit-content" }}
+              component="span"
+              ml={1}
+            >
+              SIGN UP
+            </Box>
+          </a>
+        </Item>
+        <Item
+          sx={{
+            width: { xs: "80vw", sm: "65vw", md: "65vw" },
+            paddingRight: { xs: "0vw", sm: "10vw", md: "10vw" },
+          }}
+        >
+          <div className={styles.Modal_content}>
+            《如果，家族旅行：一個世界（2022）》是一段恍如未來的私密旅行，敘事前沿的歌正要響起，這是聲音開始震動耳膜成為可辨感知前微幅游移的多重瞬間。
+          </div>
+          <div className={styles.Modal_content}>
+            如果世界只有一個。創作者嘗試將「世界」置換成動詞——worlding——各種權力結構（含殖民）藉由旅行和書寫，以技術和科技製圖，展開各自的世界。
+          </div>
+
+          <Box className={styles.Modal_content}>
+            <Box
+              component="span"
+              sx={{ fontStyle: "italic" }}
+              className={styles.Modal_content}
+            >
+              A World: If, a Family Trip (2022)
+            </Box>
+            <Box component="span" ml={1} className={styles.Modal_content}>
+              is a secret journey as if it were in the future. The prelude to
+              the story is a song about to start, capturing the subtle moment,
+              shifting in its plural forms, right before the sound reaches the
+              eardrum and becomes a recognizable vibration to the ear.
+            </Box>
+          </Box>
+          <Box className={styles.Modal_content}>
+            If there is only one world—and we emphasize the “if.” The artist
+            attempts to verify “world” into “worlding,” revealing how various
+            power structures (including colonization) render their own worlds
+            through traveling and writing with different mapping technologies.
+          </Box>
+        </Item>
+      </Stack>
+
+      {/*** artist bio ***/}
       <Stack
         direction={{ xs: "column", sm: "row" }}
         spacing={{ xs: 1, sm: 2, md: 4 }}
@@ -72,6 +279,7 @@ export default function HerLabSpaceModal() {
           </div>
         </Item>
       </Stack>
+
       <Stack
         direction={{ xs: "column", sm: "row" }}
         spacing={{ xs: 1, sm: 2, md: 4 }}
@@ -106,7 +314,7 @@ export default function HerLabSpaceModal() {
             Taipei Children’s Arts Festival), etc. She also participated in the
             group exhibition Letter．Callus．Post-War in 2019 and was selected
             as the sponsored artist-in-residence at Akiyoshidai International
-            Art Village in Japan in the same year. 
+            Art Village in Japan in the same year.
           </div>
         </Item>
       </Stack>

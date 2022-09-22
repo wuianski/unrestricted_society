@@ -493,6 +493,26 @@ export default function App() {
               </motion.div>
             </motion.a>
           </div>
+
+          <div className={styles.menuBtn}>
+            <motion.a href="https://giloo.ist/topics/35092" target="blank">
+              <motion.div
+                className={styles.container}
+                initial="collapsed"
+                whileHover="expanded"
+                animation="expanded"
+              >
+                <motion.div className={styles.zhText} variants={ZhTextVariant}>
+                  線上影展
+                </motion.div>
+
+                <motion.div className={styles.textBG} variants={BGVariant} />
+                <motion.div className={styles.enText} variants={EnTextVariant}>
+                  Film Festival
+                </motion.div>
+              </motion.div>
+            </motion.a>
+          </div>
         </ul>
       </div>
 
@@ -686,9 +706,9 @@ export default function App() {
               Unrestricted Society will provide the visitors with an alternative
               way of understanding technology.
             </div>
-            {/* <div className={styles.exMore}>more</div> */}
+            <div className={styles.exMore}>more...</div>
           </motion.div>
-          {/* <Modal
+          <Modal
             open={openEx}
             onClose={handleCloseEx}
             aria-labelledby="modal-modal-title"
@@ -712,7 +732,7 @@ export default function App() {
                 </div>
               </Fade>
             </div>
-          </Modal> */}
+          </Modal>
         </div>
       </Section>
 
@@ -741,7 +761,7 @@ export default function App() {
                 <div className={styles.exModal}>
                   <Fade in={openMA} timeout={1000}>
                     <div>
-                      <div
+                      <Box
                         className={styles.closeModal}
                         onClick={handleCloseMA}
                       >
@@ -751,7 +771,7 @@ export default function App() {
                           width={73}
                           height={73}
                         />
-                      </div>
+                      </Box>
                       <MaModal />
                     </div>
                   </Fade>
@@ -1120,6 +1140,73 @@ export default function App() {
           <motion.div className={styles.talkWapper} animate={controls_content}>
             <div className={styles.talkLineWapper}>
               <div className={styles.talkBlk}>
+                <div className={styles.talkDate}>
+                  ✷各場次活動將自
+                  <Box component="span" sx={{ fontWeight: "bold" }} mr={1}>
+                    9/7
+                  </Box>
+                  陸續開放報名，請關注官網「最新活動」頁面✷
+                </div>
+                <div className={styles.talkDate}>
+                  ✷Online registration will be available from{" "}
+                  <Box component="span" sx={{ fontWeight: "bold" }} mr={1}>
+                    7 September
+                  </Box>
+                  . Please visit “What’s On” page on the official website of
+                  C-LAB.✷
+                </div>
+                <div>
+                  <div className={styles.talkContent}>
+                    2022年由策展人莊偉慈所策劃的年度展覽
+                    <a
+                      href="https://clab.org.tw/events/theunrestrictedsociety/"
+                      target="blank"
+                    >
+                      <Box component="span" sx={{ fontWeight: "bold" }} mr={1}>
+                        「超限社會」
+                      </Box>
+                    </a>
+                    ，藉由各式議題的討論如演算法、數位隱私、臉部辨識、深偽技術、試管肉、加密貨幣和元宇宙等，探討科技發展所產生的問題與困境。除此之外，站在技術具有中介角色的特質上，展覽也呈現了藝術家跨領域協作的嘗試，運用新技術轉化抽象的資料或內容，進而創造出新的感官體驗。
+                  </div>
+                  <div className={styles.talkContent}>
+                    呼應本次展覽主題，C-LAB將於展覽期間（2022/09/24-11/27）推出系列講座及導覽活動，邀請科技、哲學、傳播及法律等領域的專家學者，以不同角度重新審視技術與我們之間的關係，並探討技術發展如何影響人類的生活與社會面貌。
+                  </div>
+                </div>
+                <div>
+                  <div className={styles.talkContent}>
+                    The 2022 C-LAB annual exhibition{" "}
+                    <a
+                      href="https://clab.org.tw/en/events/theunrestrictedsociety/"
+                      target="blank"
+                    >
+                      <Box component="span" sx={{ fontWeight: "bold" }} mr={1}>
+                        The Unrestricted Society
+                      </Box>
+                    </a>
+                    curated by CHUANG Wei-Tzu takes different angles on the
+                    issues and dilemmas arising from technological development,
+                    such as digital surveillance, facial recognition, and
+                    deep-fakes that involve digital privacy, as well as the
+                    feasibility of applying cloning to food crisis management.
+                    Treating technology as a medium, this exhibition also shows
+                    that the artists employ novel technologies to explore how
+                    artistic concepts can transmute abstract data and in turn
+                    create new sensory experiences.
+                  </div>
+                  <div className={styles.talkContent}>
+                    To deepen the discussion of this exhibition, the C-LAB will
+                    invite specialists and scholars from the fields of
+                    technology, philosophy, communication, and law who will
+                    collectively reconsider our relation to technology from
+                    different perspectives and investigate how technological
+                    development affects human life and society.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.talkLineWapper}>
+              <div className={styles.talkBlk}>
                 <div>
                   <div className={styles.talkTitle}>藝術家座談</div>
                   <div className={styles.talkTitle}>Artist Talk</div>
@@ -1239,7 +1326,7 @@ export default function App() {
                     管中祥 KUANG Chung-Shiang
                   </div>
                   <div className={styles.talkContent}>
-                    @ 西服務中心2樓 West i-CENTER, 2F
+                    ＠CREATORS空間102 共享吧CREATORS’Space R102 Coworking Space
                   </div>
                 </div>
                 <a

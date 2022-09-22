@@ -27,6 +27,7 @@
   letter-spacing: -0.025em;
   border: 1px solid #000000;
 }
+
 .Modal_content{
   font-family: 'GenWanMin TW EL';
   font-style: normal;
@@ -37,9 +38,46 @@
   text-align: justify;
   padding-bottom: 10px;
 }
+.Modal_content_nj{
+  font-family: 'GenWanMin TW EL';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 135%;
+  /* border: 1px solid #000000; */
+  padding-bottom: 10px;
+}
+.Modal_work{
+  font-family: 'GenWanMin TW EL';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 135%;
+  /* padding-top: 10px; */
+  letter-spacing: -0.1em;
+}
+.Modal_work_en{
+  font-family: 'Sanchez';
+  font-style: italic;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 135%;
+  /* padding-top: 10px; */
+  text-align: end;
+  text-transform: uppercase;
+}
+.Modal_work_en_nc{
+  font-family: 'Sanchez';
+  font-style: italic;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 135%;
+  /* padding-top: 10px; */
+  text-align: end;
+}
 .profileContainer{
   position: relative;
-  width: 20vw;
+  width: 12vw;
   height: auto;
 }
 .Modal_nameInGroup{
@@ -75,6 +113,18 @@
   .Modal_content{
     font-size: 15px;
   }
+  .Modal_content_nj{
+    font-size: 15px;
+  }
+  .Modal_work{
+    font-size: 17px;
+  }
+  .Modal_work_en{
+    font-size: 17px;
+  }
+  .Modal_work_en_nc{
+    font-size: 17px;
+  }
 }
 
 @media screen and (max-width: 810px) {
@@ -92,6 +142,18 @@
   }
   .Modal_content{
     font-size: 14px;
+  }
+  .Modal_content_nj{
+    font-size: 14px;
+  }
+  .Modal_work{
+    font-size: 15px;
+  }
+  .Modal_work_en{
+    font-size: 15px;
+  }
+  .Modal_work_en_nc{
+    font-size: 15px;
   }
   
 }
@@ -112,6 +174,20 @@
   }
   .Modal_content{
     font-size: 13px;
+  }
+  .Modal_content_nj{
+    font-size: 13px;
+  }
+  .Modal_work{
+    font-size: 14px;
+  }
+  .Modal_work_en{
+    font-size: 14px;
+    text-align: left;
+  }
+  .Modal_work_en_nc{
+    font-size: 14px;
+    text-align: left
   }
   .profileContainer{
     position: relative;

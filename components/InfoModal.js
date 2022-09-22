@@ -16,6 +16,7 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: "left",
   color: "#ooo",
   boxShadow: "none",
+  width: "90%",
 }));
 
 export default function InfoModal() {
@@ -184,7 +185,7 @@ export default function InfoModal() {
       >
         <Item
           sx={{
-            width: { xs: "80vw", sm: "65vw", md: "100vw" },
+            width: { xs: "80vw", sm: "65vw", md: "95vw" },
           }}
         >
           <div className={styles.mapBlk}>
@@ -193,7 +194,7 @@ export default function InfoModal() {
         </Item>
         <Item
           sx={{
-            width: { xs: "80vw", sm: "65vw", md: "50vw" },
+            width: { xs: "80vw", sm: "65vw", md: "80vw" },
           }}
         >
           <div className={styles.sponserBlk}>

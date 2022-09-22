@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
@@ -9,6 +9,12 @@ import styles from "./Modal.module.css";
 import kjm from "../public/imgs/artist_profile/kjm.jpg";
 import kkh from "../public/imgs/artist_profile/kkh.jpeg";
 
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
+import work1 from "../public/imgs/artworks/slitscope/Photo03Large.jpeg";
+import work2 from "../public/imgs/artworks/slitscope/Photo06Large.jpeg";
+import work3 from "../public/imgs/artworks/slitscope/Photo07Large.jpeg";
+
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: 0,
   backgroundColor: "#000",
@@ -18,8 +24,35 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function SlitscopeModal() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [loaded, setLoaded] = useState(false);
+  const [sliderRef, instanceRef] = useKeenSlider({
+    initial: 0,
+    slideChanged(slider) {
+      setCurrentSlide(slider.track.details.rel);
+    },
+    created() {
+      setLoaded(true);
+    },
+  });
   return (
     <>
+      {/*** artist name ***/}
+      <Stack
+        direction={{ xs: "column", sm: "row" }}
+        spacing={{ xs: 0, sm: 2, md: 4 }}
+        mb={{ xs: 0, sm: -1, md: -2 }}
+        ml={2}
+      >
+        <Item sx={{ width: { xs: "80vw", sm: "35vw", md: "35vw" } }}>
+          <div className={styles.Modal_title}>雙縫鏡 </div>
+        </Item>
+        <Item sx={{ width: "65vw", paddingRight: "10vw" }}>
+          <div className={styles.Modal_title_en}>SLITSCOPE </div>
+        </Item>
+      </Stack>
+
+      {/*** artwork title ***/}
       <Stack
         direction={{ xs: "column", sm: "row" }}
         spacing={{ xs: 0, sm: 2, md: 4 }}
@@ -27,13 +60,155 @@ export default function SlitscopeModal() {
         ml={2}
       >
         <Item sx={{ width: { xs: "80vw", sm: "35vw", md: "35vw" } }}>
-          <div className={styles.Modal_title}>雙縫鏡</div>
+          <div className={styles.Modal_work}>我提問 7.0</div>
         </Item>
         <Item sx={{ width: "65vw", paddingRight: "10vw" }}>
-          <div className={styles.Modal_title_en}>SLITSCOPE</div>
+          <div className={styles.Modal_work_en_nc}>I Question 7.0</div>
         </Item>
       </Stack>
 
+      {/*** artwork slider stack ***/}
+      <Stack
+        direction={{ xs: "column" }}
+        spacing={{ xs: 0, sm: 2, md: 4 }}
+        mb={6}
+        ml={{ xs: 0, sm: 2, md: 2 }}
+      >
+        <Item
+          sx={{
+            width: { xs: "100%", sm: "100%", md: "100%" },
+            paddingRight: { xs: "0vw", sm: "10vw", md: "10vw" },
+            paddingLeft: { xs: 0, sm: 1, md: 1 },
+          }}
+        >
+          {/*** artwork sider image ***/}
+          <Box>
+            <div className="navigation-wrapper">
+              <div ref={sliderRef} className="keen-slider">
+                <div className="keen-slider__slide">
+                  <Image src={work1} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work2} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work3} alt="artworks" placeholder="blur" />
+                </div>
+              </div>
+            </div>
+            {loaded && instanceRef.current && (
+              <div className="dots">
+                {[
+                  ...Array(
+                    instanceRef.current.track.details.slides.length
+                  ).keys(),
+                ].map((idx) => {
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => {
+                        instanceRef.current?.moveToIdx(idx);
+                      }}
+                      className={
+                        "dot" + (currentSlide === idx ? " active" : "")
+                      }
+                    ></button>
+                  );
+                })}
+              </div>
+            )}
+          </Box>
+
+          {/*** artwork sider text ***/}
+          <Box pt={1}>
+            <Box className={styles.Modal_content} sx={{ textAlign: "center" }}>
+              藝術家提供
+            </Box>
+            <Box className={styles.Modal_content} sx={{ textAlign: "center" }}>
+              Photo courtesy of the artist
+            </Box>
+          </Box>
+        </Item>
+      </Stack>
+
+      {/*** artwork text ***/}
+      <Stack
+        direction={{ xs: "column", sm: "row" }}
+        spacing={{ xs: 4, sm: 2, md: 4 }}
+        mb={5}
+        ml={2}
+      >
+        <Item sx={{ width: { xs: "80vw", sm: "35vw", md: "35vw" } }}>
+          <div className={styles.Modal_content}>2018</div>
+          <div className={styles.Modal_content_nj}>人工智慧，750×300公分</div>
+          <div className={styles.Modal_content_nj}>
+            Artificial intelligence, 750 x 300 cm
+          </div>
+          <Box className={styles.Modal_content_nj} pt={3}>
+            ✷本作品為「CREATORS國際交流計畫──ACC 」
+            <div className={styles.Modal_content_nj}>支持展出</div>
+          </Box>
+          <div className={styles.Modal_content_nj}>
+            ✷This work is supported by “CREATORS International Exchange
+            Project—ACC.”
+          </div>
+        </Item>
+        <Item
+          sx={{
+            width: { xs: "80vw", sm: "65vw", md: "65vw" },
+            paddingRight: { xs: "0vw", sm: "10vw", md: "10vw" },
+          }}
+        >
+          <div className={styles.Modal_content}>
+            《我提問7.0》開始於一個問題：「人類可以和人工智慧就藝術進行討論嗎？」
+            觀眾將透過作品所提供的QR Code
+            參與對話，並上傳照片，這些照片以人工智慧所理解的一種形象化圖像成為作品的一部分，也讓我們思量人類與機器是否可以共同進化。
+          </div>
+
+          <Box className={styles.Modal_content}>
+            <Box
+              component="span"
+              sx={{ fontStyle: "italic" }}
+              className={styles.Modal_content}
+            >
+              I Question 7.0
+            </Box>
+            <Box component="span" ml={1} className={styles.Modal_content}>
+              is an interactive media art where the artificial intelligence
+              meets and has conversations with its audiences. The project began
+              from a question, “Can human have conversations with AI about art?”
+              Audience can participate in the conversation via a provided QR
+              Code in
+            </Box>
+            <Box
+              component="span"
+              sx={{ fontStyle: "italic" }}
+              className={styles.Modal_content}
+              ml={1}
+            >
+              I Question 7.0
+            </Box>
+            <Box component="span" className={styles.Modal_content} ml={1}>
+              and post pictures of theirs. The pictures become part of the work
+              as a visualization of images that the AI has appreciated. The
+            </Box>
+            <Box
+              component="span"
+              sx={{ fontStyle: "italic" }}
+              className={styles.Modal_content}
+              ml={1}
+            >
+              I Question 7.0
+            </Box>
+            <Box component="span" className={styles.Modal_content} ml={1}>
+              also throws us a point to ponder that if humans and machines can
+              co-evolve together.
+            </Box>
+          </Box>
+        </Item>
+      </Stack>
+
+      {/*** artist bio ***/}
       <Stack
         direction={{ xs: "column", sm: "row" }}
         spacing={{ xs: 1, sm: 2, md: 4 }}
