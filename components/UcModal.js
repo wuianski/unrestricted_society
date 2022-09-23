@@ -10,8 +10,8 @@ import uc from "../public/imgs/artist_profile/uc.jpg";
 
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import work1 from "../public/imgs/artworks/uc/uc1.jpeg";
-import work2 from "../public/imgs/artworks/uc/uc3.jpeg";
+import work1 from "../public/imgs/artworks/uc/uc1.jpg";
+import work2 from "../public/imgs/artworks/uc/uc3.jpg";
 
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: 0,

@@ -11,7 +11,7 @@ import fameme from "../public/imgs/artist_profile/fameme.jpg";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import work1 from "../public/imgs/artworks/fameme/fameme1.png";
-import work2 from "../public/imgs/artworks/fameme/fameme2.png";
+import work2 from "../public/imgs/artworks/fameme/fameme2.jpg";
 import work3 from "../public/imgs/artworks/fameme/fameme3.jpg";
 
 const Item = styled(Paper)(({ theme }) => ({

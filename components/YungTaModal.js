@@ -10,8 +10,8 @@ import yungTa from "../public/imgs/artist_profile/yungTa.jpg";
 
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import work1 from "../public/imgs/artworks/yt/yt2.jpeg";
-import work2 from "../public/imgs/artworks/yt/yt6.jpeg";
+import work1 from "../public/imgs/artworks/yt/yt2.jpg";
+import work2 from "../public/imgs/artworks/yt/yt6.jpg";
 
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: 0,

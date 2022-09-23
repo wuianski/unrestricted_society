@@ -13,7 +13,7 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import work1 from "../public/imgs/artworks/slitscope/Photo03Large.jpeg";
 import work2 from "../public/imgs/artworks/slitscope/Photo06Large.jpeg";
-import work3 from "../public/imgs/artworks/slitscope/Photo07Large.jpeg";
+import work3 from "../public/imgs/artworks/slitscope/Photo07Large.jpg";
 
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: 0,
