@@ -266,16 +266,29 @@ export default function HerLabSpaceModal() {
           </div>
 
           <div className={styles.Modal_content}>
-            Born and raised in Kuala Lumpur, Malaysia, AU Sow-Yee now lives and
-            works in Taipei, Taiwan. She specializes in mixed formats of video,
-            conceptual art, and installation, while she creates artworks that
-            explore and extend from images and the production of images, as well
-            as the connections between history, politics, and power. She
-            received the Honorable Mention Award at 2021 Taipei Art Awards, and
-            her works have been shown in Busan Biennale 2022—We, on the Rising
-            Wave, Taipei Biennial 2018: Post-Nature—A Museum as an Ecosystem,
-            etc. She is also a guest writer for online magazine No Man’s Land
-            and co-founder of Kuala Lumpur’s Rumah Attap Library and Collective.
+            <Box component="span" className={styles.Modal_content}>
+              Born and raised in Kuala Lumpur, Malaysia, AU Sow-Yee now lives
+              and works in Taipei, Taiwan. She specializes in mixed formats of
+              video, conceptual art, and installation, while she creates
+              artworks that explore and extend from images and the production of
+              images, as well as the connections between history, politics, and
+              power. She received the Honorable Mention Award at 2021 Taipei Art
+              Awards, and her works have been shown in Busan Biennale 2022—We,
+              on the Rising Wave, Taipei Biennial 2018: Post-Nature—A Museum as
+              an Ecosystem, etc. She is also a guest writer for online magazine
+            </Box>
+            <Box
+              component="span"
+              sx={{ fontStyle: "italic" }}
+              className={styles.Modal_content}
+              ml={1}
+            >
+              No Man’s Land
+            </Box>
+            <Box component="span" className={styles.Modal_content} ml={1}>
+              and co-founder of Kuala Lumpur’s Rumah Attap Library and
+              Collective.
+            </Box>
           </div>
         </Item>
       </Stack>
@@ -304,17 +317,50 @@ export default function HerLabSpaceModal() {
           </div>
 
           <div className={styles.Modal_content}>
-            Born in Kaohsiung, the Taipei-based artist CHEN Yow-Ruu received her
-            MFA in Directing from the Graduate Institute of Theatre Performance
-            and Playwriting at Taipei National University of Arts. Her works
-            often integrate the local environment by using sound, video,
-            installation, and live performances as creative tactics. Her theatre
-            works as director include Hypnocity: An Immersive Musical Theatre
-            (2022), Glory Hole (2022 Taipei Arts Festival), Night Monster (2022
-            Taipei Children’s Arts Festival), etc. She also participated in the
-            group exhibition Letter．Callus．Post-War in 2019 and was selected
-            as the sponsored artist-in-residence at Akiyoshidai International
-            Art Village in Japan in the same year.
+            <Box component="span" className={styles.Modal_content}>
+              Born in Kaohsiung, the Taipei-based artist CHEN Yow-Ruu received
+              her MFA in Directing from the Graduate Institute of Theatre
+              Performance and Playwriting at Taipei National University of Arts.
+              Her works often integrate the local environment by using sound,
+              video, installation, and live performances as creative tactics.
+              Her theatre works as director include
+            </Box>
+            <Box
+              component="span"
+              sx={{ fontStyle: "italic" }}
+              className={styles.Modal_content}
+              ml={1}
+            >
+              Hypnocity: An Immersive Musical Theatre
+            </Box>
+            <Box component="span" className={styles.Modal_content} ml={1}>
+              (2022),
+            </Box>
+            <Box
+              component="span"
+              sx={{ fontStyle: "italic" }}
+              className={styles.Modal_content}
+              ml={1}
+            >
+              Glory Hole
+            </Box>
+            <Box component="span" className={styles.Modal_content} ml={1}>
+              (2022 Taipei Arts Festival),
+            </Box>
+            <Box
+              component="span"
+              sx={{ fontStyle: "italic" }}
+              className={styles.Modal_content}
+              ml={1}
+            >
+              Night Monster
+            </Box>
+            <Box component="span" className={styles.Modal_content} ml={1}>
+              (2022 Taipei Children’s Arts Festival), etc. She also participated
+              in the group exhibition Letter．Callus．Post-War in 2019 and was
+              selected as the sponsored artist-in-residence at Akiyoshidai
+              International Art Village in Japan in the same year.
+            </Box>
           </div>
         </Item>
       </Stack>

@@ -154,8 +154,7 @@ export default function HsienYuModal() {
           }}
         >
           <div className={styles.Modal_content}>
-            作品源自2019
-            年鄭先喻的個展｛同化者｝中無題作品之延伸，藉由網路伺服器端應用，搜尋並搜集地區性線上論壇與即時聊天室資訊，建立資料庫模型以及視覺產出。當網路鄉民一留言，系統運用發文或留言者的帳號去搜尋可能的個人資料與肖像照片，再藉由合成資料技術結合機器學習成像，產出一系列的假想個資。
+            作品源自2019年鄭先喻的個展｛同化者｝中無題作品之延伸，藉由網路伺服器端應用，搜尋並搜集地區性線上論壇與即時聊天室資訊，建立資料庫模型以及視覺產出。當網路鄉民一留言，系統運用發文或留言者的帳號去搜尋可能的個人資料與肖像照片，再藉由合成資料技術結合機器學習成像，產出一系列的假想個資。
           </div>
 
           <Box className={styles.Modal_content}>
@@ -167,6 +166,7 @@ export default function HsienYuModal() {
               component="span"
               sx={{ fontStyle: "italic" }}
               className={styles.Modal_content}
+              ml={1}
             >
               It Could Be You
             </Box>

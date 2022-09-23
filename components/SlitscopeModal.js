@@ -236,11 +236,62 @@ export default function SlitscopeModal() {
             SLITSCOPE is a new media art team which consists of KIM Jae-Min and
             KIM Keun-Hyoung. The two artists have been active in their own
             fields, art and science respectively, and had the opportunity to
-            collaborate on I Question in 2018. SLITSCOPE got its name from the
-            double-slit experiment, proposing to look into the gap between the
-            existential duality that we are not aware of. Some of their artworks
-            include: AI conversationalist I Question who discusses art with
-            people, AI dancer MADI, AI room maker Ludenstopia, and AI poet SIA.
+            collaborate on
+            <Box
+              component="span"
+              sx={{ fontStyle: "italic" }}
+              className={styles.Modal_content}
+              ml={1}
+            >
+              I Question
+            </Box>
+            <Box component="span" className={styles.Modal_content} ml={1}>
+              in 2018. SLITSCOPE got its name from the double-slit experiment,
+              proposing to look into the gap between the existential duality
+              that we are not aware of. Some of their artworks include: AI
+              conversationalist
+            </Box>
+            <Box
+              component="span"
+              sx={{ fontStyle: "italic" }}
+              className={styles.Modal_content}
+              ml={1}
+            >
+              I Question
+            </Box>
+            <Box component="span" className={styles.Modal_content} ml={1}>
+              who discusses art with people, AI dancer
+            </Box>
+            <Box
+              component="span"
+              sx={{ fontStyle: "italic" }}
+              className={styles.Modal_content}
+              ml={1}
+            >
+              MADI
+            </Box>
+            <Box component="span" className={styles.Modal_content} ml={1}>
+              , AI room maker
+            </Box>
+            <Box
+              component="span"
+              sx={{ fontStyle: "italic" }}
+              className={styles.Modal_content}
+              ml={1}
+            >
+              Ludenstopia
+            </Box>
+            <Box component="span" className={styles.Modal_content} ml={1}>
+              and AI poet
+            </Box>
+            <Box
+              component="span"
+              sx={{ fontStyle: "italic" }}
+              className={styles.Modal_content}
+              ml={1}
+            >
+              SIA.
+            </Box>
           </div>
         </Item>
       </Stack>

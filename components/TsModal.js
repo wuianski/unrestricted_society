@@ -179,7 +179,7 @@ export default function TsModal() {
               as well as the ethical aspect of laboratory processes.
             </Box>
 
-            <Box component="span" className={styles.Modal_content}>
+            <Box component="span" ml={1} className={styles.Modal_content}>
               SCHUBERT has drawn the radical consequence that if we see the
               human as an animal, then we should also be material and food. The
               resulting performance

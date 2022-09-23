@@ -37,6 +37,20 @@ import InfoModal from "./InfoModal";
 import Box from "@mui/material/Box";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
+import t1 from "../public/imgs/talk/區秀詒.png";
+import t2 from "../public/imgs/talk/吳達坤.png";
+import t3 from "../public/imgs/talk/宋皇志.png";
+import t4 from "../public/imgs/talk/張永達.png";
+import t5 from "../public/imgs/talk/法咪咪.png";
+import t6 from "../public/imgs/talk/羅禾淋.png";
+import t7 from "../public/imgs/talk/莊偉慈.png";
+import t8 from "../public/imgs/talk/邱誌勇.png";
+import t9 from "../public/imgs/talk/鄭先喻.png";
+import t10 from "../public/imgs/talk/陳乂.png";
+import t11 from "../public/imgs/talk/陳侑汝.png";
+import t12 from "../public/imgs/talk/黃宗潔.png";
+import t13 from "../public/imgs/talk/黃豆泥.png";
+
 function Section({ children }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
@@ -665,7 +679,18 @@ export default function App() {
             onClick={handleOpenEx}
             animate={controls_content}
           >
-            <div className={styles.exTitle}>展覽簡介</div>
+            <Box className={styles.exTitle}>
+              <Box component="span" className={styles.exTitle}>
+                策展論述
+              </Box>
+              <Box
+                sx={{ display: { xs: "block", sm: "block", md: "inline" } }}
+                className={styles.exTitle_en}
+                ml={{ xs: 0, sm: 0, md: 2 }}
+              >
+                Curatorial Statement
+              </Box>
+            </Box>
             <div>
               <span className={styles.exCurator}>策展人</span>
               <Box
@@ -1145,7 +1170,7 @@ export default function App() {
                   <Box component="span" sx={{ fontWeight: "bold" }} mr={1}>
                     9/7
                   </Box>
-                  陸續開放報名，請關注官網「最新活動」頁面✷
+                  陸續開放報名，請關注C-LAB官網「最新活動」頁面✷
                 </div>
                 <div className={styles.talkDate}>
                   ✷Online registration will be available from{" "}
@@ -1213,6 +1238,16 @@ export default function App() {
                 </div>
                 <div className={styles.talkDate}>09／24 (SAT) 14:00-15:30</div>
                 <div>
+                  <Box>
+                    <Box component="span">
+                      <Image
+                        src={t2}
+                        alt="photo of speaker"
+                        width={38}
+                        height={38}
+                      />
+                    </Box>
+                  </Box>
                   <div className={styles.talkContent}>
                     金根瑩KIM Keun-Hyoung×哀傷電路Unhappy
                     Circuit×吳達坤WU Dar-Kuen（主持Moderator）
@@ -1238,6 +1273,48 @@ export default function App() {
                 </div>
                 <div className={styles.talkDate}>10／02 (SUN) 17:00-18:30 </div>
                 <div>
+                  <Box>
+                    <Box component="span">
+                      <Image
+                        src={t5}
+                        alt="photo of speaker"
+                        width={38}
+                        height={38}
+                      />
+                    </Box>
+                    <Box component="span">
+                      <Image
+                        src={t4}
+                        alt="photo of speaker"
+                        width={38}
+                        height={38}
+                      />
+                    </Box>
+                    <Box component="span">
+                      <Image
+                        src={t10}
+                        alt="photo of speaker"
+                        width={38}
+                        height={38}
+                      />
+                    </Box>
+                    <Box component="span">
+                      <Image
+                        src={t9}
+                        alt="photo of speaker"
+                        width={38}
+                        height={38}
+                      />
+                    </Box>
+                    <Box component="span">
+                      <Image
+                        src={t7}
+                        alt="photo of speaker"
+                        width={38}
+                        height={38}
+                      />
+                    </Box>
+                  </Box>
                   <div className={styles.talkContent}>
                     法咪咪FAMEME×張永達CHANG Yung-Ta×陳乂CHEN Yi×鄭先喻CHENG
                     Hsien-Yu×莊偉慈CHUANG Wei-Tzu（主持Moderator）
@@ -1268,6 +1345,16 @@ export default function App() {
                 </div>
                 <div className={styles.talkDate}>10／15 (SAT) 14:00-16:00 </div>
                 <div>
+                  <Box>
+                    <Box component="span">
+                      <Image
+                        src={t13}
+                        alt="photo of speaker"
+                        width={38}
+                        height={38}
+                      />
+                    </Box>
+                  </Box>
                   <div className={styles.talkContent}>黃豆泥 mashbean</div>
                   <div className={styles.talkContent}>
                     @ 西服務中心2樓 West i-CENTER, 2F
@@ -1295,6 +1382,16 @@ export default function App() {
                 </div>
                 <div className={styles.talkDate}>10／29 (SAT) 14:00-16:00 </div>
                 <div>
+                  <Box>
+                    <Box component="span">
+                      <Image
+                        src={t6}
+                        alt="photo of speaker"
+                        width={38}
+                        height={38}
+                      />
+                    </Box>
+                  </Box>
                   <div className={styles.talkContent}>羅禾淋 LUO He-Lin</div>
                   <div className={styles.talkContent}>
                     @ CREATORS空間102 共享吧 CREATORS’Space R102 Coworking Space
@@ -1323,7 +1420,7 @@ export default function App() {
                 <div className={styles.talkDate}>11／05 (SAT) 14:00-15:30 </div>
                 <div>
                   <div className={styles.talkContent}>
-                    管中祥 KUANG Chung-Shiang
+                    管中祥 KUANG Chung-Hshiang
                   </div>
                   <div className={styles.talkContent}>
                     ＠CREATORS空間102 共享吧CREATORS’Space R102 Coworking Space
@@ -1349,6 +1446,16 @@ export default function App() {
                 </div>
                 <div className={styles.talkDate}>11／12 (SAT) 14:00-15:30 </div>
                 <div>
+                  <Box>
+                    <Box component="span">
+                      <Image
+                        src={t3}
+                        alt="photo of speaker"
+                        width={38}
+                        height={38}
+                      />
+                    </Box>
+                  </Box>
                   <div className={styles.talkContent}>
                     宋皇志 SUNG Huang-Chih
                   </div>
@@ -1382,6 +1489,16 @@ export default function App() {
                 </div>
                 <div className={styles.talkDate}>11／19 (SAT) 14:00-16:00 </div>
                 <div>
+                  <Box>
+                    <Box component="span">
+                      <Image
+                        src={t12}
+                        alt="photo of speaker"
+                        width={38}
+                        height={38}
+                      />
+                    </Box>
+                  </Box>
                   <div className={styles.talkContent}>
                     黃宗潔 HUANG Tsung-Chieh
                   </div>
@@ -1406,6 +1523,33 @@ export default function App() {
                 </div>
                 <div className={styles.talkDate}>11/27 (SUN) 18:30-19:30</div>
                 <div>
+                  <Box>
+                    <Box component="span">
+                      <Image
+                        src={t1}
+                        alt="photo of speaker"
+                        width={38}
+                        height={38}
+                      />
+                    </Box>
+                    <Box component="span">
+                      <Image
+                        src={t11}
+                        alt="photo of speaker"
+                        width={38}
+                        height={38}
+                      />
+                    </Box>
+                    <Box component="span">
+                      <Image
+                        src={t7}
+                        alt="photo of speaker"
+                        width={38}
+                        height={38}
+                      />
+                    </Box>
+                  </Box>
+
                   <div className={styles.talkContent}>
                     她的實驗室空間集（區秀詒、陳侑汝） Her Lab Space (AU
                     Sow-Yee, CHEN Yow-Ruu)、莊偉慈CHUANG
@@ -1446,6 +1590,16 @@ export default function App() {
                 </div>
                 <div className={styles.tourDate}>10／02 (SUN) 14:00-15:00</div>
                 <div>
+                  <Box>
+                    <Box component="span">
+                      <Image
+                        src={t8}
+                        alt="photo of speaker"
+                        width={38}
+                        height={38}
+                      />
+                    </Box>
+                  </Box>
                   <div className={styles.tourContent}>
                     專家導覽 Expert Guided Tour｜邱誌勇 Chih-Yung Aaron CHIU
                   </div>
@@ -1476,6 +1630,16 @@ export default function App() {
                 </div>
                 <div className={styles.tourDate}>11／06 (SUN) 14:00-15:00 </div>
                 <div>
+                  <Box>
+                    <Box component="span">
+                      <Image
+                        src={t7}
+                        alt="photo of speaker"
+                        width={38}
+                        height={38}
+                      />
+                    </Box>
+                  </Box>
                   <div className={styles.tourContent}>
                     策展人導覽 Curator’s Tour｜莊偉慈 CHUANG Wei-Tzu
                   </div>

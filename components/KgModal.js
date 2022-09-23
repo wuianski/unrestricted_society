@@ -175,6 +175,7 @@ export default function KgModal() {
               component="span"
               sx={{ fontStyle: "italic" }}
               className={styles.Modal_content}
+              ml={1}
             >
               Not Allowed for Algorithmic Audiences
             </Box>
@@ -209,8 +210,8 @@ export default function KgModal() {
           }}
         >
           <div className={styles.Modal_content}>
-            媒體藝術家，定居雅典。擅用多媒材，以創作探索科技的政治、情感和環境層面。關注開發主義、監視、分散式網路，以及人與非人類的關係，其裝置作品建立另類的生態系統。曾受機構委託，並在全球各地以個人和團體的形式展出，包含「2021林茲電子藝術節」、2020年「摩登之愛（或稱冷親密時代的愛情）」、「2020
-            Transmediale跨媒體藝術節」等。
+            媒體藝術家，定居雅典。擅用多媒材，以創作探索科技的政治、情感和環境層面。關注開發主義、監視、分散式網路，以及人與非人類的關係，其裝置作品建立另類的生態系統。曾受機構委託，並在全球各地以個人和團體的形式展出，包含2021林茲電子藝術節、2020年摩登之愛（或稱冷親密時代的愛情）、2020
+            Transmediale跨媒體藝術節等。
           </div>
 
           <div className={styles.Modal_content}>
