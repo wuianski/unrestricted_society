@@ -150,26 +150,25 @@ export default function ExModal() {
 
           <Box component="ol" pt={3} pb={3}>
             <li className={styles.Modal_content}>
-              美國學者路易斯・芒福德 (Lewis MUMFORD) 於 《機器神話》
-              一書中所提出。
+              美國學者路易斯・芒福德（Lewis
+              MUMFORD）於《機器神話》一書中所提出。
             </li>
             <li className={styles.Modal_content}>
-              唐・伊德 (Don IHDE) 著,韓連慶譯, 《讓事物說話-後現象學與技術科學》
-              ,北京大學,2008年5月,59-61頁。
+              唐・伊德（Don
+              IHDE）著,韓連慶譯，《讓事物說話-後現象學與技術科學》，北京大學，2008
+              年 5月，59-61 頁。
             </li>
             <li className={styles.Modal_content}>
-              這個名詞源於哈佛大學教授祖波夫 (Shoshana ZUBOFF) 的著作
-              《監控資本主義:在新的權力前沿為人類未來而戰》。
+              這個名詞源於哈佛大學教授祖波夫（Shoshana
+              ZUBOFF）的著作《監控資本主義：在新的權力前沿為人類未來而戰》。
             </li>
             <li className={styles.Modal_content}>
-              羅布・基欽 (Rob KITCHIN)、阿里斯泰爾・弗瑞瑟 (Alistair FRASER)
-              著,黃開譯, 《數位監控:我們如何拿回均衡的科技生活》
-              ,時報文化,2021年12月,109頁。
+              羅布・基欽（Rob KITCHIN）、阿里斯泰爾・弗瑞瑟（Alistair
+              FRASER）著，黃開譯，《數位監控：我們如何拿回均衡的科技生活》，,時報文化，2021
+              年 12 月，109 頁。
             </li>
             <li className={styles.Modal_content}>
-              「超限」一詞來自中國作家喬良和前中國人民解放軍空軍大校王湘穗在其著作
-              《超限戰》
-              一書中所提出的概念,「超限戰」是與傳統戰爭不同的新戰爭手段,指的是以一切手段,超越傳統戰爭手段範圍的新型戰爭形式,特別著重技術在戰爭中的角色。
+              「超限」一詞來自中國作家喬良和前中國人民解放軍空軍大校王湘穗在其著作《超限戰》一書中所提出的概念，「超限戰」是與傳統戰爭不同的新戰爭手段，指的是以一切手段，超越傳統戰爭手段範圍的新型戰爭形式，特別著重技術在戰爭中的角色。
             </li>
           </Box>
 
