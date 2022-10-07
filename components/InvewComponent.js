@@ -642,7 +642,7 @@ export default function App() {
             <ReactPlayer
               width="100%"
               height="100%"
-              url="https://www.youtube.com/watch?v=P_MbBWp79Ns"
+              url="https://www.youtube.com/watch?v=tvBFKKhlYqM"
               className={styles.react_player}
               //light="/imgs/pattern.png"
               controls={true}
