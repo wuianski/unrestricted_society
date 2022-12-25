@@ -10,10 +10,12 @@ import ts from "../public/imgs/artist_profile/ts.jpg";
 
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import work1 from "../public/imgs/artworks/ts/ts3.jpeg";
-import work2 from "../public/imgs/artworks/ts/ts4.jpeg";
-import work3 from "../public/imgs/artworks/ts/ts5.jpeg";
-import work4 from "../public/imgs/artworks/ts/ts7.jpeg";
+import work1 from "../public/imgs/artworks/ts/001 Large.jpeg";
+import work2 from "../public/imgs/artworks/ts/002 Large.jpeg";
+import work3 from "../public/imgs/artworks/ts/003 Large.jpeg";
+import work4 from "../public/imgs/artworks/ts/004 Large.jpeg";
+import work5 from "../public/imgs/artworks/ts/005 Large.jpeg";
+import work6 from "../public/imgs/artworks/ts/006 Large.jpeg";
 
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: 0,
@@ -97,6 +99,12 @@ export default function TsModal() {
                 <div className="keen-slider__slide">
                   <Image src={work4} alt="artworks" placeholder="blur" />
                 </div>
+                <div className="keen-slider__slide">
+                  <Image src={work5} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work6} alt="artworks" placeholder="blur" />
+                </div>
               </div>
             </div>
             {loaded && instanceRef.current && (
@@ -123,14 +131,14 @@ export default function TsModal() {
           </Box>
 
           {/*** artwork sider text ***/}
-          <Box pt={1}>
+          {/* <Box pt={1}>
             <Box className={styles.Modal_content} sx={{ textAlign: "center" }}>
               卡佩利卡藝廊提供，Tina LAGLER 攝影
             </Box>
             <Box className={styles.Modal_content} sx={{ textAlign: "center" }}>
               Photo courtesy of Kapelica Gallery, photo credit: Tina LAGLER
             </Box>
-          </Box>
+          </Box> */}
         </Item>
       </Stack>
 
@@ -160,8 +168,10 @@ export default function TsModal() {
           }}
         >
           <div className={styles.Modal_content}>
-            《（吃）我的肉》要人們重新評估我們與肉、身體和物質的關係，以及實驗室流程的倫理面。
-            運用創新的生物科技，舒柏特的演出行動遊走於鍊金術和未來工業元素之間，作品質疑人體的不可侵犯性，同時批評資本主義的肉類生產。這個看似使人類受傷害的行為，意在喚醒人們對生命政治的認知，進而能更有意識地面對自然與所有生物。
+            面對當前科技已滲入社會每個層面，且最終得以重構人類身體的時代，《（吃）我的肉》要人們重新評估我們與肉、身體和物質的關係，以及實驗室流程的倫理面。
+          </div>
+          <div className={styles.Modal_content}>
+            許多後人類主義思想家都強調以非人類中心的視角來觀看世界，停止對物種進行等級劃分。舒柏特在此提出了更激進的結論：如果我們將人類也視為一種動物，那麼人也應該是物質和食物。她拿自己作實驗，從血液裡分離出血清，以此複製出她的肌肉細胞，成為以人類組織為基礎的培植肉；此舉消融了人與動物間既有的消費主義階級，並提出食物供給的新觀點。運用創新的生物科技，舒柏特的演出行動遊走於煉金術和未來工業元素之間，作品質疑人體的不可侵犯性，同時批評資本主義的肉類生產。這個看似使人類受傷害的行為，意在喚醒人們對生命政治的認知，進而能更有意識地面對自然與所有生物。{" "}
           </div>
 
           <Box className={styles.Modal_content}>
@@ -178,11 +188,36 @@ export default function TsModal() {
               of our society and finally also made our bodies reconstructable,
               as well as the ethical aspect of laboratory processes.
             </Box>
+          </Box>
 
+          <Box className={styles.Modal_content}>
+            <Box component="span" className={styles.Modal_content}>
+              Many thinkers of Posthumanism stress a non-human-centred
+              perspective on the world that we should stop hierarchizing
+              species. SCHUBERT has drawn the radical consequence that if we see
+              the human as an animal, then we should also be material and food.
+              In the project
+            </Box>
+            <Box
+              component="span"
+              sx={{ fontStyle: "italic" }}
+              className={styles.Modal_content}
+              ml={1}
+            >
+              mEat me
+            </Box>
             <Box component="span" ml={1} className={styles.Modal_content}>
-              SCHUBERT has drawn the radical consequence that if we see the
-              human as an animal, then we should also be material and food. The
-              resulting performance
+              , a serum, gained out of her own blood, was used to reproduce her
+              muscle cells that had prior been extracted. The resulting cultured
+              meat based on human tissue shifts normative borders and dissolves
+              the consumerist hierarchies between humans and animals to suggest
+              a new perspective on food supply.
+            </Box>
+          </Box>
+
+          <Box className={styles.Modal_content}>
+            <Box component="span" className={styles.Modal_content}>
+              The resulting performance
             </Box>
             <Box
               component="span"

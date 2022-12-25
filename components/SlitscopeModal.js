@@ -11,9 +11,12 @@ import kkh from "../public/imgs/artist_profile/kkh.jpeg";
 
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import work1 from "../public/imgs/artworks/slitscope/Photo03Large.jpeg";
-import work2 from "../public/imgs/artworks/slitscope/Photo06Large.jpeg";
-import work3 from "../public/imgs/artworks/slitscope/Photo07Large.jpg";
+import work1 from "../public/imgs/artworks/slitscope/001 Large.jpeg";
+import work2 from "../public/imgs/artworks/slitscope/002 Large.jpeg";
+import work3 from "../public/imgs/artworks/slitscope/003 Large.jpeg";
+import work4 from "../public/imgs/artworks/slitscope/004 Large.jpeg";
+import work5 from "../public/imgs/artworks/slitscope/005 Large.jpeg";
+import work6 from "../public/imgs/artworks/slitscope/006 Large.jpeg";
 
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: 0,
@@ -94,6 +97,15 @@ export default function SlitscopeModal() {
                 <div className="keen-slider__slide">
                   <Image src={work3} alt="artworks" placeholder="blur" />
                 </div>
+                <div className="keen-slider__slide">
+                  <Image src={work4} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work5} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work6} alt="artworks" placeholder="blur" />
+                </div>
               </div>
             </div>
             {loaded && instanceRef.current && (
@@ -120,14 +132,14 @@ export default function SlitscopeModal() {
           </Box>
 
           {/*** artwork sider text ***/}
-          <Box pt={1}>
+          {/* <Box pt={1}>
             <Box className={styles.Modal_content} sx={{ textAlign: "center" }}>
               藝術家提供
             </Box>
             <Box className={styles.Modal_content} sx={{ textAlign: "center" }}>
               Photo courtesy of the artist
             </Box>
-          </Box>
+          </Box> */}
         </Item>
       </Stack>
 
@@ -160,9 +172,12 @@ export default function SlitscopeModal() {
           }}
         >
           <div className={styles.Modal_content}>
-            《我提問7.0》開始於一個問題：「人類可以和人工智慧就藝術進行討論嗎？」
-            觀眾將透過作品所提供的QR Code
-            參與對話，並上傳照片，這些照片以人工智慧所理解的一種形象化圖像成為作品的一部分，也讓我們思量人類與機器是否可以共同進化。
+            這件互動媒體藝術作品，讓人工智慧在此與觀眾見面並進行對話。《我提問7.0》開始於一個問題：「人類可以和人工智慧就藝術進行討論嗎？」從這第一個問題被拋出以來，人工智慧透過學習人類各種問題的答案而不斷進化，並提出一些沒有正確答案的問題，譬如和人們討論藝術，從中或許能帶給我們對藝術的更多想法。
+          </div>
+          <div className={styles.Modal_content}>
+            觀眾將透過作品所提供的QR Code 參與對話，並上傳照片，這些照片以
+            人工智慧所理解的一種形象化圖像成為作品的一部分，也讓我們思量人類
+            與機器是否可以共同進化。
           </div>
 
           <Box className={styles.Modal_content}>

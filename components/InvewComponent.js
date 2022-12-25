@@ -14,8 +14,6 @@ import ReactPlayer from "react-player";
 
 import Image from "next/image";
 import closeIcon from "../public/imgs/close_icon.jpg";
-// import profilePic from "../public/imgs/artist_temp.png";
-// import VideoInSVG from "./VideoInSVG";
 import UserWindow from "./UserWindow";
 
 import Modal from "@mui/material/Modal";
@@ -36,6 +34,8 @@ import InfoModal from "./InfoModal";
 
 import Box from "@mui/material/Box";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { useKeenSlider } from "keen-slider/react";
+import "keen-slider/keen-slider.min.css";
 
 import t1 from "../public/imgs/talk/區秀詒.png";
 import t2 from "../public/imgs/talk/吳達坤.png";
@@ -50,6 +50,80 @@ import t10 from "../public/imgs/talk/陳乂.png";
 import t11 from "../public/imgs/talk/陳侑汝.png";
 import t12 from "../public/imgs/talk/黃宗潔.png";
 import t13 from "../public/imgs/talk/黃豆泥.png";
+
+import t21 from "../public/imgs/talk/倫納德.png";
+import t22 from "../public/imgs/talk/徐祥昊.png";
+import t23 from "../public/imgs/talk/李收玲.png";
+import t24 from "../public/imgs/talk/金泰潤.png";
+import t25 from "../public/imgs/talk/金聖淵.png";
+import t26 from "../public/imgs/talk/駱麗真.png";
+
+import t27 from "../public/imgs/talk/金根瑩.png";
+import t28 from "../public/imgs/talk/哀傷電路.png";
+
+import tt12_1 from "../public/imgs/tour/12/01 Large.jpeg";
+import tt12_2 from "../public/imgs/tour/12/02 Large.jpeg";
+import tt12_3 from "../public/imgs/tour/12/03 Large.jpeg";
+import tt12_4 from "../public/imgs/tour/12/04 Large.jpeg";
+
+import tt2_1 from "../public/imgs/tour/02/01 Large.jpeg";
+import tt2_2 from "../public/imgs/tour/02/02 Large.jpeg";
+import tt2_3 from "../public/imgs/tour/02/03 Large.jpeg";
+import tt2_4 from "../public/imgs/tour/02/04 Large.jpeg";
+
+import tt6_1 from "../public/imgs/tour/06/01 Large.jpeg";
+import tt6_2 from "../public/imgs/tour/06/02 Large.jpeg";
+import tt6_3 from "../public/imgs/tour/06/03 Large.jpeg";
+import tt6_4 from "../public/imgs/tour/06/04 Large.jpeg";
+
+import tt11_1 from "../public/imgs/talk/11/01 Large.jpeg";
+import tt11_2 from "../public/imgs/talk/11/02 Large.jpeg";
+import tt11_3 from "../public/imgs/talk/11/03 Large.jpeg";
+import tt11_4 from "../public/imgs/talk/11/04 Large.jpeg";
+import tt11_5 from "../public/imgs/talk/11/05 Large.jpeg";
+import tt11_6 from "../public/imgs/talk/11/06 Large.jpeg";
+import tt11_7 from "../public/imgs/talk/11/07 Large.jpeg";
+import tt11_8 from "../public/imgs/talk/11/08 Large.jpeg";
+
+import tt1_1 from "../public/imgs/talk/01/01 Large.jpeg";
+import tt1_2 from "../public/imgs/talk/01/02 Large.jpeg";
+import tt1_3 from "../public/imgs/talk/01/03 Large.jpeg";
+import tt1_4 from "../public/imgs/talk/01/04 Large.jpeg";
+
+import tt3_1 from "../public/imgs/talk/03/01 Large.jpeg";
+import tt3_2 from "../public/imgs/talk/03/02  Large.jpeg";
+import tt3_3 from "../public/imgs/talk/03/03 Large.jpeg";
+import tt3_4 from "../public/imgs/talk/03/04 Large.jpeg";
+import tt3_5 from "../public/imgs/talk/03/05 Large.jpeg";
+import tt3_6 from "../public/imgs/talk/03/06 Large.jpeg";
+import tt3_7 from "../public/imgs/talk/03/07 Large.jpeg";
+
+import tt4_1 from "../public/imgs/talk/04/01 Large.jpeg";
+import tt4_2 from "../public/imgs/talk/04/02 Large.jpeg";
+import tt4_3 from "../public/imgs/talk/04/03 Large.jpeg";
+import tt4_4 from "../public/imgs/talk/04/04 Large.jpeg";
+
+import tt5_1 from "../public/imgs/talk/05/01 Large.jpeg";
+import tt5_2 from "../public/imgs/talk/05/02 Large.jpeg";
+import tt5_3 from "../public/imgs/talk/05/03 Large.jpeg";
+import tt5_4 from "../public/imgs/talk/05/04 Large.jpeg";
+
+import tt7_1 from "../public/imgs/talk/07/01 Large.jpeg";
+import tt7_2 from "../public/imgs/talk/07/02 Large.jpeg";
+import tt7_3 from "../public/imgs/talk/07/03 Large.jpeg";
+import tt7_4 from "../public/imgs/talk/07/04 Large.jpeg";
+
+import tt8_1 from "../public/imgs/talk/08/01 Large.jpeg";
+import tt8_2 from "../public/imgs/talk/08/02 Large.jpeg";
+
+import tt9_1 from "../public/imgs/talk/09/01 Large.jpeg";
+import tt9_2 from "../public/imgs/talk/09/02 Large.jpeg";
+import tt9_3 from "../public/imgs/talk/09/03 Large.jpeg";
+
+import tt10_1 from "../public/imgs/talk/10/01 Large.jpeg";
+import tt10_2 from "../public/imgs/talk/10/02 Large.jpeg";
+import tt10_3 from "../public/imgs/talk/10/03 Large.jpeg";
+import tt10_4 from "../public/imgs/talk/10/04 Large.jpeg";
 
 function Section({ children }) {
   const ref = useRef(null);
@@ -92,7 +166,6 @@ export default function App() {
   const controls_content = useAnimationControls();
 
   // const dynamicWidth = UserWindow();
-
   const [screenSize, getDimension] = useState({
     dynamicWidth: window.innerWidth,
     dynamicHeight: window.innerHeight,
@@ -269,62 +342,50 @@ export default function App() {
   const [openEx, setOpenEx] = useState(false);
   const handleOpenEx = () => setOpenEx(true);
   const handleCloseEx = () => setOpenEx(false);
-
   /*** modal Memo AKTEN ***/
   const [openMA, setOpenMA] = useState(false);
   const handleOpenMA = () => setOpenMA(true);
   const handleCloseMA = () => setOpenMA(false);
-
   /*** modal Kyriaki GONI ***/
   const [openKG, setOpenKG] = useState(false);
   const handleOpenKG = () => setOpenKG(true);
   const handleCloseKG = () => setOpenKG(false);
-
   /*** modal Hsien-Yu CHENG ***/
   const [openHsienYu, setOpenHsienYu] = useState(false);
   const handleOpenHsienYu = () => setOpenHsienYu(true);
   const handleCloseHsienYu = () => setOpenHsienYu(false);
-
   /*** modal Paolo CIRIO ***/
   const [openPC, setOpenPC] = useState(false);
   const handleOpenPC = () => setOpenPC(true);
   const handleClosePC = () => setOpenPC(false);
-
   /*** modal SLITSCOPE ***/
   const [openSLITSCOPE, setOpenSLITSCOPE] = useState(false);
   const handleOpenSLITSCOPE = () => setOpenSLITSCOPE(true);
   const handleCloseSLITSCOPE = () => setOpenSLITSCOPE(false);
-
   /*** modal Theresa SCHUBERT ***/
   const [openTS, setOpenTS] = useState(false);
   const handleOpenTS = () => setOpenTS(true);
   const handleCloseTS = () => setOpenTS(false);
-
   /*** modal Halsey BURGUND & Francesca PANETTA ***/
   const [openHBFP, setOpenHBFP] = useState(false);
   const handleOpenHBFP = () => setOpenHBFP(true);
   const handleCloseHBFP = () => setOpenHBFP(false);
-
   /*** modal CHEN Yi ***/
   const [openCY, setOpenCY] = useState(false);
   const handleOpenCY = () => setOpenCY(true);
   const handleCloseCY = () => setOpenCY(false);
-
   /*** modal Unhappy Circuit ***/
   const [openUC, setOpenUC] = useState(false);
   const handleOpenUC = () => setOpenUC(true);
   const handleCloseUC = () => setOpenUC(false);
-
   /*** modal CHANG Yung-Ta ***/
   const [openYungTa, setOpenYungTa] = useState(false);
   const handleOpenYungTa = () => setOpenYungTa(true);
   const handleCloseYungTa = () => setOpenYungTa(false);
-
   /*** modal FAMEME ***/
   const [openFameme, setOpenFameme] = useState(false);
   const handleOpenFameme = () => setOpenFameme(true);
   const handleCloseFameme = () => setOpenFameme(false);
-
   /*** modal Her Lab Space ***/
   const [openHLS, setOpenHLS] = useState(false);
   const handleOpenHLS = () => setOpenHLS(true);
@@ -333,12 +394,9 @@ export default function App() {
   /*** Btn rotation effect ***/
   const textSvRef = useRef(null);
   const [isBtnHovered, setBtnHovered] = useState(false);
-
   const time = useTime();
-
   const rotate = useTransform(time, [0, 40000], [0, 360], { clamp: false });
   const pause = useTransform(time, [0, 40000], [0, 0], { clamp: true });
-
   const btnBgVariants = {
     rest: {
       backgroundColor: "rgba(255, 0,0, 0.9)",
@@ -407,6 +465,162 @@ export default function App() {
   const [openDrawer, setOpenDrawer] = useState(false);
   const handleOpenDrawer = () => setOpenDrawer(true);
   const handleCloseDrawer = () => setOpenDrawer(false);
+
+  /*** tt12 slider ***/
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [loaded, setLoaded] = useState(false);
+  const [sliderRef, instanceRef] = useKeenSlider({
+    initial: 0,
+    slideChanged(slider) {
+      setCurrentSlide(slider.track.details.rel);
+    },
+    created() {
+      setLoaded(true);
+    },
+  });
+
+  /*** tt2 slider ***/
+  const [currentSlidett2, setCurrentSlidett2] = useState(0);
+  const [loadedtt2, setLoadedtt2] = useState(false);
+  const [sliderReftt2, instanceReftt2] = useKeenSlider({
+    initial: 0,
+    slideChanged(slider) {
+      setCurrentSlidett2(slider.track.details.rel);
+    },
+    created() {
+      setLoadedtt2(true);
+    },
+  });
+
+  /*** tt6 slider ***/
+  const [currentSlidett6, setCurrentSlidett6] = useState(0);
+  const [loadedtt6, setLoadedtt6] = useState(false);
+  const [sliderReftt6, instanceReftt6] = useKeenSlider({
+    initial: 0,
+    slideChanged(slider) {
+      setCurrentSlidett6(slider.track.details.rel);
+    },
+    created() {
+      setLoadedtt6(true);
+    },
+  });
+
+  /*** tt11 slider ***/
+  const [currentSlidett11, setCurrentSlidett11] = useState(0);
+  const [loadedtt11, setLoadedtt11] = useState(false);
+  const [sliderReftt11, instanceReftt11] = useKeenSlider({
+    initial: 0,
+    slideChanged(slider) {
+      setCurrentSlidett11(slider.track.details.rel);
+    },
+    created() {
+      setLoadedtt11(true);
+    },
+  });
+
+  /*** tt1 slider ***/
+  const [currentSlidett1, setCurrentSlidett1] = useState(0);
+  const [loadedtt1, setLoadedtt1] = useState(false);
+  const [sliderReftt1, instanceReftt1] = useKeenSlider({
+    initial: 0,
+    slideChanged(slider) {
+      setCurrentSlidett1(slider.track.details.rel);
+    },
+    created() {
+      setLoadedtt1(true);
+    },
+  });
+
+  /*** tt3 slider ***/
+  const [currentSlidett3, setCurrentSlidett3] = useState(0);
+  const [loadedtt3, setLoadedtt3] = useState(false);
+  const [sliderReftt3, instanceReftt3] = useKeenSlider({
+    initial: 0,
+    slideChanged(slider) {
+      setCurrentSlidett3(slider.track.details.rel);
+    },
+    created() {
+      setLoadedtt3(true);
+    },
+  });
+
+  /*** tt4 slider ***/
+  const [currentSlidett4, setCurrentSlidett4] = useState(0);
+  const [loadedtt4, setLoadedtt4] = useState(false);
+  const [sliderReftt4, instanceReftt4] = useKeenSlider({
+    initial: 0,
+    slideChanged(slider) {
+      setCurrentSlidett4(slider.track.details.rel);
+    },
+    created() {
+      setLoadedtt4(true);
+    },
+  });
+
+  /*** tt5 slider ***/
+  const [currentSlidett5, setCurrentSlidett5] = useState(0);
+  const [loadedtt5, setLoadedtt5] = useState(false);
+  const [sliderReftt5, instanceReftt5] = useKeenSlider({
+    initial: 0,
+    slideChanged(slider) {
+      setCurrentSlidett5(slider.track.details.rel);
+    },
+    created() {
+      setLoadedtt5(true);
+    },
+  });
+
+  /*** tt7 slider ***/
+  const [currentSlidett7, setCurrentSlidett7] = useState(0);
+  const [loadedtt7, setLoadedtt7] = useState(false);
+  const [sliderReftt7, instanceReftt7] = useKeenSlider({
+    initial: 0,
+    slideChanged(slider) {
+      setCurrentSlidett7(slider.track.details.rel);
+    },
+    created() {
+      setLoadedtt7(true);
+    },
+  });
+
+  /*** tt8 slider ***/
+  const [currentSlidett8, setCurrentSlidett8] = useState(0);
+  const [loadedtt8, setLoadedtt8] = useState(false);
+  const [sliderReftt8, instanceReftt8] = useKeenSlider({
+    initial: 0,
+    slideChanged(slider) {
+      setCurrentSlidett8(slider.track.details.rel);
+    },
+    created() {
+      setLoadedtt8(true);
+    },
+  });
+
+  /*** tt9 slider ***/
+  const [currentSlidett9, setCurrentSlidett9] = useState(0);
+  const [loadedtt9, setLoadedtt9] = useState(false);
+  const [sliderReftt9, instanceReftt9] = useKeenSlider({
+    initial: 0,
+    slideChanged(slider) {
+      setCurrentSlidett9(slider.track.details.rel);
+    },
+    created() {
+      setLoadedtt9(true);
+    },
+  });
+
+  /*** tt10 slider ***/
+  const [currentSlidett10, setCurrentSlidett10] = useState(0);
+  const [loadedtt10, setLoadedtt10] = useState(false);
+  const [sliderReftt10, instanceReftt10] = useKeenSlider({
+    initial: 0,
+    slideChanged(slider) {
+      setCurrentSlidett10(slider.track.details.rel);
+    },
+    created() {
+      setLoadedtt10(true);
+    },
+  });
 
   return (
     <>
@@ -509,7 +723,10 @@ export default function App() {
           </div>
 
           <div className={styles.menuBtn}>
-            <motion.a href="https://giloo.ist/topics/35092" target="blank">
+            <motion.a
+              href="https://drive.google.com/file/d/1FuwB5A5cFcS3f8GIy8_T8zzIz258yvvN/view"
+              target="blank"
+            >
               <motion.div
                 className={styles.container}
                 initial="collapsed"
@@ -517,12 +734,12 @@ export default function App() {
                 animation="expanded"
               >
                 <motion.div className={styles.zhText} variants={ZhTextVariant}>
-                  線上影展
+                  展覽手冊
                 </motion.div>
 
                 <motion.div className={styles.textBG} variants={BGVariant} />
                 <motion.div className={styles.enText} variants={EnTextVariant}>
-                  Film Festival
+                  BROCHURE
                 </motion.div>
               </motion.div>
             </motion.a>
@@ -642,26 +859,16 @@ export default function App() {
             <ReactPlayer
               width="100%"
               height="100%"
-              url="https://www.youtube.com/watch?v=tvBFKKhlYqM"
+              //url="https://www.youtube.com/watch?v=tvBFKKhlYqM"
+              url={[
+                "https://www.youtube.com/watch?v=tvBFKKhlYqM",
+                "https://www.youtube.com/watch?v=3COrS5aDbhM",
+                "https://www.youtube.com/watch?v=XGKpP37wKZk",
+                "https://www.youtube.com/watch?v=_PcL2hyYHao",
+                "https://www.youtube.com/watch?v=BGVLKgRCdFE",
+              ]}
               className={styles.react_player}
-              //light="/imgs/pattern.png"
               controls={true}
-              // config={{
-              //   youtube: {
-              //     playerVars: {
-              //       enablejsapi: 1,
-              //       mute: 1,
-              //       showinfo: 0,
-              //       modestbranding: 0,
-              //       controls: 1,
-              //       autohide: 1,
-              //       autoplay: 1,
-              //       loop: 1,
-              //       modestbranding: 1,
-              //       playsinline: 1,
-              //     },
-              //   },
-              // }}
             />
           </motion.div>
         </div>
@@ -1165,21 +1372,7 @@ export default function App() {
           <motion.div className={styles.talkWapper} animate={controls_content}>
             <div className={styles.talkLineWapper}>
               <div className={styles.talkBlk}>
-                <div className={styles.talkDate}>
-                  ✷各場次活動將自
-                  <Box component="span" sx={{ fontWeight: "bold" }} mr={1}>
-                    9/7
-                  </Box>
-                  陸續開放報名，請關注C-LAB官網「最新活動」頁面✷
-                </div>
-                <div className={styles.talkDate}>
-                  ✷Online registration will be available from{" "}
-                  <Box component="span" sx={{ fontWeight: "bold" }} mr={1}>
-                    7 September
-                  </Box>
-                  . Please visit “What’s On” page on the official website of
-                  C-LAB.✷
-                </div>
+                <div className={styles.talkDate}></div>
                 <div>
                   <div className={styles.talkContent}>
                     2022年由策展人莊偉慈所策劃的年度展覽
@@ -1241,10 +1434,29 @@ export default function App() {
                   <Box>
                     <Box component="span">
                       <Image
+                        src={t27}
+                        alt="photo of speaker"
+                        width={68}
+                        height={68}
+                        quality="100"
+                      />
+                    </Box>
+                    <Box component="span">
+                      <Image
+                        src={t28}
+                        alt="photo of speaker"
+                        width={68}
+                        height={68}
+                        quality="100"
+                      />
+                    </Box>
+                    <Box component="span">
+                      <Image
                         src={t2}
                         alt="photo of speaker"
-                        width={38}
-                        height={38}
+                        width={68}
+                        height={68}
+                        quality="100"
                       />
                     </Box>
                   </Box>
@@ -1257,15 +1469,75 @@ export default function App() {
                     Creative Base for Animators
                   </div>
                 </div>
-                <a
+                {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
                   target="blank"
                 >
                   <div>
                     <div className={styles.tourLink}>報名 sign up</div>
                   </div>
-                </a>
+                </a> */}
+                <div>
+                  {/*** tour1 slider image ***/}
+                  <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
+                    <div className="navigation-wrapper">
+                      <div ref={sliderReftt1} className="keen-slider">
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt1_1}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt1_2}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt1_3}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt1_4}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    {loadedtt1 && instanceReftt1.current && (
+                      <div className="dots">
+                        {[
+                          ...Array(
+                            instanceReftt1.current.track.details.slides.length
+                          ).keys(),
+                        ].map((idx) => {
+                          return (
+                            <button
+                              key={idx}
+                              onClick={() => {
+                                instanceReftt1.current?.moveToIdx(idx);
+                              }}
+                              className={
+                                "dot" +
+                                (currentSlidett1 === idx ? " active" : "")
+                              }
+                            ></button>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </Box>
+                </div>
               </div>
+
               <div className={styles.talkBlk}>
                 <div>
                   <div className={styles.talkTitle}>藝術家座談</div>
@@ -1278,40 +1550,40 @@ export default function App() {
                       <Image
                         src={t5}
                         alt="photo of speaker"
-                        width={38}
-                        height={38}
+                        width={68}
+                        height={68}
                       />
                     </Box>
                     <Box component="span">
                       <Image
                         src={t4}
                         alt="photo of speaker"
-                        width={38}
-                        height={38}
+                        width={68}
+                        height={68}
                       />
                     </Box>
                     <Box component="span">
                       <Image
                         src={t10}
                         alt="photo of speaker"
-                        width={38}
-                        height={38}
+                        width={68}
+                        height={68}
                       />
                     </Box>
                     <Box component="span">
                       <Image
                         src={t9}
                         alt="photo of speaker"
-                        width={38}
-                        height={38}
+                        width={68}
+                        height={68}
                       />
                     </Box>
                     <Box component="span">
                       <Image
                         src={t7}
                         alt="photo of speaker"
-                        width={38}
-                        height={38}
+                        width={68}
+                        height={68}
                       />
                     </Box>
                   </Box>
@@ -1324,16 +1596,97 @@ export default function App() {
                     Creative Base for Animators
                   </div>
                 </div>
-                <a
+                {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
                   target="blank"
                 >
                   <div>
                     <div className={styles.tourLink}>報名 sign up</div>
                   </div>
-                </a>
+                </a> */}
+                <div>
+                  {/*** tour3 slider image ***/}
+                  <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
+                    <div className="navigation-wrapper">
+                      <div ref={sliderReftt3} className="keen-slider">
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt3_1}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt3_2}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt3_3}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt3_4}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt3_5}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt3_6}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt3_7}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    {loadedtt3 && instanceReftt3.current && (
+                      <div className="dots">
+                        {[
+                          ...Array(
+                            instanceReftt3.current.track.details.slides.length
+                          ).keys(),
+                        ].map((idx) => {
+                          return (
+                            <button
+                              key={idx}
+                              onClick={() => {
+                                instanceReftt3.current?.moveToIdx(idx);
+                              }}
+                              className={
+                                "dot" +
+                                (currentSlidett3 === idx ? " active" : "")
+                              }
+                            ></button>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </Box>
+                </div>
               </div>
             </div>
+
             <div className={styles.talkLineWapper}>
               <div className={styles.talkBlk}>
                 <div>
@@ -1350,8 +1703,8 @@ export default function App() {
                       <Image
                         src={t13}
                         alt="photo of speaker"
-                        width={38}
-                        height={38}
+                        width={68}
+                        height={68}
                       />
                     </Box>
                   </Box>
@@ -1359,16 +1712,81 @@ export default function App() {
                   <div className={styles.talkContent}>
                     @ 西服務中心2樓 West i-CENTER, 2F
                   </div>
+                  <Box className={styles.talkContent} pt={3}>
+                    <div>
+                      NFT於2021年風起雲湧，其中有八成交易量為俗稱「NFT項目方」的頭像式專案創造。過了一年至2022年夏天，全球經融市場進入大熊市，NFT項目方紛紛冷卻停擺不動，各大社群熱度漸漸降溫。講者黃豆泥為非營利NFT實踐者，以自身經驗與社群觀察，本講座討論web3世界社群互動的方式，究竟是充滿投機氣氛的曇花一現，還是本質上改變社會互動模式的典範轉移。
+                    </div>
+                  </Box>
                 </div>
-                <a
+                {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
                   target="blank"
                 >
                   <div>
                     <div className={styles.tourLink}>報名 sign up</div>
                   </div>
-                </a>
+                </a> */}
+                <div>
+                  {/*** tour4 slider image ***/}
+                  <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
+                    <div className="navigation-wrapper">
+                      <div ref={sliderReftt4} className="keen-slider">
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt4_1}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt4_2}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt4_3}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt4_4}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    {loadedtt4 && instanceReftt4.current && (
+                      <div className="dots">
+                        {[
+                          ...Array(
+                            instanceReftt4.current.track.details.slides.length
+                          ).keys(),
+                        ].map((idx) => {
+                          return (
+                            <button
+                              key={idx}
+                              onClick={() => {
+                                instanceReftt4.current?.moveToIdx(idx);
+                              }}
+                              className={
+                                "dot" +
+                                (currentSlidett4 === idx ? " active" : "")
+                              }
+                            ></button>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </Box>
+                </div>
               </div>
+
               <div className={styles.talkBlk}>
                 <div>
                   <div className={styles.talkTitle}>虛擬人時代—</div>
@@ -1387,8 +1805,8 @@ export default function App() {
                       <Image
                         src={t6}
                         alt="photo of speaker"
-                        width={38}
-                        height={38}
+                        width={68}
+                        height={68}
                       />
                     </Box>
                   </Box>
@@ -1396,17 +1814,82 @@ export default function App() {
                   <div className={styles.talkContent}>
                     @ CREATORS空間102 共享吧 CREATORS’Space R102 Coworking Space
                   </div>
+                  <Box className={styles.talkContent} pt={3}>
+                    <div>
+                      本講座以目前最熱門的虛擬主播Vtuber現象熱潮為探討的核心，包含從自媒體的YouTuber演變到Vtuber，也呼應元宇宙的到來，思考為何虛擬人反而比真人更受歡迎的風潮。
+                    </div>
+                  </Box>
                 </div>
-                <a
+                {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
                   target="blank"
                 >
                   <div>
                     <div className={styles.tourLink}>報名 sign up</div>
                   </div>
-                </a>
+                </a> */}
+                <div>
+                  {/*** tour5 slider image ***/}
+                  <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
+                    <div className="navigation-wrapper">
+                      <div ref={sliderReftt5} className="keen-slider">
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt5_1}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt5_2}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt5_3}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt5_4}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    {loadedtt5 && instanceReftt5.current && (
+                      <div className="dots">
+                        {[
+                          ...Array(
+                            instanceReftt5.current.track.details.slides.length
+                          ).keys(),
+                        ].map((idx) => {
+                          return (
+                            <button
+                              key={idx}
+                              onClick={() => {
+                                instanceReftt5.current?.moveToIdx(idx);
+                              }}
+                              className={
+                                "dot" +
+                                (currentSlidett5 === idx ? " active" : "")
+                              }
+                            ></button>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </Box>
+                </div>
               </div>
             </div>
+
             <div className={styles.talkLineWapper}>
               <div className={styles.talkBlk}>
                 <div>
@@ -1425,16 +1908,84 @@ export default function App() {
                   <div className={styles.talkContent}>
                     ＠CREATORS空間102 共享吧CREATORS’Space R102 Coworking Space
                   </div>
+                  <Box className={styles.talkContent} pt={3}>
+                    <div>
+                      「假訊息」問題最近幾年讓不少國家備感困擾，不論是國家安全、國民健康、政治選擇、民生消費都受到假消息的影響，而臺灣因「關西機場事件」讓假訊息的爭議更受關注，再加上中國威脅、新冠疫情、社會對立，我們時時都在假訊息的威脅中。
+                    </div>
+                    <div>
+                      但，假訊息不是什新鮮事，有人類就有假訊息，生物為了自保或侵略充滿了各式各樣的偽裝，這都是假訊息。只是，大眾與社群媒體的時代，假訊息又是如何練成的？數位技術讓假訊息變得更厲害？而假訊息如何影響人心人性？人心人性又如何影響假訊息？
+                    </div>
+                  </Box>
                 </div>
-                <a
+                {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
                   target="blank"
                 >
                   <div>
                     <div className={styles.tourLink}>報名 sign up</div>
                   </div>
-                </a>
+                </a> */}
+                <div>
+                  {/*** tour7 slider image ***/}
+                  <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
+                    <div className="navigation-wrapper">
+                      <div ref={sliderReftt7} className="keen-slider">
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt7_1}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt7_2}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt7_3}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt7_4}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    {loadedtt7 && instanceReftt7.current && (
+                      <div className="dots">
+                        {[
+                          ...Array(
+                            instanceReftt7.current.track.details.slides.length
+                          ).keys(),
+                        ].map((idx) => {
+                          return (
+                            <button
+                              key={idx}
+                              onClick={() => {
+                                instanceReftt7.current?.moveToIdx(idx);
+                              }}
+                              className={
+                                "dot" +
+                                (currentSlidett7 === idx ? " active" : "")
+                              }
+                            ></button>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </Box>
+                </div>
               </div>
+
               <div className={styles.talkBlk}>
                 <div>
                   <div className={styles.talkTitle}>
@@ -1451,8 +2002,8 @@ export default function App() {
                       <Image
                         src={t3}
                         alt="photo of speaker"
-                        width={38}
-                        height={38}
+                        width={68}
+                        height={68}
                       />
                     </Box>
                   </Box>
@@ -1463,17 +2014,68 @@ export default function App() {
                     @ 動畫創作者基地1樓多功能廳 R116 Multi-function Space of
                     Creative Base for Animators
                   </div>
+                  <Box className={styles.talkContent} pt={3}>
+                    <div>
+                      人工智慧已滲入人類社會的諸多角落，在帶給人們全新的生活體驗與便利性的同時，也衍生了許多關於法律、倫理、與道德的議題。本講座將聚焦於人工智慧所產生之偏見與歧視的問題。首先列舉多起國內外新聞為例，指出部份政府與企業所使用人工智慧存在對膚色、種族、或性別的偏見與歧視，於社會上掀起巨大漣漪。若欲消弭人工智慧的偏見與歧視，首應釐清偏見與歧視的來源。因此本講座從學理面與實務面提出人工智慧出現偏見歧視的四個可能原因，並針對每一原因提出可能的解方。本講座最後介紹國際上要求政府與企業應公開人工智慧演算法之呼籲，並說明企業的反彈與窒礙難行之處。
+                    </div>
+                  </Box>
                 </div>
-                <a
+                {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
                   target="blank"
                 >
                   <div>
                     <div className={styles.tourLink}>報名 sign up</div>
                   </div>
-                </a>
+                </a> */}
+                <div>
+                  {/*** tour8 slider image ***/}
+                  <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
+                    <div className="navigation-wrapper">
+                      <div ref={sliderReftt8} className="keen-slider">
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt8_1}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt8_2}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    {loadedtt8 && instanceReftt8.current && (
+                      <div className="dots">
+                        {[
+                          ...Array(
+                            instanceReftt8.current.track.details.slides.length
+                          ).keys(),
+                        ].map((idx) => {
+                          return (
+                            <button
+                              key={idx}
+                              onClick={() => {
+                                instanceReftt8.current?.moveToIdx(idx);
+                              }}
+                              className={
+                                "dot" +
+                                (currentSlidett8 === idx ? " active" : "")
+                              }
+                            ></button>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </Box>
+                </div>
               </div>
             </div>
+
             <div className={styles.talkLineWapper}>
               <div className={styles.talkBlk}>
                 <div>
@@ -1494,8 +2096,8 @@ export default function App() {
                       <Image
                         src={t12}
                         alt="photo of speaker"
-                        width={38}
-                        height={38}
+                        width={68}
+                        height={68}
                       />
                     </Box>
                   </Box>
@@ -1506,16 +2108,85 @@ export default function App() {
                     @ 動畫創作者基地1樓多功能廳 R116 Multi-function Space of
                     Creative Base for Animators
                   </div>
+                  <Box className={styles.talkContent} pt={3}>
+                    <div>
+                      本次講座將由駐柏林藝術家泰瑞莎．舒柏特的《(吃)我的肉》（m(E)at
+                      me）談起，藝術家在該作品的演出過程中吃下由自身血清培養而來的肌肉細胞。類似的藝術展演形式，至少可回溯至2003年澳洲藝術家奧隆．凱茨與艾奧娜特．祖爾的藝術作品《非具形烹飪》（Disembodied
+                      Cuisine），該作品即以吃下法國第一塊以組織培養出的青蛙細胞肉排，並邀請民眾嘗試，碰觸人造肉的相關倫理思辨。但無論是當代藝術的展演形式及倫理界線，或人造肉技術與基因科技，始終不乏爭議的聲音。本次講座將由這些作品為起點，試圖透過當代藝術與科學、倫理之間難以理清的錯綜關係，進一步思考藝術為科學、倫理，以及人與動物關係所帶來的種種衝擊和啟發的可能性。
+                    </div>
+                  </Box>
                 </div>
-                <a
+                {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
                   target="blank"
                 >
                   <div>
                     <div className={styles.tourLink}>報名 sign up</div>
                   </div>
-                </a>
+                </a> */}
+                <div>
+                  {/*** tour9 slider image ***/}
+                  <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
+                    <div className="navigation-wrapper">
+                      <div ref={sliderReftt9} className="keen-slider">
+                        <div className="keen-slider__slide">
+                          <ReactPlayer
+                            width="100%"
+                            height="100%"
+                            url="https://www.youtube.com/watch?v=aYRHmbgRYyY"
+                            className={styles.react_player}
+                            controls={true}
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt9_1}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt9_2}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt9_3}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    {loadedtt9 && instanceReftt9.current && (
+                      <div className="dots">
+                        {[
+                          ...Array(
+                            instanceReftt9.current.track.details.slides.length
+                          ).keys(),
+                        ].map((idx) => {
+                          return (
+                            <button
+                              key={idx}
+                              onClick={() => {
+                                instanceReftt9.current?.moveToIdx(idx);
+                              }}
+                              className={
+                                "dot" +
+                                (currentSlidett9 === idx ? " active" : "")
+                              }
+                            ></button>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </Box>
+                </div>
               </div>
+
               <div className={styles.talkBlk}>
                 <div>
                   <div className={styles.talkTitle}>藝術家座談</div>
@@ -1528,24 +2199,24 @@ export default function App() {
                       <Image
                         src={t1}
                         alt="photo of speaker"
-                        width={38}
-                        height={38}
+                        width={68}
+                        height={68}
                       />
                     </Box>
                     <Box component="span">
                       <Image
                         src={t11}
                         alt="photo of speaker"
-                        width={38}
-                        height={38}
+                        width={68}
+                        height={68}
                       />
                     </Box>
                     <Box component="span">
                       <Image
                         src={t7}
                         alt="photo of speaker"
-                        width={38}
-                        height={38}
+                        width={68}
+                        height={68}
                       />
                     </Box>
                   </Box>
@@ -1560,14 +2231,294 @@ export default function App() {
                     Space
                   </div>
                 </div>
-                <a
+                {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
                   target="blank"
                 >
                   <div>
                     <div className={styles.tourLink}>報名 sign up</div>
                   </div>
+                </a> */}
+                <div>
+                  {/*** tour10 slider image ***/}
+                  <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
+                    <div className="navigation-wrapper">
+                      <div ref={sliderReftt10} className="keen-slider">
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt10_1}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt10_2}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt10_3}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt10_4}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    {loadedtt10 && instanceReftt10.current && (
+                      <div className="dots">
+                        {[
+                          ...Array(
+                            instanceReftt10.current.track.details.slides.length
+                          ).keys(),
+                        ].map((idx) => {
+                          return (
+                            <button
+                              key={idx}
+                              onClick={() => {
+                                instanceReftt10.current?.moveToIdx(idx);
+                              }}
+                              className={
+                                "dot" +
+                                (currentSlidett10 === idx ? " active" : "")
+                              }
+                            ></button>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </Box>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.talkLineWapper}>
+              <div className={styles.talkBlk}>
+                <div>
+                  <div className={styles.talkTitle}>
+                    超限連結：亞洲藝術交流論壇
+                  </div>
+                  <div className={styles.talkTitle}>
+                    The Unrestricted Society Forum
+                  </div>
+                </div>
+                <div className={styles.talkDate}>11／17 (THU) 14:00-17:00 </div>
+                <div>
+                  <Box>
+                    <Box component="span">
+                      <Image
+                        src={t25}
+                        alt="photo of speaker"
+                        width={68}
+                        height={68}
+                      />
+                    </Box>
+                    <Box component="span">
+                      <Image
+                        src={t22}
+                        alt="photo of speaker"
+                        width={68}
+                        height={68}
+                      />
+                    </Box>
+                    <Box component="span">
+                      <Image
+                        src={t24}
+                        alt="photo of speaker"
+                        width={68}
+                        height={68}
+                      />
+                    </Box>
+                    <Box component="span">
+                      <Image
+                        src={t21}
+                        alt="photo of speaker"
+                        width={68}
+                        height={68}
+                      />
+                    </Box>
+                    <Box component="span">
+                      <Image
+                        src={t23}
+                        alt="photo of speaker"
+                        width={68}
+                        height={68}
+                      />
+                    </Box>
+                    <Box component="span">
+                      <Image
+                        src={t26}
+                        alt="photo of speaker"
+                        width={68}
+                        height={68}
+                      />
+                    </Box>
+                    <Box component="span">
+                      <Image
+                        src={t2}
+                        alt="photo of speaker"
+                        width={68}
+                        height={68}
+                      />
+                    </Box>
+                  </Box>
+                  <div className={styles.talkContent}>
+                    金聖淵Seong-Youn KIM×徐祥昊Sang-Ho SEO×金泰潤Tai-Yun
+                    KIM×倫納德．巴托洛枚烏斯Leonard Bartolomeus×李收玲Sue R.
+                    LEE×駱麗真LOH Li-Chen×吳達坤WU Dar-Kuen（主持Moderator）
+                  </div>
+                  <div className={styles.talkContent}>
+                    @ 動畫創作者基地1樓多功能廳 R116 Multi-function Space of
+                    Creative Base for Animators
+                  </div>
+                  <Box className={styles.talkContent} pt={3}>
+                    <div>
+                      2022
+                      C-LAB年度大展「超限社會」，透過國內外12組藝術家的作品探討現今快速科技發展所帶來的隱憂與困境，喚醒人們重新思考人與技術之間的雙向關係。
+                    </div>
+                    <div>
+                      本次「超限連結：亞洲藝術交流論壇」特地邀請釜山雙年展執行董事金聖淵、釜山文化基金會文化進用與參與部主任徐祥昊、韓國現代汽車集團文化中心經理金泰潤、日本山口媒體藝術中心（YCAM）策展人倫納德．巴托洛枚烏斯、韓國藝術經營支援中心（KAMS）藝術實驗部門總監李收玲，等五位亞洲地區藝術機構專業人士來臺，與C-LAB當代藝術實驗平台總監吳達坤、台北當代藝術館館長駱麗真進行圓桌對談，交流分享各自藝術機構與國家如何因應快速科技社會所帶來的影響與困境。C-LAB年度大展「超限社會」，透過國內外12組藝術家的作品探討現今快速科技發展所帶來的隱憂與困境，喚醒人們重新思考人與技術之間的雙向關係。
+                    </div>
+                  </Box>
+                  <Box className={styles.talkContent} pt={3}>
+                    <div>
+                      In the exhibition The Unrestricted Society, 12 artists
+                      probe into the issues and dilemmas surrounding
+                      technological development from different perspectives,
+                      thereby raising awareness to understand the relationship
+                      between humanity and technology.
+                    </div>
+                    <div>
+                      This forum brings together five participating
+                      professionals of Asian artistic organizations, including
+                      the executive committee director of Busan Biennale
+                      Seong-Youn KIM, head of the Busan Cultural Foundation‘s
+                      Department of Cultural Access and Participation Sang-Ho
+                      SEO, the senior manager of Hyundai Artlab Tai-Yun KIM, the
+                      curator of YCAM Leonard Bartolomeus, the Arts Korea Lab of
+                      Korea Arts Management Service (KAMS) the director of Sue
+                      R. LEE in conversation with the director of C-LAB
+                      Contemporary Art Platform WU Dar-Kuen and the director of
+                      the Museum of Contemporary Art, Taipei Li-Chen Loh.
+                      Sharing their experience and insights into how their art
+                      organization and country the impact by the rapid
+                      technology society.
+                    </div>
+                  </Box>
+                </div>
+                <a
+                  href="https://clab.org.tw/project/the-unrestricted-society-events/"
+                  target="blank"
+                >
+                  {/* <div>
+                    <div className={styles.tourLink}>報名 sign up</div>
+                  </div> */}
                 </a>
+                <div>
+                  {/*** talk11 slider image ***/}
+                  <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
+                    <div className="navigation-wrapper">
+                      <div ref={sliderReftt11} className="keen-slider">
+                        <div className="keen-slider__slide">
+                          <ReactPlayer
+                            width="100%"
+                            height="100%"
+                            url="https://www.youtube.com/watch?v=J3QPVDvazTc"
+                            className={styles.react_player}
+                            controls={true}
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt11_1}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt11_2}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt11_3}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt11_4}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt11_5}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt11_6}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt11_7}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt11_8}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    {loadedtt11 && instanceReftt11.current && (
+                      <div className="dots">
+                        {[
+                          ...Array(
+                            instanceReftt11.current.track.details.slides.length
+                          ).keys(),
+                        ].map((idx) => {
+                          return (
+                            <button
+                              key={idx}
+                              onClick={() => {
+                                instanceReftt11.current?.moveToIdx(idx);
+                              }}
+                              className={
+                                "dot" +
+                                (currentSlidett11 === idx ? " active" : "")
+                              }
+                            ></button>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </Box>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -1595,8 +2546,8 @@ export default function App() {
                       <Image
                         src={t8}
                         alt="photo of speaker"
-                        width={38}
-                        height={38}
+                        width={68}
+                        height={68}
                       />
                     </Box>
                   </Box>
@@ -1607,21 +2558,73 @@ export default function App() {
                     @ 西服務中心1樓集合 Meeting Point: West i-CENTER, 1F
                   </div>
                 </div>
-                {/* <a href="https://forms.gle/cS2UZ8gcfXmPVCJY9" target="blank">
-                  <div>
-                    <div className={styles.tourLink}>
-                      團體導覽預約 Group Guided Tour reservation
-                    </div>
-                  </div>
-                </a> */}
-                <a
+                {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
                   target="blank"
                 >
                   <div>
                     <div className={styles.tourLink}>報名 sign up</div>
                   </div>
-                </a>
+                </a> */}
+                <div>
+                  {/*** tour02 slider image ***/}
+                  <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
+                    <div className="navigation-wrapper">
+                      <div ref={sliderReftt2} className="keen-slider">
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt2_1}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt2_2}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt2_3}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt2_4}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    {loadedtt2 && instanceReftt2.current && (
+                      <div className="dots">
+                        {[
+                          ...Array(
+                            instanceReftt2.current.track.details.slides.length
+                          ).keys(),
+                        ].map((idx) => {
+                          return (
+                            <button
+                              key={idx}
+                              onClick={() => {
+                                instanceReftt2.current?.moveToIdx(idx);
+                              }}
+                              className={
+                                "dot" +
+                                (currentSlidett2 === idx ? " active" : "")
+                              }
+                            ></button>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </Box>
+                </div>
               </div>
               <div className={styles.tourBlk}>
                 <div>
@@ -1635,8 +2638,8 @@ export default function App() {
                       <Image
                         src={t7}
                         alt="photo of speaker"
-                        width={38}
-                        height={38}
+                        width={68}
+                        height={68}
                       />
                     </Box>
                   </Box>
@@ -1647,17 +2650,146 @@ export default function App() {
                     @ 西服務中心1樓集合 Meeting Point: West i-CENTER, 1F
                   </div>
                 </div>
-                <a
+                {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
                   target="blank"
                 >
                   <div>
                     <div className={styles.tourLink}>報名 sign up</div>
                   </div>
-                </a>
+                </a> */}
+                <div>
+                  {/*** tour06 slider image ***/}
+                  <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
+                    <div className="navigation-wrapper">
+                      <div ref={sliderReftt6} className="keen-slider">
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt6_1}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt6_2}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt6_3}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt6_4}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    {loadedtt6 && instanceReftt6.current && (
+                      <div className="dots">
+                        {[
+                          ...Array(
+                            instanceReftt6.current.track.details.slides.length
+                          ).keys(),
+                        ].map((idx) => {
+                          return (
+                            <button
+                              key={idx}
+                              onClick={() => {
+                                instanceReftt6.current?.moveToIdx(idx);
+                              }}
+                              className={
+                                "dot" +
+                                (currentSlidett6 === idx ? " active" : "")
+                              }
+                            ></button>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </Box>
+                </div>
               </div>
             </div>
             <div className={styles.tourLineWapper}>
+              <div className={styles.tourBlk}>
+                <div>
+                  <div className={styles.tourTitle}>
+                    超限社會：共學導覽培訓計畫
+                  </div>
+                </div>
+                <div>
+                  {/* <div className={styles.tourContent}>
+                    策劃團隊邀請策展人孫以臻規劃「超限社會：共學導覽培訓計畫」，從「閱讀」展覽開始，引領有志於擔任藝文導覽員的參與者們，一步步地透過拆解展覽，建構來自自身的問題意識，並帶入之後的導覽實踐中。
+                  </div> */}
+                </div>
+                <div>
+                  {/*** tour12 slider image ***/}
+                  <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
+                    <div className="navigation-wrapper">
+                      <div ref={sliderRef} className="keen-slider">
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt12_1}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt12_2}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt12_3}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt12_4}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    {loaded && instanceRef.current && (
+                      <div className="dots">
+                        {[
+                          ...Array(
+                            instanceRef.current.track.details.slides.length
+                          ).keys(),
+                        ].map((idx) => {
+                          return (
+                            <button
+                              key={idx}
+                              onClick={() => {
+                                instanceRef.current?.moveToIdx(idx);
+                              }}
+                              className={
+                                "dot" + (currentSlide === idx ? " active" : "")
+                              }
+                            ></button>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </Box>
+                </div>
+              </div>
               <div className={styles.tourBlk}>
                 <div>
                   <div className={styles.tourTitle}>團體預約導覽</div>

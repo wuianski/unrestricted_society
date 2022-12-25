@@ -11,8 +11,12 @@ import fp from "../public/imgs/artist_profile/fp.jpg";
 
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import work1 from "../public/imgs/artworks/hbfp/hbfp1.jpeg";
-import work2 from "../public/imgs/artworks/hbfp/hbfp5.jpg";
+import work1 from "../public/imgs/artworks/hbfp/001 Large.jpeg";
+import work2 from "../public/imgs/artworks/hbfp/002 Large.jpeg";
+import work3 from "../public/imgs/artworks/hbfp/003 Large.jpeg";
+import work4 from "../public/imgs/artworks/hbfp/004 Large.jpeg";
+import work5 from "../public/imgs/artworks/hbfp/005 Large.jpeg";
+import work6 from "../public/imgs/artworks/hbfp/006 Large.jpeg";
 
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: 0,
@@ -91,7 +95,7 @@ export default function HbFpModal() {
                 <div className="keen-slider__slide">
                   <Image src={work1} alt="artworks" placeholder="blur" />
                   {/*** artwork sider text ***/}
-                  <Box pt={1} ml={2} mr={2}>
+                  {/* <Box pt={1} ml={2} mr={2}>
                     <Box
                       className={styles.Modal_content}
                       sx={{ textAlign: "center" }}
@@ -105,12 +109,12 @@ export default function HbFpModal() {
                       Actor, Lewis D. WHEELER, is transformed into President
                       Richard NIXON using deep learning techniques.
                     </Box>
-                  </Box>
+                  </Box> */}
                 </div>
                 <div className="keen-slider__slide">
                   <Image src={work2} alt="artworks" placeholder="blur" />
                   {/*** artwork sider text ***/}
-                  <Box pt={1} ml={2} mr={2}>
+                  {/* <Box pt={1} ml={2} mr={2}>
                     <Box
                       className={styles.Modal_content}
                       sx={{ textAlign: "center" }}
@@ -138,7 +142,19 @@ export default function HbFpModal() {
                         Amsterdam, 2019.
                       </Box>
                     </Box>
-                  </Box>
+                  </Box> */}
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work3} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work4} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work5} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work6} alt="artworks" placeholder="blur" />
                 </div>
               </div>
             </div>
@@ -190,13 +206,20 @@ export default function HbFpModal() {
           }}
         >
           <div className={styles.Modal_content}>
-            1969年7月「阿波羅十一號」成功登陸月球，《如果登月失敗》展示深偽技術的可能性。作品邀請你進入另一段歷史，探問新科技可能如何扭曲、重新錨定和混淆圍繞我們的真實；探究當代社會的錯誤資訊，和深偽科技的影響力與普及性，同時為人工智慧合成媒體可能的創意，提供另一種觀看視角。{" "}
+            1969年7月，世界大部分的人在慶祝「人類的一大步」；五十年後，沒什麼比這更簡單了。「阿波羅十一號」成功讓人類登陸月球，透過重新想像這個具有深遠影響的事件，《如果登月失敗》展示深偽技術（deepfake）的可能性。試想，如果當年任務出狀況而太空人無法回家，那會如何？為了這種可能性，尼克森總統準備了應變講稿，但從未發表過，直到現在。{" "}
+          </div>
+          <div className={styles.Modal_content}>
+            布根地與帕內塔使用各種能製造假資訊的技術，重新創造這場意外事故演講。從簡單的「廉價偽造」（cheap
+            fakes）軟體，到複雜的人工智慧增強深偽技術，並使用深度學習技術創造「完整深偽」——意即聲音與影像皆為合成，以此操弄歷史影像，讓尼克森現身發表該演說。
+          </div>
+          <div className={styles.Modal_content}>
+            作品邀請你進入另一段歷史，探問新科技可能如何扭曲、重新錨定和混淆圍繞我們的真實；探究當代社會的錯誤資訊，和深偽科技的影響力與普及性，同時為人工智慧合成媒體可能的創意，提供另一種觀看視角。
           </div>
 
           <Box className={styles.Modal_content}>
             <Box component="span" className={styles.Modal_content}>
               In July 1969, much of the world celebrated “one giant leap for
-              mankind.”
+              mankind.” Fifty years Later, nothing is quite so straightforward.
             </Box>
             <Box
               component="span"
@@ -208,14 +231,42 @@ export default function HbFpModal() {
             </Box>
             <Box component="span" ml={1} className={styles.Modal_content}>
               illustrates the possibilities of deepfake technologies by
-              reimagining this seminal event. By creating this alternative
-              history, the project explores the influence and pervasiveness of
-              disinformation and deepfake technologies in our modern society,
-              warns of the dangers this new technology presents, and provides a
-              window into the creative opportunities AI-enhanced synthetic media
-              can create.
+              reimagining this seminal event. What if the Apollo 11 mission had
+              gone wrong and the astronauts had not been able to return home? A
+              contingency speech for this possibility was prepared for, but
+              never delivered by, President Nixon—until now.
             </Box>
           </Box>
+          <Box className={styles.Modal_content}>
+            <Box
+              component="span"
+              sx={{ fontStyle: "italic" }}
+              className={styles.Modal_content}
+            >
+              In Event of Moon Disastetr
+            </Box>
+            <Box component="span" ml={1} className={styles.Modal_content}>
+              is an immersive art project inviting you into an alternative
+              history, asking us all to consider how new technologies can bend,
+              redirect, and obfuscate the truth around us. To construct the
+              story a variety of techniques of misinformation were used—from
+              simple deceptive editing “cheap fakes” to more complex AI-enhanced
+              deepfake technologies. To recreate the contingency speech, the
+              piece used deep learning techniques to create a “complete
+              deepfake,” meaning both audio and video were created
+              synthetically. The synthetic voice of Nixon used speech-to-speech
+              voice conversion technology and the visuals used “video dialogue
+              replacement” techniques to manipulate archival footage to make
+              Nixon appear as though he voiced the contingency speech.
+            </Box>
+          </Box>
+          <div className={styles.Modal_content}>
+            By creating this alternative history, the project explores the
+            influence and pervasiveness of disinformation and deepfake
+            technologies in our modern society, warns of the dangers this new
+            technology presents, and provides a window into the creative
+            opportunities AI-enhanced synthetic media can create.{" "}
+          </div>
         </Item>
       </Stack>
 

@@ -10,9 +10,14 @@ import fameme from "../public/imgs/artist_profile/fameme.jpg";
 
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import work1 from "../public/imgs/artworks/fameme/fameme1.png";
-import work2 from "../public/imgs/artworks/fameme/fameme2.jpg";
-import work3 from "../public/imgs/artworks/fameme/fameme3.jpg";
+import work1 from "../public/imgs/artworks/fameme/001 Large.jpeg";
+import work2 from "../public/imgs/artworks/fameme/002 Large.jpeg";
+import work3 from "../public/imgs/artworks/fameme/003 Large.jpeg";
+import work4 from "../public/imgs/artworks/fameme/004 Large.jpeg";
+import work5 from "../public/imgs/artworks/fameme/005 Large.jpeg";
+import work6 from "../public/imgs/artworks/fameme/006 Large.jpeg";
+
+import ReactPlayer from "react-player";
 
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: 0,
@@ -93,6 +98,24 @@ export default function FamemeModal() {
                 <div className="keen-slider__slide">
                   <Image src={work3} alt="artworks" placeholder="blur" />
                 </div>
+                <div className="keen-slider__slide">
+                  <Image src={work4} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work5} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work6} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <ReactPlayer
+                    width="100%"
+                    height="100%"
+                    url="https://www.youtube.com/watch?v=Q7iWJBLL08k"
+                    className={styles.react_player}
+                    controls={true}
+                  />
+                </div>
               </div>
             </div>
             {loaded && instanceRef.current && (
@@ -119,11 +142,11 @@ export default function FamemeModal() {
           </Box>
 
           {/*** artwork sider text ***/}
-          <Box pt={1}>
+          {/* <Box pt={1}>
             <Box className={styles.Modal_content} sx={{ textAlign: "center" }}>
               © 咪式媒體 Thorny Media
             </Box>
-          </Box>
+          </Box> */}
         </Item>
       </Stack>
 
@@ -142,6 +165,16 @@ export default function FamemeModal() {
           <div className={styles.Modal_content_nj}>
             3D digital image and sound, VR, dimensions variable
           </div>
+          <Box className={styles.Modal_content_nj} pt={3}>
+            © 咪式媒體
+            <div className={styles.Modal_content_nj}>© Thorny Media</div>
+          </Box>
+          <Box className={styles.Modal_content_nj} pt={3}>
+            特別感謝：HTC VIVERSE
+            <div className={styles.Modal_content_nj}>
+              Special Thanks: HTC VIVERSE
+            </div>
+          </Box>
         </Item>
         <Item
           sx={{
@@ -150,25 +183,49 @@ export default function FamemeModal() {
           }}
         >
           <div className={styles.Modal_content}>
-            「FAMETAVERSE」
-            利用元宇宙平台所具備的持久化及去中心化思維，建立在線的三維虛擬空間，於HTC
-            VIVERSE 創造首個元宇宙空間：在這座無限符號的島嶼領地上，重新檔案化自
-            2019年以來數個跨國沉浸式空間裝置。
-            此計畫透過虛擬世界介面，將法咪咪世界的遊戲性與參與性，拓展至元宇宙的社群連結與媒體化展演，對法咪咪來說：
-            FAMETAVERSE ！ A bit of my universe ！
+            2019 年，藝術家余政達受紐約Performa
+            雙年展邀請，為探索網紅現象及名人形象所帶起的時代趨勢，透過自身扮演，創造出虛擬網紅角色「亞洲榴槤大亨法咪咪」。2020
+            年新冠疫情爆發至今，法咪咪計畫一步步探索著藝術框架、社會現象與經濟生態轉型等議題，以新媒體型態走入大眾生活。
+          </div>
+          <div className={styles.Modal_content}>
+            這次法咪咪與HTC
+            合作，利用元宇宙平台所具備的持久化及去中心化思維，建立在線的三維虛擬空間，於HTC
+            VIVERSE 創造首個元宇宙空間
+            「FAMETAVERSE」：在這座無限符號的島嶼領地上，重新檔案化自2019年以來數個跨國沉浸式空間裝置，包括：「榴槤美術館」（2019）、「榴槤健身房」（2020）、「榴槤製藥廠」（2020）與「法咪咪快閃店」（2022）於其中。
+          </div>
+          <div className={styles.Modal_content}>
+            「FAMETAVERSE」猶如一座頂級又浮誇的私人美術館、遊樂園、渡假村，完成法咪咪「榴槤宇宙」的第一步。此計畫透過虛擬世界介面，將法咪咪世界的遊戲性與參與性，拓展至元宇宙的社群連結與媒體化展演，
+            對法咪咪來說：FAMETAVERSE ！ A bit of my universe ！
           </div>
 
+          <Box className={styles.Modal_content}>
+            As a project created by YU Cheng-Ta in 2019 for the Performa
+            Biennial in New York, FAMEME is a fictional character of an Asian
+            durian tycoon with whose persona the artist performatively explores
+            the cultural phenomenon of social media influencers and celebrities.
+            Since the outbreak of the COVID-19 pandemic in 2020, FAMEME has
+            strategically investigated issues step by step such as artistic
+            conventions, social phenomena, and economics-ecology transitions to
+            engage with the public’s life by means of new media.
+          </Box>
           <Box className={styles.Modal_content}>
             The collaboration between FAMEME and HTC employs the ideas of
             persistence and decentralisation, which are essential to the
             metaverse platform, to create a three-dimensional virtual space
             online, “FAMETAVERSE,” as the first metaverse space at HTC VIVERSE.
-            On the island as a territory of infinite symbols, several
-            transnational immersive space installations. The project adopts
-            virtual-world interfaces, further bringing the playful game and
-            interactive engagement of FAMEME into the networked communities and
-            hyper-mediated performance in the metaverse, as what FAMEME
-            celebrates: “FAMETAVERSE! A bit of my universe!
+            On the island as a territory of infinite symbols， several
+            transnational immersive space installations created since
+            2019—including “Museum of Durian” (2019), “Durian Exercise Room”
+            (2020), “Durian Pharmaceutical Co., Ltd.” (2020), and “Durian Duty
+            to be Free” (2022)—are rearchived.FAMETAVERSE, the first step taken
+            of FAMEME’s “Durian Universe,” is like the top-ranked private
+            museum, amusement park or resort of a flamboyant fame.
+          </Box>
+          <Box className={styles.Modal_content}>
+            The project adopts virtual-world interfaces， further bringing the
+            playful game and interactive engagement of FAMEME into the networked
+            communities and hyper-mediated performance in the metaverse， as
+            what FAMEME celebrates: “FAMETAVERSE! a bit of my universe!
           </Box>
         </Item>
       </Stack>

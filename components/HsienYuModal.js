@@ -10,8 +10,14 @@ import hsienYu from "../public/imgs/artist_profile/hsienYu.jpeg";
 
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import work1 from "../public/imgs/artworks/hy/g_image_001 .jpg";
-import work2 from "../public/imgs/artworks/hy/g_image_002 .jpg";
+import work1 from "../public/imgs/artworks/hy/001 Large.jpeg";
+import work2 from "../public/imgs/artworks/hy/002 Large.jpeg";
+import work3 from "../public/imgs/artworks/hy/003 Large.jpeg";
+import work4 from "../public/imgs/artworks/hy/004 Large.jpeg";
+import work5 from "../public/imgs/artworks/hy/005 Large.jpeg";
+import work6 from "../public/imgs/artworks/hy/006 Large.jpeg";
+
+import ReactPlayer from "react-player";
 
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: 0,
@@ -89,6 +95,27 @@ export default function HsienYuModal() {
                 <div className="keen-slider__slide">
                   <Image src={work2} alt="artworks" placeholder="blur" />
                 </div>
+                <div className="keen-slider__slide">
+                  <Image src={work3} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work4} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work5} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work6} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <ReactPlayer
+                    width="100%"
+                    height="100%"
+                    url="https://www.youtube.com/watch?v=hrDpojXeYYk"
+                    className={styles.react_player}
+                    controls={true}
+                  />
+                </div>
               </div>
             </div>
             {loaded && instanceRef.current && (
@@ -115,7 +142,7 @@ export default function HsienYuModal() {
           </Box>
 
           {/*** artwork sider text ***/}
-          <Box pt={1} ml={2} mr={2}>
+          {/* <Box pt={1} ml={2} mr={2}>
             <Box className={styles.Modal_content} sx={{ textAlign: "center" }}>
               肖像產出是使用社群網站代號或是論壇暱稱，藉由
               Google圖片搜尋下載，再與人工智慧肖像產出工具「Generate Photo
@@ -126,7 +153,7 @@ export default function HsienYuModal() {
               Generator with CelebA” re-dataset and merged by Google image
               search with name, social account ID.
             </Box>
-          </Box>
+          </Box> */}
         </Item>
       </Stack>
 
@@ -154,10 +181,32 @@ export default function HsienYuModal() {
           }}
         >
           <div className={styles.Modal_content}>
-            作品源自2019年鄭先喻的個展｛同化者｝中無題作品之延伸，藉由網路伺服器端應用，搜尋並搜集地區性線上論壇與即時聊天室資訊，建立資料庫模型以及視覺產出。當網路鄉民一留言，系統運用發文或留言者的帳號去搜尋可能的個人資料與肖像照片，再藉由合成資料技術結合機器學習成像，產出一系列的假想個資。
+            作品源自2019
+            年鄭先喻的個展｛同化者｝中無題作品之延伸，藉由網路伺服器端應用，搜尋並搜集地區性線上論壇與即時聊天室資訊，建立資料庫模型以及視覺產出。當網路鄉民一留言，系統運用發文或留言者的帳號去搜尋可能的個人資料與肖像照片，再藉由合成資料技術結合機器學習成像，產出一系列的假想個資。
+          </div>
+          <div className={styles.Modal_content}>
+            觀眾將於現場觀看網路鄉民即時訊息，現場列印機裝置則定時將合成的個人資料列印產出。
           </div>
 
-          <Box className={styles.Modal_content}>
+          <div className={styles.Modal_content}>
+            As a continuation of the untitled works featured in CHENG Hsien-Yu‘s
+            solo exhibition｛Assimilator｝ in 2019, It Could Be You employs
+            internet servers to collect messages from regional online forums and
+            chatrooms to create a database model and to generate visual images.
+            When netizens post a message, the system will detect it and
+            instantly search for any personal information and portraits
+            available by the users’ IDs, with which it adopts and integrates the
+            technology of synthetic data with machine learning to generate
+            images as a series of imaginary and fictional personal data.
+          </div>
+
+          <div className={styles.Modal_content}>
+            Apart from the real-time and on-site display of the instant messages
+            posted by netizens around the digital world, the installation will
+            also print out the synthetic personal data at regular intervals.{" "}
+          </div>
+
+          {/* <Box className={styles.Modal_content}>
             <Box component="span" className={styles.Modal_content}>
               As a continuation of the untitled works featured in CHENG
               Hsien-Yu‘s solo exhibition｛Assimilator｝ in 2019,
@@ -180,7 +229,7 @@ export default function HsienYuModal() {
               to generate images as a series of imaginary and fictional personal
               data.
             </Box>
-          </Box>
+          </Box> */}
         </Item>
       </Stack>
 

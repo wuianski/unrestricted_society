@@ -10,8 +10,14 @@ import yungTa from "../public/imgs/artist_profile/yungTa.jpg";
 
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import work1 from "../public/imgs/artworks/yt/yt2.jpg";
-import work2 from "../public/imgs/artworks/yt/yt6.jpg";
+import work1 from "../public/imgs/artworks/yt/001 Large.jpeg";
+import work2 from "../public/imgs/artworks/yt/002 Large.jpeg";
+import work3 from "../public/imgs/artworks/yt/003 Large.jpeg";
+import work4 from "../public/imgs/artworks/yt/004 Large.jpeg";
+import work5 from "../public/imgs/artworks/yt/005 Large.jpeg";
+import work6 from "../public/imgs/artworks/yt/006 Large.jpeg";
+
+import ReactPlayer from "react-player";
 
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: 0,
@@ -89,6 +95,27 @@ export default function YungTaModal() {
                 <div className="keen-slider__slide">
                   <Image src={work2} alt="artworks" placeholder="blur" />
                 </div>
+                <div className="keen-slider__slide">
+                  <Image src={work3} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work4} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work5} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work6} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <ReactPlayer
+                    width="100%"
+                    height="100%"
+                    url="https://www.youtube.com/watch?v=xYNr2Ebl8m0"
+                    className={styles.react_player}
+                    controls={true}
+                  />
+                </div>
               </div>
             </div>
             {loaded && instanceRef.current && (
@@ -115,14 +142,14 @@ export default function YungTaModal() {
           </Box>
 
           {/*** artwork sider text ***/}
-          <Box pt={1}>
+          {/* <Box pt={1}>
             <Box className={styles.Modal_content} sx={{ textAlign: "center" }}>
               藝術家提供
             </Box>
             <Box className={styles.Modal_content} sx={{ textAlign: "center" }}>
               Photo courtesy of the artist
             </Box>
-          </Box>
+          </Box> */}
         </Item>
       </Stack>
 
@@ -152,10 +179,37 @@ export default function YungTaModal() {
           }}
         >
           <div className={styles.Modal_content}>
+            從透視法、暗箱，發展到現今的擴增實境（AR）、虛擬實境（VR），科技持續拓展人類觀看世界的視角與象限。原本人們透過視覺、聽覺等感知所建構的世界，在數位化加劇推進的情況下，產生了新面貌：由巨量微感測運算與數據調控所形成的世界，一個身體感官所無法觸及（無所感）的世界，一個不可見的景（scape）。
+          </div>
+          <div className={styles.Modal_content}>
+            在「scape.unseen」系列作品的概念脈絡下，張永達進行一系列透過對資訊科技、資料數據監測的轉譯，以微觀至宏觀的尺度，在空間裝置、雕塑、聲音、程式數據和即時生成影像之間，建構環境與科技的關係，並在科技輔具的協助下，提供人們在當代加速度層層堆疊的資訊中，找尋觀看的「參考點」。{" "}
+          </div>
+          <div className={styles.Modal_content}>
             《scape.unseen-co_2[ch.]》對展場空間的二氧化碳濃度進行偵測，轉譯為即時生成的聲音和影像裝置，將數據處理過程如爆炸圖展開，以切片標本的方式現，從感測器＞微處理晶片＞電腦＞程式＞視覺＞聲音的層層過程，提供從不同的面向觀看和探索作品與環境、人的關係。
           </div>
 
           <Box className={styles.Modal_content}>
+            <div className={styles.Modal_content}>
+              From perspective and camera obscura to today’s AR and VR, the
+              advancement of technology has continuously broadened the possible
+              angles and dimensions for us to observe the world. Driven by the
+              accelerating digitalization, the world originally perceived
+              through physical senses such as sight and hearing now adopts a new
+              look, described by the artist as the invisible “scape,” a
+              physically intangible world built on massive microsensory
+              computation and data adaptation which cannot be sensed or felt.{" "}
+            </div>
+            <div className={styles.Modal_content}>
+              It is within the context of scape.unseen that CHANG Yung-Ta has
+              conducted a series of translations based on information technology
+              and data monitoring. From a microcosmic to macrocosmic scale, the
+              artist attempts to construct the relationship between the
+              environment and technology through the interlinked space
+              installations, sculptures, sounds, program data, and real-time
+              generative images, employing technology devices as its support to
+              provide a “point of reference” for viewing when one is overwhelmed
+              by the rapid accumulation of information in today’s world.{" "}
+            </div>
             <Box
               component="span"
               sx={{ fontStyle: "italic" }}

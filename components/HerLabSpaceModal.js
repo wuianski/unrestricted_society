@@ -11,10 +11,16 @@ import yowRuu from "../public/imgs/artist_profile/yowRuu.jpg";
 
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import work1 from "../public/imgs/artworks/herlabspace/herlabspace1.jpeg";
-import work2 from "../public/imgs/artworks/herlabspace/herlabspace2.jpeg";
-import work3 from "../public/imgs/artworks/herlabspace/herlabspace3.jpeg";
-import work4 from "../public/imgs/artworks/herlabspace/herlabspace5.jpeg";
+import work1 from "../public/imgs/artworks/herlabspace/01 Large.jpeg";
+import work2 from "../public/imgs/artworks/herlabspace/02 Large.jpeg";
+import work3 from "../public/imgs/artworks/herlabspace/03 Large.jpeg";
+import work4 from "../public/imgs/artworks/herlabspace/04 Large.jpeg";
+import work5 from "../public/imgs/artworks/herlabspace/05 Large.jpeg";
+import work6 from "../public/imgs/artworks/herlabspace/06 Large.jpeg";
+import work7 from "../public/imgs/artworks/herlabspace/07 Large.jpeg";
+import work8 from "../public/imgs/artworks/herlabspace/08 Large.jpeg";
+
+import ReactPlayer from "react-player";
 
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: 0,
@@ -102,6 +108,27 @@ export default function HerLabSpaceModal() {
                 <div className="keen-slider__slide">
                   <Image src={work4} alt="artworks" placeholder="blur" />
                 </div>
+                <div className="keen-slider__slide">
+                  <Image src={work5} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work6} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work7} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work8} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <ReactPlayer
+                    width="100%"
+                    height="100%"
+                    url="https://www.youtube.com/watch?v=FYrOVyzaPp8"
+                    className={styles.react_player}
+                    controls={true}
+                  />
+                </div>
               </div>
             </div>
             {loaded && instanceRef.current && (
@@ -128,7 +155,7 @@ export default function HerLabSpaceModal() {
           </Box>
 
           {/*** artwork sider text ***/}
-          <Box pt={1} ml={2} mr={2}>
+          {/* <Box pt={1} ml={2} mr={2}>
             <Box className={styles.Modal_content} sx={{ textAlign: "center" }}>
               《如果，家族旅行：一個世界》（2021）演出一景，李欣哲攝影
             </Box>
@@ -147,7 +174,7 @@ export default function HerLabSpaceModal() {
                 Photo credit: LEE Hsin-Che
               </Box>
             </Box>
-          </Box>
+          </Box> */}
         </Item>
       </Stack>
 
@@ -210,12 +237,27 @@ export default function HerLabSpaceModal() {
           }}
         >
           <div className={styles.Modal_content}>
+            影子、鬼魂、剩餘物、
+            一個錯誤、蝙蝠、一個最糟糕的夢、看見不在的事物、時間的軌跡、阿拉伯數字、甘榜（Kampung）裡有一條小河、在死亡的曠野追殺死亡。世界只有一個，我們別給自己找麻煩。我們在迷霧中再
+            繼續前行。
+          </div>
+          <div className={styles.Modal_content}>
             《如果，家族旅行：一個世界（2022）》是一段恍如未來的私密旅行，敘事前沿的歌正要響起，這是聲音開始震動耳膜成為可辨感知前微幅游移的多重瞬間。
           </div>
           <div className={styles.Modal_content}>
             如果世界只有一個。創作者嘗試將「世界」置換成動詞——worlding——各種權力結構（含殖民）藉由旅行和書寫，以技術和科技製圖，展開各自的世界。
           </div>
+          <div className={styles.Modal_content}>
+            一個世界是個悖論。世界彷彿只有一個，人類意志可以改變之。而宇宙儼然無窮盡，人類無法以意志改變之。當世界只有一個，而傳說卻已是文字書寫留下的版本，那便是經過轉譯可以被容許展開的世界。一個世界是個悖論。那就像小時候獨自走路上學時不時腦海迸出的想像，我會不會是在另一個世界想像這個世界？
+          </div>
 
+          <Box className={styles.Modal_content}>
+            Shadows, ghosts, remains, a mistake, bats, the most terrifying
+            dream, the sight of invisible things, traces of time, Arabic
+            numbers, the stream in Kampung, and chasing Death in the deadly
+            wilderness. There is only one world, so we should not look for
+            unnecessary troubles. We shall carry on the journey in the mist.
+          </Box>
           <Box className={styles.Modal_content}>
             <Box
               component="span"
@@ -236,6 +278,12 @@ export default function HerLabSpaceModal() {
             attempts to verify “world” into “worlding,” revealing how various
             power structures (including colonization) render their own worlds
             through traveling and writing with different mapping technologies.
+          </Box>
+          <Box className={styles.Modal_content}>
+            The “if,” that there is only one world, is a paradox, just like some
+            whimsical thought coming into my mind on my way alone to school as a
+            child: is it possible that I am actually imagining this world in
+            another world?
           </Box>
         </Item>
       </Stack>

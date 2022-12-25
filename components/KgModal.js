@@ -10,10 +10,12 @@ import kg from "../public/imgs/artist_profile/kg.jpg";
 
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import work1 from "../public/imgs/artworks/kg/kg3-1.jpeg";
-import work2 from "../public/imgs/artworks/kg/kg6-1.jpeg";
-import work3 from "../public/imgs/artworks/kg/kg9-1.jpeg";
-import work4 from "../public/imgs/artworks/kg/kg9.jpeg";
+import work1 from "../public/imgs/artworks/kg/001 Large.jpeg";
+import work2 from "../public/imgs/artworks/kg/002 Large.jpeg";
+import work3 from "../public/imgs/artworks/kg/003 Large.jpeg";
+import work4 from "../public/imgs/artworks/kg/004 Large.jpeg";
+import work5 from "../public/imgs/artworks/kg/005 Large.jpeg";
+import work6 from "../public/imgs/artworks/kg/006 Large.jpeg";
 
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: 0,
@@ -99,6 +101,12 @@ export default function KgModal() {
                 <div className="keen-slider__slide ">
                   <Image src={work4} alt="artworks" placeholder="blur" />
                 </div>
+                <div className="keen-slider__slide ">
+                  <Image src={work5} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide ">
+                  <Image src={work6} alt="artworks" placeholder="blur" />
+                </div>
               </div>
             </div>
             {loaded && instanceRef.current && (
@@ -125,14 +133,14 @@ export default function KgModal() {
           </Box>
 
           {/*** artwork sider text ***/}
-          <Box pt={1}>
+          {/* <Box pt={1}>
             <Box className={styles.Modal_content} sx={{ textAlign: "center" }}>
               藝術家提供
             </Box>
             <Box className={styles.Modal_content} sx={{ textAlign: "center" }}>
               Photo courtesy of the artist
             </Box>
-          </Box>
+          </Box> */}
         </Item>
       </Stack>
 
@@ -164,10 +172,34 @@ export default function KgModal() {
           }}
         >
           <div className={styles.Modal_content}>
-            《禁止演算法觀眾》是一件半虛構作品，戈妮將目前在人工智慧、語音介面，以及人機關係的大量研究結果融入敘事中；這位數位助理揭露了與監聽基礎建設有關的資料，以及基於社會失能所設計出的程式和運算，同時討論了人工智慧的足跡，與其不被人看見的勞動，和對周邊的衝擊。{" "}
+            位在希臘雅典的一位數位助理，在即將成為電子垃圾的前七天，出現了異常行為。它借用化身形象出現在用戶面前，並於每日的某一小段時間，開始滔滔不絕介紹自己。它在運作過程中成功掃描網路上所有內容，搜集渴望分享的資訊，並利用碎片化的自言自語，談論自己的技能、祖先、構造、出身，與聲音及其意義。而在最後一天，為了人類和機器的和解，這位數位助理決定和人類分享如何不被演算法聽見的方法。
+          </div>
+          <div className={styles.Modal_content}>
+            當今大量的線上觀眾或虛擬助理，都是藉由線上人聲訓練而成的演算法。《禁止演算法觀眾》是一件半虛構作品，戈妮將目前在人工智慧、語音介面，以及人機關係的大量研究結果融入敘事中；這位數位助理揭露了與監聽基礎建設有關的資料，以及基於社會失能所設計出的程式和運算，同時討論了人工智慧的足跡，與其不被人看見的勞動，和對周邊的衝擊。
+          </div>
+          <div className={styles.Modal_content}>
+            A big number of audiences online nowadays is mainly algorithms
+            trained on human sounds online. In this semi-fictional work drawing
+            on the current research on voice interfaces and digital assistants,
+            a digital assistant situated in the hot city of Athens borrows an
+            avatar and appears before its users. For seven days before it ends
+            up in an e-waste, the assistant introduces itself, talks about its
+            skills, its ancestors, its anatomy and origins, and about voice and
+            its significance. It reveals data regarding the listening
+            infrastructures, as well as the social dysfunctions on which its
+            programming and operation is based. It discusses the footprint of
+            artificial intelligence, the hidden labor and the impact on the
+            peripheries. On the last day, before it patent expires, in a final
+            effort to reconcile humans and machines, it shares tips with us on
+            how it can manage not to be heard by algorithms.
+          </div>
+          <div className={styles.Modal_content}>
+            THIS ARTWORK WAS DEVELOPED WITHIN THE FRAMEWORK OF THE ARS
+            ELECTRONICA ARTSCIENCE RESIDENCY ENABLED BY ART COLLECTION TELEKOM
+            IN PARTNERSHIP WITH JOHANNES KEPLER UNIVERSITY.
           </div>
 
-          <Box className={styles.Modal_content}>
+          {/* <Box className={styles.Modal_content}>
             <Box component="span" className={styles.Modal_content}>
               The semi-fictional work
             </Box>
@@ -188,7 +220,7 @@ export default function KgModal() {
               and machines, it shares tips with us on how it can manage not to
               be heard by algorithms.
             </Box>
-          </Box>
+          </Box> */}
         </Item>
       </Stack>
 

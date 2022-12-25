@@ -10,10 +10,12 @@ import pc from "../public/imgs/artist_profile/pc.png";
 
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import work1 from "../public/imgs/artworks/pc/NIK_2103Large.jpeg";
-import work2 from "../public/imgs/artworks/pc/NIK_2138Large.jpeg";
-import work3 from "../public/imgs/artworks/pc/NIK_2191Large.jpeg";
-import work4 from "../public/imgs/artworks/pc/NIK_2227Large.jpeg";
+import work1 from "../public/imgs/artworks/pc/001 Large.jpeg";
+import work2 from "../public/imgs/artworks/pc/002 Large.jpeg";
+import work3 from "../public/imgs/artworks/pc/003 Large.jpeg";
+import work4 from "../public/imgs/artworks/pc/004 Large.jpeg";
+import work5 from "../public/imgs/artworks/pc/005 Large.jpeg";
+import work6 from "../public/imgs/artworks/pc/006 Large.jpeg";
 
 const Item = styled(Paper)(({ theme }) => ({
   borderRadius: 0,
@@ -97,6 +99,12 @@ export default function PcModal() {
                 <div className="keen-slider__slide">
                   <Image src={work4} alt="artworks" placeholder="blur" />
                 </div>
+                <div className="keen-slider__slide">
+                  <Image src={work5} alt="artworks" placeholder="blur" />
+                </div>
+                <div className="keen-slider__slide">
+                  <Image src={work6} alt="artworks" placeholder="blur" />
+                </div>
               </div>
             </div>
             {loaded && instanceRef.current && (
@@ -123,14 +131,14 @@ export default function PcModal() {
           </Box>
 
           {/*** artwork sider text ***/}
-          <Box pt={1}>
+          {/* <Box pt={1}>
             <Box className={styles.Modal_content} sx={{ textAlign: "center" }}>
               藝術家提供
             </Box>
             <Box className={styles.Modal_content} sx={{ textAlign: "center" }}>
               Photo courtesy of the artist
             </Box>
-          </Box>
+          </Box> */}
         </Item>
       </Stack>
 
@@ -157,8 +165,17 @@ export default function PcModal() {
           }}
         >
           <div className={styles.Modal_content}>
-            作品由四千名法國警察的臉組成，他們曾出現在2010 至2020
+            作品由四千名法國警察的臉組成，他們曾出現在2010至2020
             年間法國的抗爭運動中。奇里奧搜集了一千張含有警察的照片，並以人臉辨識軟體分析，再將所獲得的四千張警察臉孔，創建為一個線上資料庫，透過群眾的力量，逐一指認他們的身分。不僅如此，奇里奧還印出這些警察的大頭照，張貼在巴黎各處，讓他們暴露在公共場所。
+          </div>
+          <div className={styles.Modal_content}>
+            藉由討論人臉辨識系統和人工智慧潛在的使用與錯用，《捕捉》質疑牽涉
+            其中的不對等權力。而這類科技對隱私權規範的匱乏，最終將逆轉，用以
+            對抗主張強力使用它們的當權者。這件作品的挑釁意味，在2020年展出
+            時也引發法國內政部長與警察工會對其強行審查。
+          </div>
+          <div className={styles.Modal_content}>
+            作為一名行動主義者，奇里奧在2021年發起「廢除歐洲人臉辨識系統」運動（#BanFacialRecognitionEU），將包含其研究結果的法律訴狀，與超過五萬人簽名支持的連署書，寄給數個歐洲機構。歐洲執委會則回覆，認同有必要對人工智慧的使用進行立法限制。{" "}
           </div>
 
           <Box className={styles.Modal_content}>
@@ -181,9 +198,40 @@ export default function PcModal() {
               with a database of the resulting 4,000 faces of police officers to
               crowdsource their identification by name. Moreover, CIRIO printed
               the officers’ headshots as street art posters and posted them
-              throughout Paris to expose them also in the public space
+              throughout Paris to expose them also in the public space.
             </Box>
           </Box>
+          <Box className={styles.Modal_content}>
+            <Box
+              component="span"
+              sx={{ fontStyle: "italic" }}
+              className={styles.Modal_content}
+              //ml={1}
+            >
+              Capture
+            </Box>
+            <Box component="span" ml={1} className={styles.Modal_content}>
+              commented on the potential uses and misuses of facial recognition
+              and artificial intelligence by questioning the asymmetry of power
+              at play. The lack of privacy regulations of such technology
+              eventually turned against the same authorities that urge the use
+              of it. This provocation triggered the reactions of the Interior
+              Minister of France and the police unions which forced censorship
+              of the artwork, despite it being celebrated by the French citizens
+              and the international press.
+            </Box>
+          </Box>
+
+          <div className={styles.Modal_content}>
+            Initially, as an activist, CIRIO introduced a campaign to ban facial
+            recognition technology in all of Europe. In 2021 for his campaign
+            #BanFacialRecognitionEU, CIRIO delivered a package to various
+            European institutions containing a legal complaint with his research
+            and petition with over 50,000 signatures supporting a ban on facial
+            recognition in Europe. The European Commission replied to CIRIO‘s
+            complaint by acknowledging the need to legally restrict the use of
+            artificial intelligence.
+          </div>
         </Item>
       </Stack>
 
