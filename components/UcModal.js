@@ -238,7 +238,7 @@ export default function UcModal() {
         >
           <div className={styles.Modal_content}>
             韓國新媒體藝術家，他的作品融合藝術、科學和科技，創作以人類學、生態學、未來學和宇宙學等跨學科觀點為基礎。貫穿他作品的主題是對未知的探索，希望藉此獲得的洞見能擴展我們對自身和周遭世界的理解，並最終尋求人類的下一個方向。作品曾入選林茲電子藝術節、SIGGRAPH
-            Asia與濟州現代美術館典藏。
+            Asia 與濟州現代美術館典藏。
           </div>
 
           <div className={styles.Modal_content}>

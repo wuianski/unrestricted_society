@@ -90,6 +90,15 @@ export default function YungTaModal() {
             <div className="navigation-wrapper">
               <div ref={sliderRef} className="keen-slider">
                 <div className="keen-slider__slide">
+                  <ReactPlayer
+                    width="100%"
+                    height="100%"
+                    url="https://www.youtube.com/watch?v=xYNr2Ebl8m0"
+                    className={styles.react_player}
+                    controls={true}
+                  />
+                </div>
+                <div className="keen-slider__slide">
                   <Image src={work1} alt="artworks" placeholder="blur" />
                 </div>
                 <div className="keen-slider__slide">
@@ -106,15 +115,6 @@ export default function YungTaModal() {
                 </div>
                 <div className="keen-slider__slide">
                   <Image src={work6} alt="artworks" placeholder="blur" />
-                </div>
-                <div className="keen-slider__slide">
-                  <ReactPlayer
-                    width="100%"
-                    height="100%"
-                    url="https://www.youtube.com/watch?v=xYNr2Ebl8m0"
-                    className={styles.react_player}
-                    controls={true}
-                  />
                 </div>
               </div>
             </div>

@@ -90,6 +90,15 @@ export default function CyModal() {
             <div className="navigation-wrapper">
               <div ref={sliderRef} className="keen-slider">
                 <div className="keen-slider__slide">
+                  <ReactPlayer
+                    width="100%"
+                    height="100%"
+                    url="https://www.youtube.com/watch?v=giGOnnZUuwE"
+                    className={styles.react_player}
+                    controls={true}
+                  />
+                </div>
+                <div className="keen-slider__slide">
                   <Image src={work1} alt="artworks" placeholder="blur" />
                 </div>
                 <div className="keen-slider__slide">
@@ -106,15 +115,6 @@ export default function CyModal() {
                 </div>
                 <div className="keen-slider__slide">
                   <Image src={work6} alt="artworks" placeholder="blur" />
-                </div>
-                <div className="keen-slider__slide">
-                  <ReactPlayer
-                    width="100%"
-                    height="100%"
-                    url="https://www.youtube.com/watch?v=giGOnnZUuwE"
-                    className={styles.react_player}
-                    controls={true}
-                  />
                 </div>
               </div>
             </div>
@@ -180,18 +180,13 @@ export default function CyModal() {
           }}
         >
           <div className={styles.Modal_content}>
-            「鎏」，讀音同「流」，原意為色澤狀態好的金子，作為映照作品中數據流形成的來源——虛擬貨幣交易金流。Current
-            有流動之意，與貨幣「Currency」為同根詞，後者強調流動自一人至另一人的狀態或事實。「Current/y」以斜線號表示「或者」、「及」；電腦語言中，斜線號也是資料夾與路徑的分隔符號，故以Current/y
+            「鎏」，讀音同「流」，原意為色澤狀態好的金子，作為映照作品中數據流形成的來源——虛擬貨幣交易金流。Current有流動之意，與貨幣「Currency」為同根詞，後者強調流動自一人至另一人的狀態或事實。「Current/y」以斜線號表示「或者」、「及」；電腦語言中，斜線號也是資料夾與路徑的分隔符號，故以Current/y
             作為強調全球虛擬金流交易當下，即時狀況的轉換與流動路徑。
-            價值的成立來自於人與人之間對於觀念、物質、情感的交換，共識達成時
-            完成交易，並成就了集體價值的信仰。以區塊鏈透明的交易紀錄作為資訊
-            來源，作品將其轉譯為物理資料流。交易產生流動，投射價值於加密貨幣
-            上，流動量成就價值。
+            價值的成立來自於人與人之間對於觀念、物質、情感的交換，共識達成時完成交易，並成就了集體價值的信仰。以區塊鏈透明的交易紀錄作為資訊來源，作品將其轉譯為物理資料流。交易產生流動，投射價值於加密貨幣上，流動量成就價值。
           </div>
           <div className={styles.Modal_content}>
-            《鎏 /》探詢價值交換在數位維度與技術相互萌發的混沌狀態。將貨幣流
-            動方向與量值在空間中運算成像，使觀者能感受全球虛擬貨幣金融的價值
-            流動，如自然環境的物理能量傳遞，時而徐緩，又瞬時劇烈。
+            《鎏
+            /》探詢價值交換在數位維度與技術相互萌發的混沌狀態。將貨幣流動方向與量值在空間中運算成像，使觀者能感受全球虛擬貨幣金融的價值流動，如自然環境的物理能量傳遞，時而徐緩，又瞬時劇烈。
             （文／李彥儀）
           </div>
 

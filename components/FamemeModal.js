@@ -90,6 +90,15 @@ export default function FamemeModal() {
             <div className="navigation-wrapper">
               <div ref={sliderRef} className="keen-slider">
                 <div className="keen-slider__slide">
+                  <ReactPlayer
+                    width="100%"
+                    height="100%"
+                    url="https://www.youtube.com/watch?v=Q7iWJBLL08k"
+                    className={styles.react_player}
+                    controls={true}
+                  />
+                </div>
+                <div className="keen-slider__slide">
                   <Image src={work1} alt="artworks" placeholder="blur" />
                 </div>
                 <div className="keen-slider__slide">
@@ -106,15 +115,6 @@ export default function FamemeModal() {
                 </div>
                 <div className="keen-slider__slide">
                   <Image src={work6} alt="artworks" placeholder="blur" />
-                </div>
-                <div className="keen-slider__slide">
-                  <ReactPlayer
-                    width="100%"
-                    height="100%"
-                    url="https://www.youtube.com/watch?v=Q7iWJBLL08k"
-                    className={styles.react_player}
-                    controls={true}
-                  />
                 </div>
               </div>
             </div>
@@ -217,15 +217,16 @@ export default function FamemeModal() {
             transnational immersive space installations created since
             2019—including “Museum of Durian” (2019), “Durian Exercise Room”
             (2020), “Durian Pharmaceutical Co., Ltd.” (2020), and “Durian Duty
-            to be Free” (2022)—are rearchived.FAMETAVERSE, the first step taken
-            of FAMEME’s “Durian Universe,” is like the top-ranked private
-            museum, amusement park or resort of a flamboyant fame.
+            to be Free” (2022)—are rearchived.
           </Box>
           <Box className={styles.Modal_content}>
-            The project adopts virtual-world interfaces， further bringing the
-            playful game and interactive engagement of FAMEME into the networked
-            communities and hyper-mediated performance in the metaverse， as
-            what FAMEME celebrates: “FAMETAVERSE! a bit of my universe!
+            FAMETAVERSE, the first step taken of FAMEME’s “Durian Universe,” is
+            like the top-ranked private museum, amusement park or resort of a
+            flamboyant fame. The project adopts virtual-world interfaces，
+            further bringing the playful game and interactive engagement of
+            FAMEME into the networked communities and hyper-mediated performance
+            in the metaverse， as what FAMEME celebrates: “FAMETAVERSE! a bit of
+            my universe!
           </Box>
         </Item>
       </Stack>

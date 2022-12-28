@@ -65,6 +65,26 @@ import tt12_1 from "../public/imgs/tour/12/01 Large.jpeg";
 import tt12_2 from "../public/imgs/tour/12/02 Large.jpeg";
 import tt12_3 from "../public/imgs/tour/12/03 Large.jpeg";
 import tt12_4 from "../public/imgs/tour/12/04 Large.jpeg";
+import tt12_5 from "../public/imgs/tour/12/05 Large.jpeg";
+import tt12_6 from "../public/imgs/tour/12/06 Large.jpeg";
+import tt12_7 from "../public/imgs/tour/12/07 Large.jpeg";
+import tt12_8 from "../public/imgs/tour/12/08 Large.jpeg";
+import tt12_9 from "../public/imgs/tour/12/09 Large.jpeg";
+import tt12_10 from "../public/imgs/tour/12/10 Large.jpeg";
+import tt12_11 from "../public/imgs/tour/12/11 Large.jpeg";
+import tt12_12 from "../public/imgs/tour/12/12 Large.jpeg";
+import tt12_13 from "../public/imgs/tour/12/13 Large.jpeg";
+import tt12_14 from "../public/imgs/tour/12/14 Large.jpeg";
+import tt12_15 from "../public/imgs/tour/12/15 Large.jpeg";
+import tt12_16 from "../public/imgs/tour/12/16 Large.jpeg";
+import tt12_17 from "../public/imgs/tour/12/17 Large.jpeg";
+import tt12_18 from "../public/imgs/tour/12/18 Large.jpeg";
+import tt12_19 from "../public/imgs/tour/12/19 Large.jpeg";
+import tt12_20 from "../public/imgs/tour/12/20 Large.jpeg";
+import tt12_21 from "../public/imgs/tour/12/21 Large.jpeg";
+import tt12_22 from "../public/imgs/tour/12/22 Large.jpeg";
+import tt12_23 from "../public/imgs/tour/12/23 Large.jpeg";
+import tt12_24 from "../public/imgs/tour/12/24 Large.jpeg";
 
 import tt2_1 from "../public/imgs/tour/02/01 Large.jpeg";
 import tt2_2 from "../public/imgs/tour/02/02 Large.jpeg";
@@ -145,6 +165,27 @@ function Section({ children }) {
         {children}
       </span>
     </section>
+  );
+}
+
+function Arrow(props) {
+  const disabeld = props.disabled ? " arrow--disabled" : "";
+  return (
+    <svg
+      onClick={props.onClick}
+      className={`arrow ${
+        props.left ? "arrow--left" : "arrow--right"
+      } ${disabeld}`}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+    >
+      {props.left && (
+        <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
+      )}
+      {!props.left && (
+        <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
+      )}
+    </svg>
   );
 }
 
@@ -654,11 +695,14 @@ export default function App() {
                 animation="expanded"
               >
                 <motion.div className={styles.zhText} variants={ZhTextVariant}>
-                  展覽資訊
+                  <Box>
+                    <div>策展論述</div>
+                  </Box>
                 </motion.div>
                 <motion.div className={styles.textBG} variants={BGVariant} />
                 <motion.div className={styles.enText} variants={EnTextVariant}>
-                  Exhibition
+                  <div>Curatorial</div>
+                  <div>Statement</div>
                 </motion.div>
               </motion.div>
             </motion.a>
@@ -861,7 +905,7 @@ export default function App() {
               height="100%"
               //url="https://www.youtube.com/watch?v=tvBFKKhlYqM"
               url={[
-                "https://www.youtube.com/watch?v=tvBFKKhlYqM",
+                "https://www.youtube.com/watch?v=wHYNSS-Rhvo",
                 "https://www.youtube.com/watch?v=3COrS5aDbhM",
                 "https://www.youtube.com/watch?v=XGKpP37wKZk",
                 "https://www.youtube.com/watch?v=_PcL2hyYHao",
@@ -1717,6 +1761,22 @@ export default function App() {
                       NFT於2021年風起雲湧，其中有八成交易量為俗稱「NFT項目方」的頭像式專案創造。過了一年至2022年夏天，全球經融市場進入大熊市，NFT項目方紛紛冷卻停擺不動，各大社群熱度漸漸降溫。講者黃豆泥為非營利NFT實踐者，以自身經驗與社群觀察，本講座討論web3世界社群互動的方式，究竟是充滿投機氣氛的曇花一現，還是本質上改變社會互動模式的典範轉移。
                     </div>
                   </Box>
+                  <Box className={styles.talkContent} pt={3}>
+                    <div>
+                      Non-fungible tokens (NFTs) thrived in 2021. Bust projects
+                      launched by the so-called “NFT project teams” comprised
+                      80% of NFT transactions. It was not until the summer of
+                      2022 that bull markets began around the world in which
+                      many NFT teams’ activities have come to a halt and the fad
+                      has slackened among NFT communities. The speaker mashbean
+                      is a non-profit NFT practitioner. Based on his personal
+                      experience and observation of NFT communities, the talk
+                      will address the question as to whether the interaction
+                      among web3 communities is an ephemeral speculative venture
+                      or a paradigm shift that radically alters the pattern of
+                      social interaction.
+                    </div>
+                  </Box>
                 </div>
                 {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
@@ -1819,6 +1879,15 @@ export default function App() {
                       本講座以目前最熱門的虛擬主播Vtuber現象熱潮為探討的核心，包含從自媒體的YouTuber演變到Vtuber，也呼應元宇宙的到來，思考為何虛擬人反而比真人更受歡迎的風潮。
                     </div>
                   </Box>
+                  <Box className={styles.talkContent} pt={3}>
+                    <div>
+                      This talk revolves around the Vtuber phenomenon presently
+                      in vogue, including the evolution from YouTuber to Vtuber.
+                      Echoing the advent of metaverse, this talk also guides the
+                      audience to cogitate upon why virtual characters is
+                      instead more popular than real people under this trend.
+                    </div>
+                  </Box>
                 </div>
                 {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
@@ -1914,6 +1983,28 @@ export default function App() {
                     </div>
                     <div>
                       但，假訊息不是什新鮮事，有人類就有假訊息，生物為了自保或侵略充滿了各式各樣的偽裝，這都是假訊息。只是，大眾與社群媒體的時代，假訊息又是如何練成的？數位技術讓假訊息變得更厲害？而假訊息如何影響人心人性？人心人性又如何影響假訊息？
+                    </div>
+                  </Box>
+                  <Box className={styles.talkContent} pt={3}>
+                    <div>
+                      In recent years, many countries are beset by the problem
+                      of fake news, whether in terms of national security,
+                      public health, political choice, or people’s livelihood
+                      and consumption. “The incident of the Kansai International
+                      Airport” further brings the issue of fake news into the
+                      spotlight in Taiwan. On top of that, the growing threat
+                      from China, the Covid-19 pandemic, and the social
+                      antagonism all remind us that fake news has posed a
+                      constant menace to us.
+                    </div>
+                    <div>
+                      However, fake news is hardly new. Where there are people,
+                      there is fake news. To protect themselves or invade
+                      others, creatures have evolved camouflage of every stripe
+                      that bewilders their enemies. We can’t help wondering how
+                      fake news is formed in the age of mass and social media.
+                      Does digital technology help fake news go viral? How do
+                      fake news and people affect each other?
                     </div>
                   </Box>
                 </div>
@@ -2019,6 +2110,27 @@ export default function App() {
                       人工智慧已滲入人類社會的諸多角落，在帶給人們全新的生活體驗與便利性的同時，也衍生了許多關於法律、倫理、與道德的議題。本講座將聚焦於人工智慧所產生之偏見與歧視的問題。首先列舉多起國內外新聞為例，指出部份政府與企業所使用人工智慧存在對膚色、種族、或性別的偏見與歧視，於社會上掀起巨大漣漪。若欲消弭人工智慧的偏見與歧視，首應釐清偏見與歧視的來源。因此本講座從學理面與實務面提出人工智慧出現偏見歧視的四個可能原因，並針對每一原因提出可能的解方。本講座最後介紹國際上要求政府與企業應公開人工智慧演算法之呼籲，並說明企業的反彈與窒礙難行之處。
                     </div>
                   </Box>
+                  <Box className={styles.talkContent} pt={3}>
+                    <div>
+                      Artificial intelligence (AI) has infiltrated into many
+                      aspects of human society, offering people novel life
+                      experience and convenience whilst raising many legal,
+                      ethical, and moral issues. Focusing on AI-induced
+                      prejudice, this talk firstly draws examples from a number
+                      of news home and abroad, so as to point out that the AI
+                      algorithms used by some governments and corporations hold
+                      color, racial or gender prejudice which has produced a
+                      ripple effect upon our society. To eradicate AI-induced
+                      prejudice, identifying its source is the top priority.
+                      Accordingly, this talk not only presents four possible
+                      causes of AI-induced prejudice in terms of theory and
+                      practice, but also proposes feasible solutions to each of
+                      them. This talk concludes with an introduction to the
+                      international call for governments and corporations to
+                      disclose AI algorithms, and explicates the backlash from
+                      corporations and the difficulties in implementation.
+                    </div>
+                  </Box>
                 </div>
                 {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
@@ -2113,6 +2225,30 @@ export default function App() {
                       本次講座將由駐柏林藝術家泰瑞莎．舒柏特的《(吃)我的肉》（m(E)at
                       me）談起，藝術家在該作品的演出過程中吃下由自身血清培養而來的肌肉細胞。類似的藝術展演形式，至少可回溯至2003年澳洲藝術家奧隆．凱茨與艾奧娜特．祖爾的藝術作品《非具形烹飪》（Disembodied
                       Cuisine），該作品即以吃下法國第一塊以組織培養出的青蛙細胞肉排，並邀請民眾嘗試，碰觸人造肉的相關倫理思辨。但無論是當代藝術的展演形式及倫理界線，或人造肉技術與基因科技，始終不乏爭議的聲音。本次講座將由這些作品為起點，試圖透過當代藝術與科學、倫理之間難以理清的錯綜關係，進一步思考藝術為科學、倫理，以及人與動物關係所帶來的種種衝擊和啟發的可能性。
+                    </div>
+                  </Box>
+                  <Box className={styles.talkContent} pt={3}>
+                    <div>
+                      This talk will begin with m(E)at me, a project by
+                      Berlin-based artist Theresa SCHUBERT who ate the muscle
+                      cells cultured from her own serum during the performance.
+                      Similar performances can be at least traced back to
+                      Disembodied Cuisine (2003) by Australian artists Oron
+                      CATTS and Ionat ZURR who aroused ethical concern about
+                      cultured meat by eating the first frog cell steak made
+                      from tissue culture in France and inviting the public to
+                      taste it.
+                    </div>
+                    <div>
+                      However, controversies persist over the presentation form
+                      and ethical norm of contemporary art as well as the
+                      cultured meat technology and genetic engineering. Treating
+                      these works as the point of departure and by reference to
+                      the intricate entanglements among contemporary art,
+                      science, and ethics, this talk attempts to further
+                      consider the impacts and inspirations that art may bring
+                      to science, ethics, and the relationship between humans
+                      and animals.
                     </div>
                   </Box>
                 </div>
@@ -2723,13 +2859,17 @@ export default function App() {
               <div className={styles.tourBlk}>
                 <div>
                   <div className={styles.tourTitle}>
-                    超限社會：共學導覽培訓計畫
+                    超限社會｜共學導覽培訓計畫
+                  </div>
+                  <div className={styles.tourTitle}>
+                    The Unrestricted Society｜Docent: A Project for Collectives
                   </div>
                 </div>
                 <div>
-                  {/* <div className={styles.tourContent}>
+                  <div className={styles.tourContent}>
+                    2022年C-LAB的年度展覽「超限社會」展覽主題圍繞著當今人們所面對飛速發展的各式科技，及其為我們帶來的種種便利與影響。展覽透過藝術語彙探討如演算法、數位隱私、臉部辨識、深偽技術、試管肉、加密貨幣和元宇宙等議題。
                     策劃團隊邀請策展人孫以臻規劃「超限社會：共學導覽培訓計畫」，從「閱讀」展覽開始，引領有志於擔任藝文導覽員的參與者們，一步步地透過拆解展覽，建構來自自身的問題意識，並帶入之後的導覽實踐中。
-                  </div> */}
+                  </div>
                 </div>
                 <div>
                   {/*** tour12 slider image ***/}
@@ -2764,9 +2904,171 @@ export default function App() {
                             placeholder="blur"
                           />
                         </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt12_5}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt12_6}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt12_7}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt12_8}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt12_9}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt12_10}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt12_11}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt12_12}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt12_13}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide">
+                          <Image
+                            src={tt12_14}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt12_15}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt12_16}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt12_17}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt12_18}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt12_19}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt12_20}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt12_21}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt12_22}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt12_23}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
+                        <div className="keen-slider__slide ">
+                          <Image
+                            src={tt12_24}
+                            alt="artworks"
+                            placeholder="blur"
+                          />
+                        </div>
                       </div>
+                      {loaded && instanceRef.current && (
+                        <>
+                          <Arrow
+                            left
+                            onClick={(e) =>
+                              e.stopPropagation() || instanceRef.current?.prev()
+                            }
+                            disabled={currentSlide === 0}
+                          />
+
+                          <Arrow
+                            onClick={(e) =>
+                              e.stopPropagation() || instanceRef.current?.next()
+                            }
+                            disabled={
+                              currentSlide ===
+                              instanceRef.current.track.details.slides.length -
+                                1
+                            }
+                          />
+                        </>
+                      )}
                     </div>
-                    {loaded && instanceRef.current && (
+                    {/* {loaded && instanceRef.current && (
                       <div className="dots">
                         {[
                           ...Array(
@@ -2786,11 +3088,11 @@ export default function App() {
                           );
                         })}
                       </div>
-                    )}
+                    )} */}
                   </Box>
                 </div>
               </div>
-              <div className={styles.tourBlk}>
+              {/* <div className={styles.tourBlk}>
                 <div>
                   <div className={styles.tourTitle}>團體預約導覽</div>
                   <div className={styles.tourTitle}>Group Guided Tours</div>
@@ -2806,7 +3108,7 @@ export default function App() {
                     </div>
                   </div>
                 </a>
-              </div>
+              </div> */}
             </div>
           </motion.div>
         </div>

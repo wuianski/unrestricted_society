@@ -97,6 +97,15 @@ export default function HerLabSpaceModal() {
             <div className="navigation-wrapper">
               <div ref={sliderRef} className="keen-slider">
                 <div className="keen-slider__slide">
+                  <ReactPlayer
+                    width="100%"
+                    height="100%"
+                    url="https://www.youtube.com/watch?v=FYrOVyzaPp8"
+                    className={styles.react_player}
+                    controls={true}
+                  />
+                </div>
+                <div className="keen-slider__slide">
                   <Image src={work1} alt="artworks" placeholder="blur" />
                 </div>
                 <div className="keen-slider__slide">
@@ -119,15 +128,6 @@ export default function HerLabSpaceModal() {
                 </div>
                 <div className="keen-slider__slide">
                   <Image src={work8} alt="artworks" placeholder="blur" />
-                </div>
-                <div className="keen-slider__slide">
-                  <ReactPlayer
-                    width="100%"
-                    height="100%"
-                    url="https://www.youtube.com/watch?v=FYrOVyzaPp8"
-                    className={styles.react_player}
-                    controls={true}
-                  />
                 </div>
               </div>
             </div>
@@ -201,16 +201,7 @@ export default function HerLabSpaceModal() {
           <Box component="span" className={styles.Modal_content_nj}>
             11/15（二）
           </Box>
-          <a href="https://www.accupass.com/go/aworld2022" target="blank">
-            <Box
-              className={styles.Modal_content_nj}
-              sx={{ borderBottom: "1px solid #fff", width: "fit-content" }}
-              component="span"
-              ml={1}
-            >
-              開放報名
-            </Box>
-          </a>
+
           <Box className={styles.Modal_content_nj} pt={4}>
             ✷The performance will only take place at 11:00-18:00 on 11/26 (SAT)
             -11/27 (SUN). Prior registration is required. The 15-minute “trip”
@@ -219,16 +210,6 @@ export default function HerLabSpaceModal() {
           <Box component="span" className={styles.Modal_content_nj}>
             11/15
           </Box>
-          <a href="https://www.accupass.com/go/aworld2022" target="blank">
-            <Box
-              className={styles.Modal_content_nj}
-              sx={{ borderBottom: "1px solid #fff", width: "fit-content" }}
-              component="span"
-              ml={1}
-            >
-              SIGN UP
-            </Box>
-          </a>
         </Item>
         <Item
           sx={{

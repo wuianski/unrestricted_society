@@ -50,7 +50,7 @@ export default function ExModal() {
             </Box>
             <span className={styles.Modal_name}>莊偉慈</span>
           </div>
-          <div className={styles.Modal_name_en}>Curator / Chuang Wei Tzu</div>
+          <div className={styles.Modal_name_en}>Curator / CHUANG Wei-Tzu</div>
         </Item>
         <Item
           sx={{
@@ -80,7 +80,7 @@ export default function ExModal() {
             </Box>
             <Box component="span" className={styles.Modal_content}>
               的出現——如航太工程的進步，突破地理空間限制並擴大人類的移動範圍，到媒體介面改寫文化傳播的作用，再到進入網路時代而出現具強烈速度感的液態特質。在過去近半個世紀，人類社會經歷一次次的變化，我們在科技技術的推動下邁入了加速社會。媒體理論學者麥克魯漢（Marshall
-              MCLUHAN）在上個世紀就曾準確預言「媒體即訊息」，並指出科技的加速作用可被視為人類社會發展的主要動力。這樣的加速度，不只數次改變人類社會的樣貌，同時科技的更新也遠快過我們在道德法律面的建構工程。既然技術對人類生活影響深遠，「超限社會」一展試著從當代藝術的角度來測量科技的加速與其效應，並且提問:我們可以如何理解人與技術之間的關係？
+              MCLUHAN）在上個世紀就曾準確預言「媒體即訊息」，並指出科技的加速作用可被視為人類社會發展的主要動力。這樣的加速度，不只數次改變人類社會的樣貌，同時科技的更新也遠快過我們在道德法律面的建構工程。既然技術對人類生活影響深遠，「超限社會」一展試著從當代藝術的角度來測量科技的加速與其效應，並且提問：我們可以如何理解人與技術之間的關係？
             </Box>
           </div>
 
