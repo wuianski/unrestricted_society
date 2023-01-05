@@ -695,9 +695,7 @@ export default function App() {
                 animation="expanded"
               >
                 <motion.div className={styles.zhText} variants={ZhTextVariant}>
-                  <Box>
-                    <div>策展論述</div>
-                  </Box>
+                  策展論述
                 </motion.div>
                 <motion.div className={styles.textBG} variants={BGVariant} />
                 <motion.div className={styles.enText} variants={EnTextVariant}>
