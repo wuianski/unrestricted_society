@@ -13,13 +13,11 @@ export default function UserWindow() {
   };
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      window.addEventListener("resize", setDimension);
+    window.addEventListener("resize", setDimension);
 
-      return () => {
-        window.removeEventListener("resize", setDimension);
-      };
-    }
-  }, [screenSize]);
+    return () => {
+      window.removeEventListener("resize", setDimension);
+    };
+  }, []);
   return screenSize.dynamicWidth;
 }

@@ -1,16 +1,13 @@
-import React, { useState } from "react";
 import Image from "next/image";
+import Item from "./ModalItem";
+import ImageSlider from "./ImageSlider";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import Paper from "@mui/material/Paper";
-import { styled } from "@mui/material/styles";
 
 import styles from "./Modal.module.css";
 import hb from "../public/imgs/artist_profile/hb.jpg";
 import fp from "../public/imgs/artist_profile/fp.jpg";
 
-import { useKeenSlider } from "keen-slider/react";
-import "keen-slider/keen-slider.min.css";
 import work1 from "../public/imgs/artworks/hbfp/001 Large.jpeg";
 import work2 from "../public/imgs/artworks/hbfp/002 Large.jpeg";
 import work3 from "../public/imgs/artworks/hbfp/003 Large.jpeg";
@@ -18,26 +15,9 @@ import work4 from "../public/imgs/artworks/hbfp/004 Large.jpeg";
 import work5 from "../public/imgs/artworks/hbfp/005 Large.jpeg";
 import work6 from "../public/imgs/artworks/hbfp/006 Large.jpeg";
 
-const Item = styled(Paper)(({ theme }) => ({
-  borderRadius: 0,
-  backgroundColor: "#000",
-  padding: theme.spacing(1),
-  textAlign: "left",
-  color: "#fff",
-}));
+const WORKS = [work1, work2, work3, work4, work5, work6];
 
 export default function HbFpModal() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [loaded, setLoaded] = useState(false);
-  const [sliderRef, instanceRef] = useKeenSlider({
-    initial: 0,
-    slideChanged(slider) {
-      setCurrentSlide(slider.track.details.rel);
-    },
-    created() {
-      setLoaded(true);
-    },
-  });
   return (
     <>
       {/*** artist name ***/}
@@ -90,95 +70,7 @@ export default function HbFpModal() {
         >
           {/*** artwork sider image ***/}
           <Box>
-            <div className="navigation-wrapper">
-              <div ref={sliderRef} className="keen-slider">
-                <div className="keen-slider__slide">
-                  <Image src={work1} alt="artworks" placeholder="blur" />
-                  {/*** artwork sider text ***/}
-                  {/* <Box pt={1} ml={2} mr={2}>
-                    <Box
-                      className={styles.Modal_content}
-                      sx={{ textAlign: "center" }}
-                    >
-                      演員路易．D．惠勒使用深度學習技術轉變為理查．尼克森總統。
-                    </Box>
-                    <Box
-                      className={styles.Modal_content}
-                      sx={{ textAlign: "center" }}
-                    >
-                      Actor, Lewis D. WHEELER, is transformed into President
-                      Richard NIXON using deep learning techniques.
-                    </Box>
-                  </Box> */}
-                </div>
-                <div className="keen-slider__slide">
-                  <Image src={work2} alt="artworks" placeholder="blur" />
-                  {/*** artwork sider text ***/}
-                  {/* <Box pt={1} ml={2} mr={2}>
-                    <Box
-                      className={styles.Modal_content}
-                      sx={{ textAlign: "center" }}
-                    >
-                      2019
-                      年《如果登月失敗》於阿姆斯特丹國際紀錄片電影節展出照片。
-                    </Box>
-                    <Box
-                      className={styles.Modal_content}
-                      sx={{ textAlign: "center" }}
-                    >
-                      <Box
-                        component="span"
-                        sx={{ fontStyle: "italic" }}
-                        className={styles.Modal_content}
-                      >
-                        In Event of Moon Disastetr
-                      </Box>
-                      <Box
-                        component="span"
-                        className={styles.Modal_content}
-                        ml={1}
-                      >
-                        installation at International Documentary Film Festival
-                        Amsterdam, 2019.
-                      </Box>
-                    </Box>
-                  </Box> */}
-                </div>
-                <div className="keen-slider__slide">
-                  <Image src={work3} alt="artworks" placeholder="blur" />
-                </div>
-                <div className="keen-slider__slide">
-                  <Image src={work4} alt="artworks" placeholder="blur" />
-                </div>
-                <div className="keen-slider__slide">
-                  <Image src={work5} alt="artworks" placeholder="blur" />
-                </div>
-                <div className="keen-slider__slide">
-                  <Image src={work6} alt="artworks" placeholder="blur" />
-                </div>
-              </div>
-            </div>
-            {loaded && instanceRef.current && (
-              <div className="dots">
-                {[
-                  ...Array(
-                    instanceRef.current.track.details.slides.length
-                  ).keys(),
-                ].map((idx) => {
-                  return (
-                    <button
-                      key={idx}
-                      onClick={() => {
-                        instanceRef.current?.moveToIdx(idx);
-                      }}
-                      className={
-                        "dot" + (currentSlide === idx ? " active" : "")
-                      }
-                    ></button>
-                  );
-                })}
-              </div>
-            )}
+            <ImageSlider images={WORKS} />
           </Box>
         </Item>
       </Stack>

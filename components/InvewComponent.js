@@ -9,12 +9,11 @@ import {
 
 import Fade from "@mui/material/Fade";
 import styles from "./InvewComponent.module.css";
-import React from "react";
 import ReactPlayer from "react-player";
 
 import Image from "next/image";
 import closeIcon from "../public/imgs/close_icon.jpg";
-import UserWindow from "./UserWindow";
+import ImageSlider from "./ImageSlider";
 
 import Modal from "@mui/material/Modal";
 import ExModal from "./ExModal";
@@ -34,8 +33,6 @@ import InfoModal from "./InfoModal";
 
 import Box from "@mui/material/Box";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { useKeenSlider } from "keen-slider/react";
-import "keen-slider/keen-slider.min.css";
 
 import t1 from "../public/imgs/talk/區秀詒.png";
 import t2 from "../public/imgs/talk/吳達坤.png";
@@ -145,6 +142,221 @@ import tt10_2 from "../public/imgs/talk/10/02 Large.jpeg";
 import tt10_3 from "../public/imgs/talk/10/03 Large.jpeg";
 import tt10_4 from "../public/imgs/talk/10/04 Large.jpeg";
 
+/*** slider image sets ***/
+const TT1_IMAGES = [tt1_1, tt1_2, tt1_3, tt1_4];
+const TT2_IMAGES = [tt2_1, tt2_2, tt2_3, tt2_4];
+const TT3_IMAGES = [tt3_1, tt3_2, tt3_3, tt3_4, tt3_5, tt3_6, tt3_7];
+const TT4_IMAGES = [tt4_1, tt4_2, tt4_3, tt4_4];
+const TT5_IMAGES = [tt5_1, tt5_2, tt5_3, tt5_4];
+const TT6_IMAGES = [tt6_1, tt6_2, tt6_3, tt6_4];
+const TT7_IMAGES = [tt7_1, tt7_2, tt7_3, tt7_4];
+const TT8_IMAGES = [tt8_1, tt8_2];
+const TT9_IMAGES = [tt9_1, tt9_2, tt9_3];
+const TT10_IMAGES = [tt10_1, tt10_2, tt10_3, tt10_4];
+const TT11_IMAGES = [
+  tt11_1,
+  tt11_2,
+  tt11_3,
+  tt11_4,
+  tt11_5,
+  tt11_6,
+  tt11_7,
+  tt11_8,
+];
+const TT12_IMAGES = [
+  tt12_1,
+  tt12_2,
+  tt12_3,
+  tt12_4,
+  tt12_5,
+  tt12_6,
+  tt12_7,
+  tt12_8,
+  tt12_9,
+  tt12_10,
+  tt12_11,
+  tt12_12,
+  tt12_13,
+  tt12_14,
+  tt12_15,
+  tt12_16,
+  tt12_17,
+  tt12_18,
+  tt12_19,
+  tt12_20,
+  tt12_21,
+  tt12_22,
+  tt12_23,
+  tt12_24,
+];
+
+/*** artists shown in the "artist" section; each row is one line on screen ***/
+const ARTIST_ROWS = [
+  [
+    { id: "ma", zh: "米莫．艾克滕", en: "Memo AKTEN", Content: MaModal },
+    { id: "kg", zh: "奇里亞姬．戈妮", en: "Kyriaki GONI", Content: KgModal },
+  ],
+  [
+    { id: "hsienyu", zh: "鄭先喻", en: "CHENG Hsien-Yu", Content: HsienYuModal },
+    { id: "pc", zh: "保羅．奇里奧", en: "Paolo CIRIO", Content: PcModal },
+  ],
+  [
+    {
+      id: "slitscope",
+      zh: "雙縫鏡（金制民、金根瑩）",
+      en: "SLITSCOPE (KIM Jae-Min, KIM Keun-Hyoung)",
+      Content: SlitscopeModal,
+      long: true,
+    },
+  ],
+  [
+    { id: "ts", zh: "泰瑞莎．舒柏特", en: "Theresa SCHUBERT", Content: TsModal },
+  ],
+  [
+    {
+      id: "hbfp",
+      zh: "哈爾西．布根地、法蘭西絲卡．帕內塔",
+      en: "Halsey BURGUND, Francesca PANETTA",
+      Content: HbFpModal,
+      long: true,
+    },
+  ],
+  [
+    { id: "cy", zh: "陳乂", en: "CHEN Yi", Content: CyModal },
+    { id: "uc", zh: "哀傷電路", en: "Unhappy Circuit", Content: UcModal },
+  ],
+  [
+    { id: "yungta", zh: "張永達", en: "CHANG Yung-Ta", Content: YungTaModal },
+    { id: "fameme", zh: "法咪咪", en: "FAMEME", Content: FamemeModal },
+  ],
+  [
+    {
+      id: "hls",
+      zh: "她的實驗室空間集（區秀詒、陳侑汝）",
+      en: "Her Lab Space (AU Sow-Yee, CHEN Yow-Ruu)",
+      Content: HerLabSpaceModal,
+      long: true,
+    },
+  ],
+];
+
+/*** Menu hover effect ***/
+const BGVariant = {
+  expanded: {
+    width: "350px",
+  },
+  collapsed: {
+    width: "10px",
+    transition: { delay: 0.2, duration: 1 },
+  },
+};
+const ZhTextVariant = {
+  expanded: () => ({
+    opacity: 1,
+    y: "3rem",
+    transition: { delay: 0.1 },
+  }),
+  collapsed: () => ({
+    opacity: 0,
+    y: "200px",
+    ease: "easeOut",
+    duration: 0.2,
+    type: "tween",
+  }),
+};
+const EnTextVariant = {
+  expanded: () => ({
+    opacity: 0,
+    y: "6rem",
+    transition: { delay: 0 },
+  }),
+  collapsed: () => ({
+    opacity: 1,
+    y: 0,
+    ease: "easeOut",
+    duration: 0,
+    type: "tween",
+  }),
+};
+
+/*** Btn rotation effect ***/
+const btnBgVariants = {
+  rest: {
+    backgroundColor: "rgba(255, 0,0, 0.9)",
+    borderRadius: "0%",
+    boxShadow: "0 0 90px 70px #ff0000",
+    border: "none",
+    transition: {
+      duration: 0.2,
+      type: "tween",
+      ease: "easeIn",
+    },
+  },
+  hover: {
+    backgroundColor: "rgba(255, 0,0, 0.85)",
+    borderRadius: "0%",
+    boxShadow: "0 0 90px 20px #ff0000",
+    border: "none",
+    transition: {
+      duration: 0.2,
+      type: "tween",
+      ease: "easeOut",
+    },
+  },
+};
+
+/*** expanding zh/en menu link ***/
+function MenuLink({ href, zh, en, external = false }) {
+  return (
+    <motion.a
+      href={href}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+    >
+      <motion.div
+        className={styles.container}
+        initial="collapsed"
+        whileHover="expanded"
+      >
+        <motion.div className={styles.zhText} variants={ZhTextVariant}>
+          {zh}
+        </motion.div>
+        <motion.div className={styles.textBG} variants={BGVariant} />
+        <motion.div className={styles.enText} variants={EnTextVariant}>
+          {en}
+        </motion.div>
+      </motion.div>
+    </motion.a>
+  );
+}
+
+/*** fullscreen modal with fade + close button ***/
+function ContentModal({ open, onClose, className, children }) {
+  return (
+    <Modal
+      open={open}
+      onClose={onClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <div className={className}>
+        <Fade in={open} timeout={1000}>
+          <div>
+            <div className={styles.closeModal} onClick={onClose}>
+              <Image
+                src={closeIcon}
+                alt="Icon of close modal"
+                width={73}
+                height={73}
+              />
+            </div>
+            <div>{children}</div>
+          </div>
+        </Fade>
+      </div>
+    </Modal>
+  );
+}
+
 function Section({ children }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
@@ -168,27 +380,6 @@ function Section({ children }) {
   );
 }
 
-function Arrow(props) {
-  const disabeld = props.disabled ? " arrow--disabled" : "";
-  return (
-    <svg
-      onClick={props.onClick}
-      className={`arrow ${
-        props.left ? "arrow--left" : "arrow--right"
-      } ${disabeld}`}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-    >
-      {props.left && (
-        <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
-      )}
-      {!props.left && (
-        <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
-      )}
-    </svg>
-  );
-}
-
 export default function App() {
   const ref1 = useRef(null);
   const ref2 = useRef(null);
@@ -203,172 +394,65 @@ export default function App() {
 
   const controls_viewbox = useAnimationControls();
   const controls_pattern = useAnimationControls();
-  const controls_title = useAnimationControls();
   const controls_content = useAnimationControls();
 
-  // const dynamicWidth = UserWindow();
-  const [screenSize, getDimension] = useState({
+  const [screenSize, setScreenSize] = useState({
     dynamicWidth: window.innerWidth,
     dynamicHeight: window.innerHeight,
   });
-  const setDimension = () => {
-    getDimension({
-      dynamicWidth: window.innerWidth,
-      dynamicHeight: window.innerHeight,
-    });
-  };
 
   /*** media query ***/
   const matches = useMediaQuery("(max-width:810px)");
 
+  /*** keep screen size in sync (single listener, removed on unmount) ***/
   useEffect(() => {
-    window.addEventListener("resize", setDimension);
-    // return () => {
-    //   window.removeEventListener("resize", setDimension);
-    // };
-    // console.log("screenSize: ", screenSize.dynamicWidth);
-    // console.log("Element is in view 2: ", isInView2);
-    if (matches == false) {
-      if (isInView1 == true && isInView2 == false) {
-        controls_viewbox.start({
-          viewBox: `0 0 ${screenSize.dynamicWidth} ${screenSize.dynamicHeight}`,
-          transition: { type: "spring", duration: 2 },
-        });
-        controls_pattern.start({
-          rotate: [0, 5],
-          transition: { type: "spring", duration: 2.2 },
-        });
-        // controls_content.start({
-        //   rotate: [40, -5],
-        //   scale: [0, 1],
-        //   opacity: [0, 1],
-        //   transition: { type: "spring", duration: 1.8 },
-        // });
-      } else if (
-        isInView2 == true &&
-        isInView1 == false &&
-        isInView3 == false
-      ) {
-        controls_viewbox.start({
-          viewBox: `${screenSize.dynamicWidth * 1} 0 ${
-            screenSize.dynamicWidth * 1
-          } ${screenSize.dynamicHeight * 1}`,
-          transition: { type: "spring", duration: 2 },
-        });
-        controls_pattern.start({
-          rotate: [5, 0],
-          transition: { type: "spring", duration: 2 },
-        });
-      } else if (
-        isInView3 == true &&
-        isInView2 == false &&
-        isInView4 == false
-      ) {
-        controls_viewbox.start({
-          viewBox: `${screenSize.dynamicWidth * 1} ${
-            screenSize.dynamicHeight * 2
-          } ${screenSize.dynamicWidth * 1} ${screenSize.dynamicHeight * 1}`,
-          transition: { type: "spring", duration: 2 },
-        });
-        controls_pattern.start({
-          rotate: [0, 5],
-          transition: { type: "spring", duration: 2 },
-        });
-      } else if (
-        isInView4 == true &&
-        isInView3 == false &&
-        isInView5 == false
-      ) {
-        controls_viewbox.start({
-          viewBox: `${screenSize.dynamicWidth * 0.6} ${
-            screenSize.dynamicHeight * 3
-          } ${screenSize.dynamicWidth * 1} ${screenSize.dynamicHeight * 1}`,
-          transition: { type: "spring", duration: 2 },
-        });
-        controls_pattern.start({
-          rotate: [0, 5],
-          transition: { type: "spring", duration: 2 },
-        });
-      } else if (isInView5 == true && isInView4 == false) {
-        controls_viewbox.start({
-          viewBox: `0 ${screenSize.dynamicHeight * 2.4} ${
-            screenSize.dynamicWidth * 1
-          } ${screenSize.dynamicHeight * 1}`,
-          transition: { type: "spring", duration: 2 },
-        });
-        controls_pattern.start({
-          rotate: [5, 0],
-          transition: { type: "spring", duration: 2 },
-        });
-      }
-    } else if (matches == true) {
-      if (isInView1 == true && isInView2 == false) {
-        controls_viewbox.start({
-          viewBox: `0 0 ${screenSize.dynamicWidth} ${screenSize.dynamicHeight}`,
-          transition: { type: "spring", duration: 2 },
-        });
-        controls_pattern.start({
-          rotate: [0, 5],
-          transition: { type: "spring", duration: 2 },
-        });
-      } else if (
-        isInView2 == true &&
-        isInView1 == false &&
-        isInView3 == false
-      ) {
-        controls_viewbox.start({
-          viewBox: `0 ${screenSize.dynamicHeight * 0.2} ${
-            screenSize.dynamicWidth
-          } ${screenSize.dynamicHeight}`,
-          transition: { type: "spring", duration: 2 },
-        });
-        controls_pattern.start({
-          rotate: [5, 0],
-          transition: { type: "spring", duration: 2 },
-        });
-      } else if (
-        isInView3 == true &&
-        isInView2 == false &&
-        isInView4 == false
-      ) {
-        controls_viewbox.start({
-          viewBox: `0 ${screenSize.dynamicHeight * 0.4} ${
-            screenSize.dynamicWidth
-          } ${screenSize.dynamicHeight}`,
-          transition: { type: "spring", duration: 2 },
-        });
-        controls_pattern.start({
-          rotate: [0, 5],
-          transition: { type: "spring", duration: 2 },
-        });
-      } else if (
-        isInView4 == true &&
-        isInView3 == false &&
-        isInView5 == false
-      ) {
-        controls_viewbox.start({
-          viewBox: `0 ${screenSize.dynamicHeight * 0.6} ${
-            screenSize.dynamicWidth
-          } ${screenSize.dynamicHeight}`,
-          transition: { type: "spring", duration: 2 },
-        });
-        controls_pattern.start({
-          rotate: [0, 5],
-          transition: { type: "spring", duration: 2 },
-        });
-      } else if (isInView5 == true && isInView4 == false) {
-        controls_viewbox.start({
-          viewBox: `0 ${screenSize.dynamicHeight * 0.8} ${
-            screenSize.dynamicWidth
-          } ${screenSize.dynamicHeight}`,
-          transition: { type: "spring", duration: 2 },
-        });
-        controls_pattern.start({
-          rotate: [5, 0],
-          transition: { type: "spring", duration: 2 },
-        });
-      }
-    }
+    const handleResize = () => {
+      setScreenSize({
+        dynamicWidth: window.innerWidth,
+        dynamicHeight: window.innerHeight,
+      });
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  /*** move the svg background "camera" to follow the section in view ***/
+  useEffect(() => {
+    const { dynamicWidth: w, dynamicHeight: h } = screenSize;
+    const views = matches
+      ? [
+          { viewBox: `0 0 ${w} ${h}`, rotate: [0, 5] },
+          { viewBox: `0 ${h * 0.2} ${w} ${h}`, rotate: [5, 0] },
+          { viewBox: `0 ${h * 0.4} ${w} ${h}`, rotate: [0, 5] },
+          { viewBox: `0 ${h * 0.6} ${w} ${h}`, rotate: [0, 5] },
+          { viewBox: `0 ${h * 0.8} ${w} ${h}`, rotate: [5, 0] },
+        ]
+      : [
+          { viewBox: `0 0 ${w} ${h}`, rotate: [0, 5], patternDuration: 2.2 },
+          { viewBox: `${w} 0 ${w} ${h}`, rotate: [5, 0] },
+          { viewBox: `${w} ${h * 2} ${w} ${h}`, rotate: [0, 5] },
+          { viewBox: `${w * 0.6} ${h * 3} ${w} ${h}`, rotate: [0, 5] },
+          { viewBox: `0 ${h * 2.4} ${w} ${h}`, rotate: [5, 0] },
+        ];
+
+    // A section drives the animation only when its neighbors are out of view.
+    const inView = [isInView1, isInView2, isInView3, isInView4, isInView5];
+    const activeIndex = inView.findIndex(
+      (sectionInView, i) => sectionInView && !inView[i - 1] && !inView[i + 1]
+    );
+    if (activeIndex === -1) return;
+
+    controls_viewbox.start({
+      viewBox: views[activeIndex].viewBox,
+      transition: { type: "spring", duration: 2 },
+    });
+    controls_pattern.start({
+      rotate: views[activeIndex].rotate,
+      transition: {
+        type: "spring",
+        duration: views[activeIndex].patternDuration || 2,
+      },
+    });
   }, [
     isInView1,
     isInView2,
@@ -377,60 +461,13 @@ export default function App() {
     isInView5,
     screenSize,
     matches,
+    controls_viewbox,
+    controls_pattern,
   ]);
 
-  /*** modal exhibition ***/
-  const [openEx, setOpenEx] = useState(false);
-  const handleOpenEx = () => setOpenEx(true);
-  const handleCloseEx = () => setOpenEx(false);
-  /*** modal Memo AKTEN ***/
-  const [openMA, setOpenMA] = useState(false);
-  const handleOpenMA = () => setOpenMA(true);
-  const handleCloseMA = () => setOpenMA(false);
-  /*** modal Kyriaki GONI ***/
-  const [openKG, setOpenKG] = useState(false);
-  const handleOpenKG = () => setOpenKG(true);
-  const handleCloseKG = () => setOpenKG(false);
-  /*** modal Hsien-Yu CHENG ***/
-  const [openHsienYu, setOpenHsienYu] = useState(false);
-  const handleOpenHsienYu = () => setOpenHsienYu(true);
-  const handleCloseHsienYu = () => setOpenHsienYu(false);
-  /*** modal Paolo CIRIO ***/
-  const [openPC, setOpenPC] = useState(false);
-  const handleOpenPC = () => setOpenPC(true);
-  const handleClosePC = () => setOpenPC(false);
-  /*** modal SLITSCOPE ***/
-  const [openSLITSCOPE, setOpenSLITSCOPE] = useState(false);
-  const handleOpenSLITSCOPE = () => setOpenSLITSCOPE(true);
-  const handleCloseSLITSCOPE = () => setOpenSLITSCOPE(false);
-  /*** modal Theresa SCHUBERT ***/
-  const [openTS, setOpenTS] = useState(false);
-  const handleOpenTS = () => setOpenTS(true);
-  const handleCloseTS = () => setOpenTS(false);
-  /*** modal Halsey BURGUND & Francesca PANETTA ***/
-  const [openHBFP, setOpenHBFP] = useState(false);
-  const handleOpenHBFP = () => setOpenHBFP(true);
-  const handleCloseHBFP = () => setOpenHBFP(false);
-  /*** modal CHEN Yi ***/
-  const [openCY, setOpenCY] = useState(false);
-  const handleOpenCY = () => setOpenCY(true);
-  const handleCloseCY = () => setOpenCY(false);
-  /*** modal Unhappy Circuit ***/
-  const [openUC, setOpenUC] = useState(false);
-  const handleOpenUC = () => setOpenUC(true);
-  const handleCloseUC = () => setOpenUC(false);
-  /*** modal CHANG Yung-Ta ***/
-  const [openYungTa, setOpenYungTa] = useState(false);
-  const handleOpenYungTa = () => setOpenYungTa(true);
-  const handleCloseYungTa = () => setOpenYungTa(false);
-  /*** modal FAMEME ***/
-  const [openFameme, setOpenFameme] = useState(false);
-  const handleOpenFameme = () => setOpenFameme(true);
-  const handleCloseFameme = () => setOpenFameme(false);
-  /*** modal Her Lab Space ***/
-  const [openHLS, setOpenHLS] = useState(false);
-  const handleOpenHLS = () => setOpenHLS(true);
-  const handleCloseHLS = () => setOpenHLS(false);
+  /*** modals: "ex" (curatorial statement), "info" (drawer) or an artist id ***/
+  const [activeModal, setActiveModal] = useState(null);
+  const closeModal = () => setActiveModal(null);
 
   /*** Btn rotation effect ***/
   const textSvRef = useRef(null);
@@ -438,359 +475,53 @@ export default function App() {
   const time = useTime();
   const rotate = useTransform(time, [0, 40000], [0, 360], { clamp: false });
   const pause = useTransform(time, [0, 40000], [0, 0], { clamp: true });
-  const btnBgVariants = {
-    rest: {
-      backgroundColor: "rgba(255, 0,0, 0.9)",
-      borderRadius: "0%",
-      boxShadow: "0 0 90px 70px #ff0000",
-      border: "none",
-      transition: {
-        duration: 0.2,
-        type: "tween",
-        ease: "easeIn",
-      },
-    },
-    hover: {
-      backgroundColor: "rgba(255, 0,0, 0.85)",
-      borderRadius: "0%",
-      boxShadow: "0 0 90px 20px #ff0000",
-      border: "none",
-      transition: {
-        duration: 0.2,
-        type: "tween",
-        ease: "easeOut",
-      },
-    },
-  };
-
-  /*** Menu hover effect ***/
-  const BGVariant = {
-    expanded: {
-      width: "350px",
-    },
-    collapsed: {
-      width: "10px",
-      transition: { delay: 0.2, duration: 1 },
-    },
-  };
-  const ZhTextVariant = {
-    expanded: () => ({
-      opacity: 1,
-      y: "3rem",
-      transition: { delay: 0.1 },
-    }),
-    collapsed: () => ({
-      opacity: 0,
-      y: "200px",
-      ease: "easeOut",
-      duration: 0.2,
-      type: "tween",
-    }),
-  };
-  const EnTextVariant = {
-    expanded: () => ({
-      opacity: 0,
-      y: "6rem",
-      transition: { delay: 0 },
-    }),
-    collapsed: () => ({
-      opacity: 1,
-      y: 0,
-      ease: "easeOut",
-      duration: 0,
-      type: "tween",
-    }),
-  };
-
-  /*** ***/
-  const [openDrawer, setOpenDrawer] = useState(false);
-  const handleOpenDrawer = () => setOpenDrawer(true);
-  const handleCloseDrawer = () => setOpenDrawer(false);
-
-  /*** tt12 slider ***/
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [loaded, setLoaded] = useState(false);
-  const [sliderRef, instanceRef] = useKeenSlider({
-    initial: 0,
-    slideChanged(slider) {
-      setCurrentSlide(slider.track.details.rel);
-    },
-    created() {
-      setLoaded(true);
-    },
-  });
-
-  /*** tt2 slider ***/
-  const [currentSlidett2, setCurrentSlidett2] = useState(0);
-  const [loadedtt2, setLoadedtt2] = useState(false);
-  const [sliderReftt2, instanceReftt2] = useKeenSlider({
-    initial: 0,
-    slideChanged(slider) {
-      setCurrentSlidett2(slider.track.details.rel);
-    },
-    created() {
-      setLoadedtt2(true);
-    },
-  });
-
-  /*** tt6 slider ***/
-  const [currentSlidett6, setCurrentSlidett6] = useState(0);
-  const [loadedtt6, setLoadedtt6] = useState(false);
-  const [sliderReftt6, instanceReftt6] = useKeenSlider({
-    initial: 0,
-    slideChanged(slider) {
-      setCurrentSlidett6(slider.track.details.rel);
-    },
-    created() {
-      setLoadedtt6(true);
-    },
-  });
-
-  /*** tt11 slider ***/
-  const [currentSlidett11, setCurrentSlidett11] = useState(0);
-  const [loadedtt11, setLoadedtt11] = useState(false);
-  const [sliderReftt11, instanceReftt11] = useKeenSlider({
-    initial: 0,
-    slideChanged(slider) {
-      setCurrentSlidett11(slider.track.details.rel);
-    },
-    created() {
-      setLoadedtt11(true);
-    },
-  });
-
-  /*** tt1 slider ***/
-  const [currentSlidett1, setCurrentSlidett1] = useState(0);
-  const [loadedtt1, setLoadedtt1] = useState(false);
-  const [sliderReftt1, instanceReftt1] = useKeenSlider({
-    initial: 0,
-    slideChanged(slider) {
-      setCurrentSlidett1(slider.track.details.rel);
-    },
-    created() {
-      setLoadedtt1(true);
-    },
-  });
-
-  /*** tt3 slider ***/
-  const [currentSlidett3, setCurrentSlidett3] = useState(0);
-  const [loadedtt3, setLoadedtt3] = useState(false);
-  const [sliderReftt3, instanceReftt3] = useKeenSlider({
-    initial: 0,
-    slideChanged(slider) {
-      setCurrentSlidett3(slider.track.details.rel);
-    },
-    created() {
-      setLoadedtt3(true);
-    },
-  });
-
-  /*** tt4 slider ***/
-  const [currentSlidett4, setCurrentSlidett4] = useState(0);
-  const [loadedtt4, setLoadedtt4] = useState(false);
-  const [sliderReftt4, instanceReftt4] = useKeenSlider({
-    initial: 0,
-    slideChanged(slider) {
-      setCurrentSlidett4(slider.track.details.rel);
-    },
-    created() {
-      setLoadedtt4(true);
-    },
-  });
-
-  /*** tt5 slider ***/
-  const [currentSlidett5, setCurrentSlidett5] = useState(0);
-  const [loadedtt5, setLoadedtt5] = useState(false);
-  const [sliderReftt5, instanceReftt5] = useKeenSlider({
-    initial: 0,
-    slideChanged(slider) {
-      setCurrentSlidett5(slider.track.details.rel);
-    },
-    created() {
-      setLoadedtt5(true);
-    },
-  });
-
-  /*** tt7 slider ***/
-  const [currentSlidett7, setCurrentSlidett7] = useState(0);
-  const [loadedtt7, setLoadedtt7] = useState(false);
-  const [sliderReftt7, instanceReftt7] = useKeenSlider({
-    initial: 0,
-    slideChanged(slider) {
-      setCurrentSlidett7(slider.track.details.rel);
-    },
-    created() {
-      setLoadedtt7(true);
-    },
-  });
-
-  /*** tt8 slider ***/
-  const [currentSlidett8, setCurrentSlidett8] = useState(0);
-  const [loadedtt8, setLoadedtt8] = useState(false);
-  const [sliderReftt8, instanceReftt8] = useKeenSlider({
-    initial: 0,
-    slideChanged(slider) {
-      setCurrentSlidett8(slider.track.details.rel);
-    },
-    created() {
-      setLoadedtt8(true);
-    },
-  });
-
-  /*** tt9 slider ***/
-  const [currentSlidett9, setCurrentSlidett9] = useState(0);
-  const [loadedtt9, setLoadedtt9] = useState(false);
-  const [sliderReftt9, instanceReftt9] = useKeenSlider({
-    initial: 0,
-    slideChanged(slider) {
-      setCurrentSlidett9(slider.track.details.rel);
-    },
-    created() {
-      setLoadedtt9(true);
-    },
-  });
-
-  /*** tt10 slider ***/
-  const [currentSlidett10, setCurrentSlidett10] = useState(0);
-  const [loadedtt10, setLoadedtt10] = useState(false);
-  const [sliderReftt10, instanceReftt10] = useKeenSlider({
-    initial: 0,
-    slideChanged(slider) {
-      setCurrentSlidett10(slider.track.details.rel);
-    },
-    created() {
-      setLoadedtt10(true);
-    },
-  });
 
   return (
     <>
       {/*** menu ***/}
       <div className={styles.siteTitle}>
-        <motion.a href="#home">
-          <motion.div
-            className={styles.container}
-            initial="collapsed"
-            whileHover="expanded"
-            animation="expanded"
-          >
-            <motion.div className={styles.zhText} variants={ZhTextVariant}>
-              超限社會
-            </motion.div>
-            <motion.div className={styles.textBG} variants={BGVariant} />
-            <motion.div className={styles.enText} variants={EnTextVariant}>
-              The Unrestricted Society
-            </motion.div>
-          </motion.div>
-        </motion.a>
+        <MenuLink href="#home" zh="超限社會" en="The Unrestricted Society" />
       </div>
       <div className={styles.menu}>
         <ul>
           <div>
-            <motion.a href="#exhibition">
-              <motion.div
-                className={styles.container}
-                initial="collapsed"
-                whileHover="expanded"
-                animation="expanded"
-              >
-                <motion.div className={styles.zhText} variants={ZhTextVariant}>
-                  策展論述
-                </motion.div>
-                <motion.div className={styles.textBG} variants={BGVariant} />
-                <motion.div className={styles.enText} variants={EnTextVariant}>
+            <MenuLink
+              href="#exhibition"
+              zh="策展論述"
+              en={
+                <>
                   <div>Curatorial</div>
                   <div>Statement</div>
-                </motion.div>
-              </motion.div>
-            </motion.a>
+                </>
+              }
+            />
           </div>
 
           <div>
-            <motion.a href="#artist">
-              <motion.div
-                className={styles.container}
-                initial="collapsed"
-                whileHover="expanded"
-                animation="expanded"
-              >
-                <motion.div className={styles.zhText} variants={ZhTextVariant}>
-                  藝術家
-                </motion.div>
-                <motion.div className={styles.textBG} variants={BGVariant} />
-                <motion.div className={styles.enText} variants={EnTextVariant}>
-                  artist
-                </motion.div>
-              </motion.div>
-            </motion.a>
+            <MenuLink href="#artist" zh="藝術家" en="artist" />
           </div>
 
           <div className={styles.menuBtn}>
-            <motion.a href="#talk">
-              <motion.div
-                className={styles.container}
-                initial="collapsed"
-                whileHover="expanded"
-                animation="expanded"
-              >
-                <motion.div className={styles.zhText} variants={ZhTextVariant}>
-                  講座
-                </motion.div>
-                <motion.div className={styles.textBG} variants={BGVariant} />
-                <motion.div className={styles.enText} variants={EnTextVariant}>
-                  Talk
-                </motion.div>
-              </motion.div>
-            </motion.a>
+            <MenuLink href="#talk" zh="講座" en="Talk" />
           </div>
 
           <div className={styles.menuBtn}>
-            <motion.a href="#tour">
-              <motion.div
-                className={styles.container}
-                initial="collapsed"
-                whileHover="expanded"
-                animation="expanded"
-              >
-                <motion.div className={styles.zhText} variants={ZhTextVariant}>
-                  導覽
-                </motion.div>
-
-                <motion.div className={styles.textBG} variants={BGVariant} />
-                <motion.div className={styles.enText} variants={EnTextVariant}>
-                  Guided Tour
-                </motion.div>
-              </motion.div>
-            </motion.a>
+            <MenuLink href="#tour" zh="導覽" en="Guided Tour" />
           </div>
 
           <div className={styles.menuBtn}>
-            <motion.a
+            <MenuLink
               href="https://drive.google.com/file/d/1FuwB5A5cFcS3f8GIy8_T8zzIz258yvvN/view"
-              target="blank"
-            >
-              <motion.div
-                className={styles.container}
-                initial="collapsed"
-                whileHover="expanded"
-                animation="expanded"
-              >
-                <motion.div className={styles.zhText} variants={ZhTextVariant}>
-                  展覽手冊
-                </motion.div>
-
-                <motion.div className={styles.textBG} variants={BGVariant} />
-                <motion.div className={styles.enText} variants={EnTextVariant}>
-                  BROCHURE
-                </motion.div>
-              </motion.div>
-            </motion.a>
+              external
+              zh="展覽手冊"
+              en="BROCHURE"
+            />
           </div>
         </ul>
       </div>
 
       {/*** info ***/}
-      <div className={styles.menuBtn_clab} onClick={handleOpenDrawer}>
+      <div className={styles.menuBtn_clab} onClick={() => setActiveModal("info")}>
         <motion.div
           className={styles.btnWrap}
           initial="rest"
@@ -804,12 +535,10 @@ export default function App() {
             height="280px"
             ref={textSvRef}
             style={isBtnHovered ? { pause } : { rotate }}
-            whileHover={() => setBtnHovered(true)}
-            // onMouseLeave={() => setBtnHovered(false)}
-            onHoverStart={(e) => {
+            onHoverStart={() => {
               setBtnHovered(true);
             }}
-            onHoverEnd={(e) => {
+            onHoverEnd={() => {
               setBtnHovered(false);
             }}
           >
@@ -834,26 +563,13 @@ export default function App() {
           </motion.div>
         </motion.div>
       </div>
-      <Modal open={openDrawer} onClose={handleCloseDrawer}>
-        <div className={styles.myDrawer}>
-          <Fade in={openDrawer} timeout={1000}>
-            <div>
-              <div className={styles.closeModal} onClick={handleCloseDrawer}>
-                <Image
-                  src={closeIcon}
-                  alt="Icon of close modal"
-                  width={73}
-                  height={73}
-                />
-              </div>
-
-              <div>
-                <InfoModal />
-              </div>
-            </div>
-          </Fade>
-        </div>
-      </Modal>
+      <ContentModal
+        open={activeModal === "info"}
+        onClose={closeModal}
+        className={styles.myDrawer}
+      >
+        <InfoModal />
+      </ContentModal>
 
       {/*** svg background ***/}
       {matches == false && (
@@ -898,17 +614,19 @@ export default function App() {
       <Section>
         <div ref={ref1} id="home" className={styles.secBlk}>
           <motion.div className={styles.vid} animate={controls_content}>
+            {/* First video as the url (so YouTube gets a valid videoId instead
+                of logging "Invalid video id"), the rest queued as a playlist. */}
             <ReactPlayer
               width="100%"
               height="100%"
-              //url="https://www.youtube.com/watch?v=tvBFKKhlYqM"
-              url={[
-                "https://www.youtube.com/watch?v=wHYNSS-Rhvo",
-                "https://www.youtube.com/watch?v=3COrS5aDbhM",
-                "https://www.youtube.com/watch?v=XGKpP37wKZk",
-                "https://www.youtube.com/watch?v=_PcL2hyYHao",
-                "https://www.youtube.com/watch?v=BGVLKgRCdFE",
-              ]}
+              url="https://www.youtube.com/watch?v=wHYNSS-Rhvo"
+              config={{
+                youtube: {
+                  playerVars: {
+                    playlist: "3COrS5aDbhM,XGKpP37wKZk,_PcL2hyYHao,BGVLKgRCdFE",
+                  },
+                },
+              }}
               className={styles.react_player}
               controls={true}
             />
@@ -925,7 +643,7 @@ export default function App() {
         <div ref={ref2} id="exhibition" className={styles.secBlk}>
           <motion.div
             className={styles.contentInner_ex}
-            onClick={handleOpenEx}
+            onClick={() => setActiveModal("ex")}
             animate={controls_content}
           >
             <Box className={styles.exTitle}>
@@ -982,31 +700,13 @@ export default function App() {
             </div>
             <div className={styles.exMore}>more...</div>
           </motion.div>
-          <Modal
-            open={openEx}
-            onClose={handleCloseEx}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
+          <ContentModal
+            open={activeModal === "ex"}
+            onClose={closeModal}
+            className={styles.exModal}
           >
-            <div className={styles.exModal}>
-              <Fade in={openEx} timeout={1000}>
-                <div>
-                  <div className={styles.closeModal} onClick={handleCloseEx}>
-                    <Image
-                      src={closeIcon}
-                      alt="Icon of close modal"
-                      width={73}
-                      height={73}
-                    />
-                  </div>
-
-                  <div>
-                    <ExModal />
-                  </div>
-                </div>
-              </Fade>
-            </div>
-          </Modal>
+            <ExModal />
+          </ContentModal>
         </div>
       </Section>
 
@@ -1021,385 +721,30 @@ export default function App() {
             className={styles.artistWapper}
             animate={controls_content}
           >
-            <div className={styles.artistLineWapper}>
-              <div className={styles.artistBlk} onClick={handleOpenMA}>
-                <span className={styles.artistName}>米莫．艾克滕</span>
-                <span className={styles.artistName_en}>Memo AKTEN</span>
+            {ARTIST_ROWS.map((row, rowIdx) => (
+              <div className={styles.artistLineWapper} key={rowIdx}>
+                {row.map(({ id, zh, en, long }) => (
+                  <div
+                    key={id}
+                    className={long ? styles.artistBlkLong : styles.artistBlk}
+                    onClick={() => setActiveModal(id)}
+                  >
+                    <span className={styles.artistName}>{zh}</span>
+                    <span className={styles.artistName_en}>{en}</span>
+                  </div>
+                ))}
               </div>
-              <Modal
-                open={openMA}
-                onClose={handleCloseMA}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
+            ))}
+            {ARTIST_ROWS.flat().map(({ id, Content }) => (
+              <ContentModal
+                key={id}
+                open={activeModal === id}
+                onClose={closeModal}
+                className={styles.exModal}
               >
-                <div className={styles.exModal}>
-                  <Fade in={openMA} timeout={1000}>
-                    <div>
-                      <Box
-                        className={styles.closeModal}
-                        onClick={handleCloseMA}
-                      >
-                        <Image
-                          src={closeIcon}
-                          alt="Icon of close modal"
-                          width={73}
-                          height={73}
-                        />
-                      </Box>
-                      <MaModal />
-                    </div>
-                  </Fade>
-                </div>
-              </Modal>
-              <div className={styles.artistBlk} onClick={handleOpenKG}>
-                <span className={styles.artistName}>奇里亞姬．戈妮</span>
-                <span className={styles.artistName_en}>Kyriaki GONI</span>
-              </div>
-              <Modal
-                open={openKG}
-                onClose={handleCloseKG}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-              >
-                <div className={styles.exModal}>
-                  <Fade in={openKG} timeout={1000}>
-                    <div>
-                      <div
-                        className={styles.closeModal}
-                        onClick={handleCloseKG}
-                      >
-                        <Image
-                          src={closeIcon}
-                          alt="Icon of close modal"
-                          width={73}
-                          height={73}
-                        />
-                      </div>
-                      <KgModal />
-                    </div>
-                  </Fade>
-                </div>
-              </Modal>
-            </div>
-            <div className={styles.artistLineWapper}>
-              <div className={styles.artistBlk} onClick={handleOpenHsienYu}>
-                <span className={styles.artistName}>鄭先喻</span>
-                <span className={styles.artistName_en}>CHENG Hsien-Yu</span>
-              </div>
-              <Modal
-                open={openHsienYu}
-                onClose={handleCloseHsienYu}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-              >
-                <div className={styles.exModal}>
-                  <Fade in={openHsienYu} timeout={1000}>
-                    <div>
-                      <div
-                        className={styles.closeModal}
-                        onClick={handleCloseHsienYu}
-                      >
-                        <Image
-                          src={closeIcon}
-                          alt="Icon of close modal"
-                          width={73}
-                          height={73}
-                        />
-                      </div>
-                      <HsienYuModal />
-                    </div>
-                  </Fade>
-                </div>
-              </Modal>
-              <div className={styles.artistBlk} onClick={handleOpenPC}>
-                <span className={styles.artistName}>保羅．奇里奧</span>
-                <span className={styles.artistName_en}>Paolo CIRIO</span>
-              </div>
-              <Modal
-                open={openPC}
-                onClose={handleClosePC}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-              >
-                <div className={styles.exModal}>
-                  <Fade in={openPC} timeout={1000}>
-                    <div>
-                      <div
-                        className={styles.closeModal}
-                        onClick={handleClosePC}
-                      >
-                        <Image
-                          src={closeIcon}
-                          alt="Icon of close modal"
-                          width={73}
-                          height={73}
-                        />
-                      </div>
-                      <PcModal />
-                    </div>
-                  </Fade>
-                </div>
-              </Modal>
-            </div>
-            <div className={styles.artistLineWapper}>
-              <div
-                className={styles.artistBlkLong}
-                onClick={handleOpenSLITSCOPE}
-              >
-                <span className={styles.artistName}>
-                  雙縫鏡（金制民、金根瑩）
-                </span>
-                <span className={styles.artistName_en}>
-                  SLITSCOPE (KIM Jae-Min, KIM Keun-Hyoung)
-                </span>
-              </div>
-              <Modal
-                open={openSLITSCOPE}
-                onClose={handleCloseSLITSCOPE}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-              >
-                <div className={styles.exModal}>
-                  <Fade in={openSLITSCOPE} timeout={1000}>
-                    <div>
-                      <div
-                        className={styles.closeModal}
-                        onClick={handleCloseSLITSCOPE}
-                      >
-                        <Image
-                          src={closeIcon}
-                          alt="Icon of close modal"
-                          width={73}
-                          height={73}
-                        />
-                      </div>
-                      <SlitscopeModal />
-                    </div>
-                  </Fade>
-                </div>
-              </Modal>
-            </div>
-            <div className={styles.artistLineWapper}>
-              <div className={styles.artistBlk} onClick={handleOpenTS}>
-                <span className={styles.artistName}>泰瑞莎．舒柏特</span>
-                <span className={styles.artistName_en}>Theresa SCHUBERT</span>
-              </div>
-              <Modal
-                open={openTS}
-                onClose={handleCloseTS}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-              >
-                <div className={styles.exModal}>
-                  <Fade in={openTS} timeout={1000}>
-                    <div>
-                      <div
-                        className={styles.closeModal}
-                        onClick={handleCloseTS}
-                      >
-                        <Image
-                          src={closeIcon}
-                          alt="Icon of close modal"
-                          width={73}
-                          height={73}
-                        />
-                      </div>
-                      <TsModal />
-                    </div>
-                  </Fade>
-                </div>
-              </Modal>
-            </div>
-            <div className={styles.artistLineWapper}>
-              <div className={styles.artistBlkLong} onClick={handleOpenHBFP}>
-                <span className={styles.artistName}>
-                  哈爾西．布根地、法蘭西絲卡．帕內塔
-                </span>
-                <span className={styles.artistName_en}>
-                  Halsey BURGUND, Francesca PANETTA
-                </span>
-              </div>
-              <Modal
-                open={openHBFP}
-                onClose={handleCloseHBFP}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-              >
-                <div className={styles.exModal}>
-                  <Fade in={openHBFP} timeout={1000}>
-                    <div>
-                      <div
-                        className={styles.closeModal}
-                        onClick={handleCloseHBFP}
-                      >
-                        <Image
-                          src={closeIcon}
-                          alt="Icon of close modal"
-                          width={73}
-                          height={73}
-                        />
-                      </div>
-                      <HbFpModal />
-                    </div>
-                  </Fade>
-                </div>
-              </Modal>
-            </div>
-            <div className={styles.artistLineWapper}>
-              <div className={styles.artistBlk} onClick={handleOpenCY}>
-                <span className={styles.artistName}>陳乂</span>
-                <span className={styles.artistName_en}>CHEN Yi</span>
-              </div>
-              <Modal
-                open={openCY}
-                onClose={handleCloseCY}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-              >
-                <div className={styles.exModal}>
-                  <Fade in={openCY} timeout={1000}>
-                    <div>
-                      <div
-                        className={styles.closeModal}
-                        onClick={handleCloseCY}
-                      >
-                        <Image
-                          src={closeIcon}
-                          alt="Icon of close modal"
-                          width={73}
-                          height={73}
-                        />
-                      </div>
-                      <CyModal />
-                    </div>
-                  </Fade>
-                </div>
-              </Modal>
-              <div className={styles.artistBlk} onClick={handleOpenUC}>
-                <span className={styles.artistName}>哀傷電路</span>
-                <span className={styles.artistName_en}>Unhappy Circuit</span>
-              </div>
-              <Modal
-                open={openUC}
-                onClose={handleCloseUC}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-              >
-                <div className={styles.exModal}>
-                  <Fade in={openUC} timeout={1000}>
-                    <div>
-                      <div
-                        className={styles.closeModal}
-                        onClick={handleCloseUC}
-                      >
-                        <Image
-                          src={closeIcon}
-                          alt="Icon of close modal"
-                          width={73}
-                          height={73}
-                        />
-                      </div>
-                      <UcModal />
-                    </div>
-                  </Fade>
-                </div>
-              </Modal>
-            </div>
-            <div className={styles.artistLineWapper}>
-              <div className={styles.artistBlk} onClick={handleOpenYungTa}>
-                <span className={styles.artistName}>張永達</span>
-                <span className={styles.artistName_en}>CHANG Yung-Ta</span>
-              </div>
-              <Modal
-                open={openYungTa}
-                onClose={handleCloseYungTa}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-              >
-                <div className={styles.exModal}>
-                  <Fade in={openYungTa} timeout={1000}>
-                    <div>
-                      <div
-                        className={styles.closeModal}
-                        onClick={handleCloseYungTa}
-                      >
-                        <Image
-                          src={closeIcon}
-                          alt="Icon of close modal"
-                          width={73}
-                          height={73}
-                        />
-                      </div>
-                      <YungTaModal />
-                    </div>
-                  </Fade>
-                </div>
-              </Modal>
-              <div className={styles.artistBlk} onClick={handleOpenFameme}>
-                <span className={styles.artistName}>法咪咪</span>
-                <span className={styles.artistName_en}>FAMEME</span>
-              </div>
-              <Modal
-                open={openFameme}
-                onClose={handleCloseFameme}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-              >
-                <div className={styles.exModal}>
-                  <Fade in={openFameme} timeout={1000}>
-                    <div>
-                      <div
-                        className={styles.closeModal}
-                        onClick={handleCloseFameme}
-                      >
-                        <Image
-                          src={closeIcon}
-                          alt="Icon of close modal"
-                          width={73}
-                          height={73}
-                        />
-                      </div>
-                      <FamemeModal />
-                    </div>
-                  </Fade>
-                </div>
-              </Modal>
-            </div>
-            <div className={styles.artistLineWapper}>
-              <div className={styles.artistBlkLong} onClick={handleOpenHLS}>
-                <span className={styles.artistName}>
-                  她的實驗室空間集（區秀詒、陳侑汝）
-                </span>
-                <span className={styles.artistName_en}>
-                  Her Lab Space (AU Sow-Yee, CHEN Yow-Ruu)
-                </span>
-              </div>
-              <Modal
-                open={openHLS}
-                onClose={handleCloseHLS}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-              >
-                <div className={styles.exModal}>
-                  <Fade in={openHLS} timeout={1000}>
-                    <div>
-                      <div
-                        className={styles.closeModal}
-                        onClick={handleCloseHLS}
-                      >
-                        <Image
-                          src={closeIcon}
-                          alt="Icon of close modal"
-                          width={73}
-                          height={73}
-                        />
-                      </div>
-                      <HerLabSpaceModal />
-                    </div>
-                  </Fade>
-                </div>
-              </Modal>
-            </div>
+                <Content />
+              </ContentModal>
+            ))}
           </motion.div>
         </div>
       </Section>
@@ -1420,7 +765,7 @@ export default function App() {
                     2022年由策展人莊偉慈所策劃的年度展覽
                     <a
                       href="https://clab.org.tw/events/theunrestrictedsociety/"
-                      target="blank"
+                      target="_blank" rel="noopener noreferrer"
                     >
                       <Box component="span" sx={{ fontWeight: "bold" }} mr={1}>
                         「超限社會」
@@ -1437,7 +782,7 @@ export default function App() {
                     The 2022 C-LAB annual exhibition{" "}
                     <a
                       href="https://clab.org.tw/en/events/theunrestrictedsociety/"
-                      target="blank"
+                      target="_blank" rel="noopener noreferrer"
                     >
                       <Box component="span" sx={{ fontWeight: "bold" }} mr={1}>
                         The Unrestricted Society
@@ -1513,7 +858,7 @@ export default function App() {
                 </div>
                 {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
-                  target="blank"
+                  target="_blank" rel="noopener noreferrer"
                 >
                   <div>
                     <div className={styles.tourLink}>報名 sign up</div>
@@ -1522,60 +867,7 @@ export default function App() {
                 <div>
                   {/*** tour1 slider image ***/}
                   <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
-                    <div className="navigation-wrapper">
-                      <div ref={sliderReftt1} className="keen-slider">
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt1_1}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt1_2}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt1_3}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt1_4}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    {loadedtt1 && instanceReftt1.current && (
-                      <div className="dots">
-                        {[
-                          ...Array(
-                            instanceReftt1.current.track.details.slides.length
-                          ).keys(),
-                        ].map((idx) => {
-                          return (
-                            <button
-                              key={idx}
-                              onClick={() => {
-                                instanceReftt1.current?.moveToIdx(idx);
-                              }}
-                              className={
-                                "dot" +
-                                (currentSlidett1 === idx ? " active" : "")
-                              }
-                            ></button>
-                          );
-                        })}
-                      </div>
-                    )}
+                    <ImageSlider images={TT1_IMAGES} />
                   </Box>
                 </div>
               </div>
@@ -1640,7 +932,7 @@ export default function App() {
                 </div>
                 {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
-                  target="blank"
+                  target="_blank" rel="noopener noreferrer"
                 >
                   <div>
                     <div className={styles.tourLink}>報名 sign up</div>
@@ -1649,81 +941,7 @@ export default function App() {
                 <div>
                   {/*** tour3 slider image ***/}
                   <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
-                    <div className="navigation-wrapper">
-                      <div ref={sliderReftt3} className="keen-slider">
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt3_1}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt3_2}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt3_3}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt3_4}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt3_5}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt3_6}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt3_7}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    {loadedtt3 && instanceReftt3.current && (
-                      <div className="dots">
-                        {[
-                          ...Array(
-                            instanceReftt3.current.track.details.slides.length
-                          ).keys(),
-                        ].map((idx) => {
-                          return (
-                            <button
-                              key={idx}
-                              onClick={() => {
-                                instanceReftt3.current?.moveToIdx(idx);
-                              }}
-                              className={
-                                "dot" +
-                                (currentSlidett3 === idx ? " active" : "")
-                              }
-                            ></button>
-                          );
-                        })}
-                      </div>
-                    )}
+                    <ImageSlider images={TT3_IMAGES} />
                   </Box>
                 </div>
               </div>
@@ -1778,7 +996,7 @@ export default function App() {
                 </div>
                 {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
-                  target="blank"
+                  target="_blank" rel="noopener noreferrer"
                 >
                   <div>
                     <div className={styles.tourLink}>報名 sign up</div>
@@ -1787,60 +1005,7 @@ export default function App() {
                 <div>
                   {/*** tour4 slider image ***/}
                   <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
-                    <div className="navigation-wrapper">
-                      <div ref={sliderReftt4} className="keen-slider">
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt4_1}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt4_2}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt4_3}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt4_4}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    {loadedtt4 && instanceReftt4.current && (
-                      <div className="dots">
-                        {[
-                          ...Array(
-                            instanceReftt4.current.track.details.slides.length
-                          ).keys(),
-                        ].map((idx) => {
-                          return (
-                            <button
-                              key={idx}
-                              onClick={() => {
-                                instanceReftt4.current?.moveToIdx(idx);
-                              }}
-                              className={
-                                "dot" +
-                                (currentSlidett4 === idx ? " active" : "")
-                              }
-                            ></button>
-                          );
-                        })}
-                      </div>
-                    )}
+                    <ImageSlider images={TT4_IMAGES} />
                   </Box>
                 </div>
               </div>
@@ -1889,7 +1054,7 @@ export default function App() {
                 </div>
                 {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
-                  target="blank"
+                  target="_blank" rel="noopener noreferrer"
                 >
                   <div>
                     <div className={styles.tourLink}>報名 sign up</div>
@@ -1898,60 +1063,7 @@ export default function App() {
                 <div>
                   {/*** tour5 slider image ***/}
                   <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
-                    <div className="navigation-wrapper">
-                      <div ref={sliderReftt5} className="keen-slider">
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt5_1}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt5_2}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt5_3}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt5_4}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    {loadedtt5 && instanceReftt5.current && (
-                      <div className="dots">
-                        {[
-                          ...Array(
-                            instanceReftt5.current.track.details.slides.length
-                          ).keys(),
-                        ].map((idx) => {
-                          return (
-                            <button
-                              key={idx}
-                              onClick={() => {
-                                instanceReftt5.current?.moveToIdx(idx);
-                              }}
-                              className={
-                                "dot" +
-                                (currentSlidett5 === idx ? " active" : "")
-                              }
-                            ></button>
-                          );
-                        })}
-                      </div>
-                    )}
+                    <ImageSlider images={TT5_IMAGES} />
                   </Box>
                 </div>
               </div>
@@ -2008,7 +1120,7 @@ export default function App() {
                 </div>
                 {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
-                  target="blank"
+                  target="_blank" rel="noopener noreferrer"
                 >
                   <div>
                     <div className={styles.tourLink}>報名 sign up</div>
@@ -2017,60 +1129,7 @@ export default function App() {
                 <div>
                   {/*** tour7 slider image ***/}
                   <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
-                    <div className="navigation-wrapper">
-                      <div ref={sliderReftt7} className="keen-slider">
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt7_1}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt7_2}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt7_3}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt7_4}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    {loadedtt7 && instanceReftt7.current && (
-                      <div className="dots">
-                        {[
-                          ...Array(
-                            instanceReftt7.current.track.details.slides.length
-                          ).keys(),
-                        ].map((idx) => {
-                          return (
-                            <button
-                              key={idx}
-                              onClick={() => {
-                                instanceReftt7.current?.moveToIdx(idx);
-                              }}
-                              className={
-                                "dot" +
-                                (currentSlidett7 === idx ? " active" : "")
-                              }
-                            ></button>
-                          );
-                        })}
-                      </div>
-                    )}
+                    <ImageSlider images={TT7_IMAGES} />
                   </Box>
                 </div>
               </div>
@@ -2132,7 +1191,7 @@ export default function App() {
                 </div>
                 {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
-                  target="blank"
+                  target="_blank" rel="noopener noreferrer"
                 >
                   <div>
                     <div className={styles.tourLink}>報名 sign up</div>
@@ -2141,46 +1200,7 @@ export default function App() {
                 <div>
                   {/*** tour8 slider image ***/}
                   <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
-                    <div className="navigation-wrapper">
-                      <div ref={sliderReftt8} className="keen-slider">
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt8_1}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt8_2}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    {loadedtt8 && instanceReftt8.current && (
-                      <div className="dots">
-                        {[
-                          ...Array(
-                            instanceReftt8.current.track.details.slides.length
-                          ).keys(),
-                        ].map((idx) => {
-                          return (
-                            <button
-                              key={idx}
-                              onClick={() => {
-                                instanceReftt8.current?.moveToIdx(idx);
-                              }}
-                              className={
-                                "dot" +
-                                (currentSlidett8 === idx ? " active" : "")
-                              }
-                            ></button>
-                          );
-                        })}
-                      </div>
-                    )}
+                    <ImageSlider images={TT8_IMAGES} />
                   </Box>
                 </div>
               </div>
@@ -2252,7 +1272,7 @@ export default function App() {
                 </div>
                 {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
-                  target="blank"
+                  target="_blank" rel="noopener noreferrer"
                 >
                   <div>
                     <div className={styles.tourLink}>報名 sign up</div>
@@ -2261,62 +1281,11 @@ export default function App() {
                 <div>
                   {/*** tour9 slider image ***/}
                   <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
-                    <div className="navigation-wrapper">
-                      <div ref={sliderReftt9} className="keen-slider">
-                        <div className="keen-slider__slide">
-                          <ReactPlayer
-                            width="100%"
-                            height="100%"
-                            url="https://www.youtube.com/watch?v=aYRHmbgRYyY"
-                            className={styles.react_player}
-                            controls={true}
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt9_1}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt9_2}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt9_3}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    {loadedtt9 && instanceReftt9.current && (
-                      <div className="dots">
-                        {[
-                          ...Array(
-                            instanceReftt9.current.track.details.slides.length
-                          ).keys(),
-                        ].map((idx) => {
-                          return (
-                            <button
-                              key={idx}
-                              onClick={() => {
-                                instanceReftt9.current?.moveToIdx(idx);
-                              }}
-                              className={
-                                "dot" +
-                                (currentSlidett9 === idx ? " active" : "")
-                              }
-                            ></button>
-                          );
-                        })}
-                      </div>
-                    )}
+                    <ImageSlider
+                      videoUrl="https://www.youtube.com/watch?v=aYRHmbgRYyY"
+                      images={TT9_IMAGES}
+                      playerClassName={styles.react_player}
+                    />
                   </Box>
                 </div>
               </div>
@@ -2367,7 +1336,7 @@ export default function App() {
                 </div>
                 {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
-                  target="blank"
+                  target="_blank" rel="noopener noreferrer"
                 >
                   <div>
                     <div className={styles.tourLink}>報名 sign up</div>
@@ -2376,60 +1345,7 @@ export default function App() {
                 <div>
                   {/*** tour10 slider image ***/}
                   <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
-                    <div className="navigation-wrapper">
-                      <div ref={sliderReftt10} className="keen-slider">
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt10_1}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt10_2}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt10_3}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt10_4}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    {loadedtt10 && instanceReftt10.current && (
-                      <div className="dots">
-                        {[
-                          ...Array(
-                            instanceReftt10.current.track.details.slides.length
-                          ).keys(),
-                        ].map((idx) => {
-                          return (
-                            <button
-                              key={idx}
-                              onClick={() => {
-                                instanceReftt10.current?.moveToIdx(idx);
-                              }}
-                              className={
-                                "dot" +
-                                (currentSlidett10 === idx ? " active" : "")
-                              }
-                            ></button>
-                          );
-                        })}
-                      </div>
-                    )}
+                    <ImageSlider images={TT10_IMAGES} />
                   </Box>
                 </div>
               </div>
@@ -2551,7 +1467,7 @@ export default function App() {
                 </div>
                 <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
-                  target="blank"
+                  target="_blank" rel="noopener noreferrer"
                 >
                   {/* <div>
                     <div className={styles.tourLink}>報名 sign up</div>
@@ -2560,97 +1476,11 @@ export default function App() {
                 <div>
                   {/*** talk11 slider image ***/}
                   <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
-                    <div className="navigation-wrapper">
-                      <div ref={sliderReftt11} className="keen-slider">
-                        <div className="keen-slider__slide">
-                          <ReactPlayer
-                            width="100%"
-                            height="100%"
-                            url="https://www.youtube.com/watch?v=J3QPVDvazTc"
-                            className={styles.react_player}
-                            controls={true}
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt11_1}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt11_2}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt11_3}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt11_4}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt11_5}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt11_6}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt11_7}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt11_8}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    {loadedtt11 && instanceReftt11.current && (
-                      <div className="dots">
-                        {[
-                          ...Array(
-                            instanceReftt11.current.track.details.slides.length
-                          ).keys(),
-                        ].map((idx) => {
-                          return (
-                            <button
-                              key={idx}
-                              onClick={() => {
-                                instanceReftt11.current?.moveToIdx(idx);
-                              }}
-                              className={
-                                "dot" +
-                                (currentSlidett11 === idx ? " active" : "")
-                              }
-                            ></button>
-                          );
-                        })}
-                      </div>
-                    )}
+                    <ImageSlider
+                      videoUrl="https://www.youtube.com/watch?v=J3QPVDvazTc"
+                      images={TT11_IMAGES}
+                      playerClassName={styles.react_player}
+                    />
                   </Box>
                 </div>
               </div>
@@ -2694,7 +1524,7 @@ export default function App() {
                 </div>
                 {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
-                  target="blank"
+                  target="_blank" rel="noopener noreferrer"
                 >
                   <div>
                     <div className={styles.tourLink}>報名 sign up</div>
@@ -2703,60 +1533,7 @@ export default function App() {
                 <div>
                   {/*** tour02 slider image ***/}
                   <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
-                    <div className="navigation-wrapper">
-                      <div ref={sliderReftt2} className="keen-slider">
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt2_1}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt2_2}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt2_3}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt2_4}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    {loadedtt2 && instanceReftt2.current && (
-                      <div className="dots">
-                        {[
-                          ...Array(
-                            instanceReftt2.current.track.details.slides.length
-                          ).keys(),
-                        ].map((idx) => {
-                          return (
-                            <button
-                              key={idx}
-                              onClick={() => {
-                                instanceReftt2.current?.moveToIdx(idx);
-                              }}
-                              className={
-                                "dot" +
-                                (currentSlidett2 === idx ? " active" : "")
-                              }
-                            ></button>
-                          );
-                        })}
-                      </div>
-                    )}
+                    <ImageSlider images={TT2_IMAGES} />
                   </Box>
                 </div>
               </div>
@@ -2786,7 +1563,7 @@ export default function App() {
                 </div>
                 {/* <a
                   href="https://clab.org.tw/project/the-unrestricted-society-events/"
-                  target="blank"
+                  target="_blank" rel="noopener noreferrer"
                 >
                   <div>
                     <div className={styles.tourLink}>報名 sign up</div>
@@ -2795,60 +1572,7 @@ export default function App() {
                 <div>
                   {/*** tour06 slider image ***/}
                   <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
-                    <div className="navigation-wrapper">
-                      <div ref={sliderReftt6} className="keen-slider">
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt6_1}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt6_2}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt6_3}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt6_4}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    {loadedtt6 && instanceReftt6.current && (
-                      <div className="dots">
-                        {[
-                          ...Array(
-                            instanceReftt6.current.track.details.slides.length
-                          ).keys(),
-                        ].map((idx) => {
-                          return (
-                            <button
-                              key={idx}
-                              onClick={() => {
-                                instanceReftt6.current?.moveToIdx(idx);
-                              }}
-                              className={
-                                "dot" +
-                                (currentSlidett6 === idx ? " active" : "")
-                              }
-                            ></button>
-                          );
-                        })}
-                      </div>
-                    )}
+                    <ImageSlider images={TT6_IMAGES} />
                   </Box>
                 </div>
               </div>
@@ -2872,221 +1596,7 @@ export default function App() {
                 <div>
                   {/*** tour12 slider image ***/}
                   <Box sx={{ width: { xs: "80vw", sm: "40vw", md: "30vw" } }}>
-                    <div className="navigation-wrapper">
-                      <div ref={sliderRef} className="keen-slider">
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt12_1}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt12_2}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt12_3}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt12_4}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt12_5}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt12_6}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt12_7}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt12_8}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt12_9}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt12_10}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt12_11}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt12_12}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt12_13}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide">
-                          <Image
-                            src={tt12_14}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt12_15}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt12_16}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt12_17}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt12_18}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt12_19}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt12_20}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt12_21}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt12_22}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt12_23}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                        <div className="keen-slider__slide ">
-                          <Image
-                            src={tt12_24}
-                            alt="artworks"
-                            placeholder="blur"
-                          />
-                        </div>
-                      </div>
-                      {loaded && instanceRef.current && (
-                        <>
-                          <Arrow
-                            left
-                            onClick={(e) =>
-                              e.stopPropagation() || instanceRef.current?.prev()
-                            }
-                            disabled={currentSlide === 0}
-                          />
-
-                          <Arrow
-                            onClick={(e) =>
-                              e.stopPropagation() || instanceRef.current?.next()
-                            }
-                            disabled={
-                              currentSlide ===
-                              instanceRef.current.track.details.slides.length -
-                                1
-                            }
-                          />
-                        </>
-                      )}
-                    </div>
-                    {/* {loaded && instanceRef.current && (
-                      <div className="dots">
-                        {[
-                          ...Array(
-                            instanceRef.current.track.details.slides.length
-                          ).keys(),
-                        ].map((idx) => {
-                          return (
-                            <button
-                              key={idx}
-                              onClick={() => {
-                                instanceRef.current?.moveToIdx(idx);
-                              }}
-                              className={
-                                "dot" + (currentSlide === idx ? " active" : "")
-                              }
-                            ></button>
-                          );
-                        })}
-                      </div>
-                    )} */}
+                    <ImageSlider images={TT12_IMAGES} arrows />
                   </Box>
                 </div>
               </div>
@@ -3095,7 +1605,7 @@ export default function App() {
                   <div className={styles.tourTitle}>團體預約導覽</div>
                   <div className={styles.tourTitle}>Group Guided Tours</div>
                 </div>
-                <a href="https://forms.gle/cS2UZ8gcfXmPVCJY9" target="blank">
+                <a href="https://forms.gle/cS2UZ8gcfXmPVCJY9" target="_blank" rel="noopener noreferrer">
                   <div>
                     <div className={styles.tourLink}>
                       團體預約導覽請按此填寫報名表單

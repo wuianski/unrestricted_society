@@ -1,15 +1,12 @@
-import React, { useState } from "react";
 import Image from "next/image";
+import Item from "./ModalItem";
+import ImageSlider from "./ImageSlider";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
-import Paper from "@mui/material/Paper";
-import { styled } from "@mui/material/styles";
 
 import styles from "./Modal.module.css";
 import ts from "../public/imgs/artist_profile/ts.jpg";
 
-import { useKeenSlider } from "keen-slider/react";
-import "keen-slider/keen-slider.min.css";
 import work1 from "../public/imgs/artworks/ts/001 Large.jpeg";
 import work2 from "../public/imgs/artworks/ts/002 Large.jpeg";
 import work3 from "../public/imgs/artworks/ts/003 Large.jpeg";
@@ -17,26 +14,9 @@ import work4 from "../public/imgs/artworks/ts/004 Large.jpeg";
 import work5 from "../public/imgs/artworks/ts/005 Large.jpeg";
 import work6 from "../public/imgs/artworks/ts/006 Large.jpeg";
 
-const Item = styled(Paper)(({ theme }) => ({
-  borderRadius: 0,
-  backgroundColor: "#000",
-  padding: theme.spacing(1),
-  textAlign: "left",
-  color: "#fff",
-}));
+const WORKS = [work1, work2, work3, work4, work5, work6];
 
 export default function TsModal() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [loaded, setLoaded] = useState(false);
-  const [sliderRef, instanceRef] = useKeenSlider({
-    initial: 0,
-    slideChanged(slider) {
-      setCurrentSlide(slider.track.details.rel);
-    },
-    created() {
-      setLoaded(true);
-    },
-  });
   return (
     <>
       {/*** artist name ***/}
@@ -85,49 +65,7 @@ export default function TsModal() {
         >
           {/*** artwork sider image ***/}
           <Box>
-            <div className="navigation-wrapper">
-              <div ref={sliderRef} className="keen-slider">
-                <div className="keen-slider__slide">
-                  <Image src={work1} alt="artworks" placeholder="blur" />
-                </div>
-                <div className="keen-slider__slide">
-                  <Image src={work2} alt="artworks" placeholder="blur" />
-                </div>
-                <div className="keen-slider__slide">
-                  <Image src={work3} alt="artworks" placeholder="blur" />
-                </div>
-                <div className="keen-slider__slide">
-                  <Image src={work4} alt="artworks" placeholder="blur" />
-                </div>
-                <div className="keen-slider__slide">
-                  <Image src={work5} alt="artworks" placeholder="blur" />
-                </div>
-                <div className="keen-slider__slide">
-                  <Image src={work6} alt="artworks" placeholder="blur" />
-                </div>
-              </div>
-            </div>
-            {loaded && instanceRef.current && (
-              <div className="dots">
-                {[
-                  ...Array(
-                    instanceRef.current.track.details.slides.length
-                  ).keys(),
-                ].map((idx) => {
-                  return (
-                    <button
-                      key={idx}
-                      onClick={() => {
-                        instanceRef.current?.moveToIdx(idx);
-                      }}
-                      className={
-                        "dot" + (currentSlide === idx ? " active" : "")
-                      }
-                    ></button>
-                  );
-                })}
-              </div>
-            )}
+            <ImageSlider images={WORKS} />
           </Box>
 
           {/*** artwork sider text ***/}
